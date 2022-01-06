@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const bot = require('./bot')
+const game = require('./game')
 const app = express();
 var https = require('http').Server()
 var fs = require('fs')
@@ -25,7 +27,7 @@ const Palladium = new (require('./palladium/server'))({
   Corrosion: [true, Corrosion],
 })
 
-Corrosion.bundleScripts()
+Corrosion.bundleScripts();
 
 https.on('request', (req, res) => {
   if(req.headers.useragent === 'googlebot') return res.writeHead(403).end('');
