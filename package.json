@@ -1,0 +1,30 @@
+{
+  "name": "Ludi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --max-old-space-size=3072 index.js && node --max-old-space-size=1024 bot.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acorn-hammerhead": "^0.5.0",
+    "alloyproxy": "^1.1.0",
+    "body-parser": "^1.19.0",
+    "css-tree": "^1.1.3",
+    "discord.js": "^13.5.0",
+    "express": "^4.17.1",
+    "jsdom": "^17.0.0",
+    "mime": "^3.0.0",
+    "node-fetch": "^3.1.0",
+    "palladiumub": "^1.2.0",
+    "parse5": "^6.0.1",
+    "request": "^2.88.2",
+    "uuid": "^8.3.2",
+    "webpack": "^5.57.1",
+    "ws": "^8.2.2"
+  }
+}
