@@ -306,210 +306,23 @@
     <title>Ludicrous</title>
   </head>
   <body>
-    <button class="main-input-button" id="exploits">Exploits</button>
     <!--<button class="main-input-button" id="nightmare">Discord Chatbox</button>-->
     <div id="main-page-content">
       <div id="main-page-init">
-        <h1 class="main-title">Ludicrous</h1>
-        <h3 class="main-desc">Surf the Unblocked Web</h3>
-        <input id="main-input" placeholder="Enter URL or Search Query" list="defaults" autocomplete="off"><br>
-        <button class="main-input-button canc" id="corro-init">Corrosion</button>
-        <button class="main-input-button canc" id="pal-init">Palladium</button>
-        <button class="main-input-button canc" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#pal-init').click();document.wuerySelector('#main-input').value = ''})(this)">Community</button>
+        <h1 class="main-title">Whoops!</h1>
+        <h3 class="main-desc">Error: 401 Unauthorized; Please Restart Your Session<br></h3><a href="/" style="color:white;margin-top:15px;font-size:20px;" onclick="(function(el) {
+          try {parent.document.querySelector('#frame-close').click()} catch {}
+        })(this)">Go Home</a>
       </div>
       <a id="main-discord-widget" href="https://discord.com"></a>
     </div>
-    <iframe id="bg-p"></iframe>
-    <div id="frame-btns-over">
-      <button id="frame-reload">R</button>
-      <button id="frame-close">X</button>
-    </div>
-    <div id="settings-placeholder">
-      <svg aria-hidden="false" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M19.738 10H22V14H19.739C19.498 14.931 19.1 15.798 18.565 16.564L20 18L18 20L16.565 18.564C15.797 19.099 14.932 19.498 14 19.738V22H10V19.738C9.069 19.498 8.203 19.099 7.436 18.564L6 20L4 18L5.436 16.564C4.901 15.799 4.502 14.932 4.262 14H2V10H4.262C4.502 9.068 4.9 8.202 5.436 7.436L4 6L6 4L7.436 5.436C8.202 4.9 9.068 4.502 10 4.262V2H14V4.261C14.932 4.502 15.797 4.9 16.565 5.435L18 3.999L20 5.999L18.564 7.436C19.099 8.202 19.498 9.069 19.738 10ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"></path></svg>
-    </div>
-    <div id="preferences-container"><h3 class="main-title">Tab Cloaking</h3><br><input class="input" placeholder="Enter Title or Icon URL Here"><button class="settingsbutton" id="title-change">Title</button><button class="settingsbutton" id="icon-change">Icon</button></div>
-    <div id="exploit-container"><h3 class="main-title">Exploits</h3><h2>Press "ok" to Copy</h2><div class="exploits"><div class="exploit"><h3 class="second-desc">Youtube Exploit</h3><button class="settingsbutton" id="yt-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">Porta UB</h3><button class="settingsbutton" id="porta-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">Snake</h3><button class="settingsbutton" id="snake-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">Youtube Exploit</h3><button class="settingsbutton" id="yt-instructions">Instructions</button></div></div></div>
     <div id="particles-js" style="height: 100vh"></div>
-    <datalist id="defaults">
-      <option value="https://discord.com">Discord</option>
-      <option value="https://reddit.com">Reddit</option>
-      <option value="https://twitch.tv">Twitch</option>
-      <option value="https://youtube.com">Youtube</option>
-      <option value="https://google.com">Google</option>
-    </datalist>
-    <script data-options="">
-      const $ = document.querySelectorAll.bind(document)
-      var LudicrousConfig = JSON.parse(document.currentScript.getAttribute('data-options'))
-
-      function cookieAuth() {
-        var data = new Date();
-        data.setDate(data.getDate() + 7);
-        document.cookie = 'ld-auth-setter=true; expires='+data.toUTCString()
-      }
-
-      Element.prototype.oclick = function() {
-        this.addEventListener('click', arguments[0])
-      }
-      onbeforeunload = function(e) {
-        if ($('#bg-p')[0].src!='' && $('#bg-p')[0].style.display == 'block') sessionStorage.setItem('session-restore-ludicrous', $('#bg-p')[0].contentWindow.location.href)
-      }
-      $('#exploits')[0].oclick(() => {
-        window.location.hash = 'e'
-        $('#exploit-container')[0].classList.toggle('visible')
-        $('#preferences-container')[0].classList.remove('visible')
-      })
- 
-      /*$('#nightmare')[0].oclick(() => {
-        window.location.search = '?n'
-      })*/
-
-      if (window.location.hash=='#e') {
-        $('#exploit-container')[0].classList.toggle('visible')
-      }
-
-      if (window.location.hash=='#s') {
-        $('#preferences-container')[0].classList.toggle('visible')
-      }
-
-      setInterval(() => {
-        if (!$('#exploit-container')[0].classList.contains('visible') && !$('#preferences-container')[0].classList.contains('visible')) window.location.hash = ''
-      }, 100)
-
-      $('#snake-instructions')[0].oclick(() => {
-        if (confirm("Snake Game:\nCopy Below Code into a Bookmark and Whenever you Feel Like Playing Snake, Click it. *New Code*\n\njavascript:((b,P,Q=64,u=98,j=document,w=0,S=0,l='appendChild',f=2079,t=f+1,x=j[b]`a`,X=j.all[0][l](x)[l](j[b]`input`),s=x[l](b=j[b]`canvas`).getContext`2d`,p=l&=b.width=b.height=320,h=j=t,m=b=Q*Q,F=X.onkeydown=X.onblur=(e,z,y=e%Q)=>![z?x[f]?F(f=(f=Math.random(w+=m,l+=8)*3844|0)+Q+(f/31|1),u=9):F(f):e?+e?s.fillRect(y*5,(e>>6)*5,5,5,s.fillStyle=`hsl(${!x[z=x[e]=e<Q|e>4031|!y|y>62|(y=e==h)+y,x[y*j]=2+h,e]*99},${m+m}%,${(z+=e==f)*50}%)`):(e=e.keyCode-37)-43?p=P&4/e>1&&e^2^b?e:p:(P=e&!P)&&F():x[l?l--:t=x[t]-2+F(t),S+=(w*=.8)/4,m=999/++u,h+=[-1,-Q,1,Q][b=p]]?x.remove(alert`Game Over`):X.value=F(e,j=F(h)+h)+P?S|!setTimeout(F,50,e):'Press P'])=>{for(x.style='position:fixed;top:0;display:grid';b--;)F(b)})`createElement`")) {
-          document.querySelector('#main-input').value = "javascript:((b,P,Q=64,u=98,j=document,w=0,S=0,l='appendChild',f=2079,t=f+1,x=j[b]`a`,X=j.all[0][l](x)[l](j[b]`input`),s=x[l](b=j[b]`canvas`).getContext`2d`,p=l&=b.width=b.height=320,h=j=t,m=b=Q*Q,F=X.onkeydown=X.onblur=(e,z,y=e%Q)=>![z?x[f]?F(f=(f=Math.random(w+=m,l+=8)*3844|0)+Q+(f/31|1),u=9):F(f):e?+e?s.fillRect(y*5,(e>>6)*5,5,5,s.fillStyle=`hsl(${!x[z=x[e]=e<Q|e>4031|!y|y>62|(y=e==h)+y,x[y*j]=2+h,e]*99},${m+m}%,${(z+=e==f)*50}%)`):(e=e.keyCode-37)-43?p=P&4/e>1&&e^2^b?e:p:(P=e&!P)&&F():x[l?l--:t=x[t]-2+F(t),S+=(w*=.8)/4,m=999/++u,h+=[-1,-Q,1,Q][b=p]]?x.remove(alert`Game Over`):X.value=F(e,j=F(h)+h)+P?S|!setTimeout(F,50,e):'Press P'])=>{for(x.style='position:fixed;top:0;display:grid';b--;)F(b)})`createElement`"
-          document.querySelector('#main-input').select();
-          document.querySelector('#main-input').setSelectionRange(0, 99999);
-          navigator.clipboard.writeText(document.querySelector('#main-input').value);
-          document.querySelector('#main-input').value = ''
-        }
-      })
-
-      $('#yt-instructions')[0].oclick(() => {
-        if (confirm("Youtube Exploit:\nCopy Below Code Into a Bookmark and Whenever you Encounter a Blocked Youtube Video, Click it to Unblock. *New Exploit*\n\njavascript:(h=>{/youtube/.test(h+=location)?location=`//www.youtube-nocookie.com/embed/${[h.match`(?<=youtu.be/|[ve]/|u/\\w+/|v=)[^%23&?]*`]}?autoplay=1`:0})``")) {
-          document.querySelector('#main-input').value = 'javascript:(h=>{/youtube/.test(h+=location)?location=`//www.youtube-nocookie.com/embed/${[h.match`(?<=youtu.be/|[ve]/|u/\\w+/|v=)[^%23&?]*`]}?autoplay=1`:0})``'
-          document.querySelector('#main-input').select();
-          document.querySelector('#main-input').setSelectionRange(0, 99999);
-          navigator.clipboard.writeText(document.querySelector('#main-input').value);
-          document.querySelector('#main-input').value = ''
-        }
-      })
-      $('#porta-instructions')[0].oclick(() => {
-        if (confirm(`Porta UB:\nCopy Below Code Into a Bookmark and Whenever you Encounter a Blocked Siite, Click it to Begin the Exploit, Enter Target URL. Will not Work With Many Filters. *Slightly Outdated*\n\njavascript:(function(){var a=document.getElementById("rusic-modal")||document.createElement("iframe");a.setAttribute("allow","fullscreen");a.src=prompt("Enter URL", "https://google.com");a.id="rusic-modal";a.style="position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";document.body.appendChild(a);}());`)) {
-          document.querySelector('#main-input').value = `javascript:(function(){var a=document.getElementById("rusic-modal")||document.createElement("iframe");a.setAttribute("allow","fullscreen");a.src=prompt("Enter URL", "https://google.com");a.id="rusic-modal";a.style="position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";document.body.appendChild(a);}());`
-          document.querySelector('#main-input').select();
-          document.querySelector('#main-input').setSelectionRange(0, 99999);
-          navigator.clipboard.writeText(document.querySelector('#main-input').value);
-          document.querySelector('#main-input').value = ''
-        }
-      })
-
-      if (sessionStorage['session-restore-ludicrous']) {
-        window.ver = sessionStorage['session-restore-ludicrous']
-        sessionStorage.removeItem('session-restore-ludicrous')
-      }
-
-      /*$('#res-init')[0].oclick(() => {
-        if (window.ver) $('#bg-p')[0].src = window.ver
-        $('#bg-p')[0].classList.toggle('visible')
-        $('#frame-btns-over')[0].classList.toggle('visible')
-      })*/
-
-      $('#pal-init')[0].oclick(() => {
-        $('#bg-p')[0].src = ''
-        $('#frame-btns-over')[0].style.display = 'block';
-        $("#settings-placeholder")[0].style.display = 'none';
-        cookieAuth()
-        if (!$('#main-input')[0].value.startsWith('http')) {
-          $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/surf/'+'https://google.com/search?q='+$('#main-input')[0].value; return $('#bg-p')[0].style.display = 'block';
-        }
-        $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/surf/'+$('#main-input')[0].value
-        $('#bg-p')[0].style.display = 'block';
-      }) 
-
-      var xor = (str,key)=>(str.split('').map((char,ind)=>ind%key?String.fromCharCode(char.charCodeAt()^key):char).join(''));
-      $('#main-input')[0].addEventListener('keyup', (e) => {
-        if (e.key === 'Enter' || e.keyCode === 13) {
-          switch(localStorage['ld-setting-main-pick']||LudicrousConfig.primaryProxy) {
-            case "palladium":
-              $('#pal-init')[0].click()
-              break;
-            case "corrosion":
-              $('#corro-init')[0].click()
-              break;
-            default:
-              break;
-          }
-        }
-      })
-
-      $('#corro-init')[0].oclick(() => {
-        $('#bg-p')[0].src = ''
-        $('#frame-btns-over')[0].style.display = 'block'
-        $("#settings-placeholder")[0].style.display = 'none'
-        cookieAuth()
-        if (!$('#main-input')[0].value.startsWith('http')) {
-          $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/service/gateway?url='+'https://google.com/search?q='+$('#main-input')[0].value; return $('#bg-p')[0].style.display = 'block';
-        }
-        $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/service/gateway?url='+$('#main-input')[0].value
-        $('#bg-p')[0].style.display = 'block';
-      })
-
-      //$('.canc').oclick(() => {alert('Ludicrous is Experiencing Heavy Load Issues, Please Try Again Later or Use An Alternate Site.\n\nWe Are Sorry for the Inconvenience')})
-
-      $('#frame-close')[0].oclick(() => {$('#bg-p')[0].style.display = 'none';$('#frame-btns-over')[0].style.display = 'none';$("#settings-placeholder")[0].style.display = 'block';$('#frame-btns-over')[0].classList.remove('visible');$('#bg-p')[0].classList.remove('visible')})
-
-      $('#frame-reload')[0].oclick(() => {$('#bg-p')[0].contentWindow.location.reload()})
-
-      $('#settings-placeholder')[0].oclick(() => {
-        window.location.hash = 's'
-        $('#preferences-container')[0].classList.toggle('visible')
-        $('#exploit-container')[0].classList.remove('visible')
-      })
-
-      $('#title-change')[0].oclick(() => {
-        var input = document.querySelector('.input')
-        document.title = input.value
-        localStorage.setItem('title', input.value)
-      })
-
-      $('#icon-change')[0].oclick(() => {
-        var input = document.querySelector('.input')
-        localStorage['icon'] = input.value
-        var link = document.head.querySelector('link[rel=icon]') || document.createElement('link');link.href = input.value
-        link.rel = 'icon'
-        document.head.appendChild(link)
-      })
-
-      if (localStorage['title']) {
-        document.title = localStorage['title']
-      }
-
-      if (localStorage['icon']) {
-        var link = document.head.querySelector('link[rel=icon]') || document.createElement('link');link.href = localStorage['icon']
-        link.rel = 'icon'
-        document.head.appendChild(link)
-      }
-
-      window.alert2 = function(param) {
-        var elem = document.createElement('div')
-        elem.style = "position: fixed;border-left:0px;border-right:0px;width:100%;margin:auto;top:70px;background:transparent;border-style: solid;border-bottom: 1px solid #fff;border-top:1px solid #fff;display:flex;justify-content:center;align-items:center;box-shadow:0px 0px 10px 0px #fff;padding:20px;color:white;font-size:20px;cursor:pointer;"
-        elem.innerHTML = param
-        elem.setAttribute('onclick', '(() => {this.remove()})()')
-        document.body.insertAdjacentElement('afterBegin', elem)
-      }
-
-      if (location.href.includes('//ludicrous.gq')) alert2('Warning: <span class="embedtext">You are Using a Legacy Domain. Please Relocate to a Newer Location <a href="https://ridgethread.com">Here</a></span>'); else ;//alert2('<span class="embedtext">Welcome to Ludicrous!</span>')
-
+    <script src='//code.jquery.com/jquery-3.6.0.min.js'></script>
+    <script>
       var interval = setInterval(() => {
         var filter = 'filter: hue-rotate(180deg)'
         try {$('#arc-widget-launcher-iframe')[0].contentWindow.document.querySelector('#launcher').style.background = 'linear-gradient(238deg, #3baeff 1%, #587cff 100%)';document.getElementById('arc-popper-iframe').contentWindow.document.querySelector('#popper header').style['backgroundImage'] = 'linear-gradient(238deg, rgb(59, 174, 255) 1%, rgb(88, 124, 255) 100%)';clearInterval(interval)} catch(err) {}
       }, 5)
-
-      /*$('#bg-p')[0].onload = function() {
-        $('#bg-p')[0].contentWindow.document.querySelectorAll('a[target]').forEach((node) => {node.target = '_self'})
-      }*/
-
 /* -----------------------------------------------
 /* Author : Vincent Garreau  - vincentgarreau.com
 /* MIT license: http://opensource.org/licenses/MIT
