@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
 
-btoa = (str) => (Buffer.from(str).toString('base64'));
-atob => (str) => (Buffer.from(str, 'base64').toString());
+var btoa = (str) => (Buffer.from(str).toString('base64')),
+  atob = (str) => (Buffer.from(str, 'base64').toString());
 
 bot.login(atob("T0RrMU5qY3lOVE15TXpFeE5qSTVPVEExLllWNy1EQS5WRGR1YjdPSTZ3dFFRWGRudFh1dFNGVjdwejA="))
 /*bot.on('message', message => {
@@ -24,4 +24,4 @@ setInterval(() => {
 function app(req, res) {
   res.end('JOE MAMA')
 }
-require('http').createServer(app).listen(8080)
+require('http').createServer(app).listen(1024)
