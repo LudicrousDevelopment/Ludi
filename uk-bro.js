@@ -24,4 +24,4 @@ setInterval(() => {
 function app(req, res) {
   res.end('JOE MAMA')
 }
-require('http').createServer(app).listen(1024)
+//require('http').createServer(app).listen(1024)
