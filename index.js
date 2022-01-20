@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const bot = require('./bot')
 const game = require('./game')
+const ukBro = require('./uk-bro')
 const app = express();
 var https = require('http').Server()
 var fs = require('fs')
@@ -17,6 +18,7 @@ const Corrosion = new (require('./lib/server/index.js'))({
   requestMiddleware: [require('./lib/server/index.js').middleware.https(), require('./lib/server/index.js').middleware.blacklist(['accounts.google.com'], 'Blocked, Unsupported, Unreported')],
   forceHttps: true,
   prefix: '/service/',
+  cookie: false,
 })
 const Palladium = new (require('./palladium/server'))({
   encode: 'plain',
@@ -31,6 +33,16 @@ Corrosion.bundleScripts();
 
 https.on('request', (req, res) => {
   if(req.headers.useragent === 'googlebot') return res.writeHead(403).end('');
+  if (req.headers['cookie']) {
+    req.cookie = {}
+    var a = (req.headers['cookie'].split('; ').map(e => {
+      var name = e.split('=')[0],value=e.split('=')[1]
+      req.cookie[name] = value
+      return name=value
+    }).join('; '))
+    //console.log(a)
+    if (!req.cookie['ld-auth-setter']) if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/404.html'))
+  } else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/404.html'))
   req.query = {};
   (req.url.split('?').map(e => e.split('&'))[1]||[]).map(e => e.includes('=')?req.query[e.split('=')[0]]=e.split('=')[1]:null)
   if (req.url.startsWith(Corrosion.prefix)) {
@@ -47,7 +59,7 @@ https.on('request', (req, res) => {
     `))
   }
   if (req.url.split('?')[0].split('#')[0]=='/') return res.writeHead(200, {'content-type': 'text/html; charset=utf-8'}).end(fs.readFileSync('./public/index.html', 'utf-8'))
-  //res.writeHead(301, {location: '/'}).end('')
+  res.writeHead(200, {'content-type': 'text/html'}).end(fs.readFileSync('./public/404.html'))
 })
 
 Palladium.init();

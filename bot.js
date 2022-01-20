@@ -79,7 +79,7 @@ Bot.on('message', message => {
       })
     }
     if (command=='domains') {
-      return message.channel.send('There are Currently '+JSON.parse(fs.readFileSync('./proxies.json'))['LD'].length+' Domains!\n\n'+JSON.parse('['+JSON.parse(fs.readFileSync('./proxies.json'))['LD'].map((e) => e.includes('.com') ? "true" : ' ').toString().replace(/, /gi, '').replace(/,/, '')+']').length+' .com\n\n'+JSON.parse('['+JSON.parse(fs.readFileSync('./proxies.json'))['LD'].map((e) => e.includes('.org') ? "true" : ' ').toString().replace(/, /gi, '').replace(/^,/, '')+']').length+' .org')
+      return message.channel.send('There are Currently '+JSON.parse(proxies)['LD'].length+' Domains!\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.com') ? "true" : ' ').toString().replace(/, /gi, '').replace(/,/, '')+']').length+' .com\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.org') ? "true" : ' ').toString().replace(/, /gi, '').replace(/^,/, '')+']').length+' .org')
     }
   }
 })

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --max-old-space-size=3072 index.js && node --max-old-space-size=1024 bot.js"
+    "start": "node --max-old-space-size=3072 index.js"
   },
   "keywords": [],
   "author": "",
