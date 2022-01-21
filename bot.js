@@ -7,7 +7,7 @@ const config = {
   "footIcon": "https://icon-library.com/images/yellow-discord-icon/yellow-discord-icon-15.jpg",
   "creator": "EnderKingJ"
 }
-const {v4: uuidv4} = require('uuid')
+//const {v4: uuidv4} = require('uuid')
 Array.prototype.random = function() {
   return this[Math.floor(Math.random() * (this.length))]
 };

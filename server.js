@@ -71,6 +71,7 @@ module.exports = function(config) {
       `))
     }
     if (req.url.split('?')[0].split('#')[0]=='/') return res.writeHead(200, {'content-type': 'text/html; charset=utf-8'}).end(Configuration(fs.readFileSync('./public/index.html', 'utf-8')))
+    if (req.url.split('?')[0].split('#')[0]=='/crown.js') return res.writeHead(200, {'content-type': 'application/javascript'}).end(Configuration(fs.readFileSync('./public/crown.js', 'utf-8')))
     res.writeHead(200, {'content-type': 'text/html'}).end(fs.readFileSync('./public/404.html'))
   })
 
