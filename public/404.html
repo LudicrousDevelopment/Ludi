@@ -310,7 +310,9 @@
     <div id="main-page-content">
       <div id="main-page-init">
         <h1 class="main-title">Whoops!</h1>
-        <h3 class="main-desc">Error: 404 Page Not Found!<br></h3><a href="/" style="color:white;margin-top:15px;font-size:20px;">Go Home</a>
+        <h3 class="main-desc">Error: 404 Page Not Found!<br></h3><a onclick="(function(el) {
+          try {parent.document.querySelector('#frame-close').click()} catch {}
+        })(this)" style="color:white;margin-top:15px;font-size:20px;text-decoration:underline;">Go Home</a>
       </div>
       <a id="main-discord-widget" href="https://discord.com"></a>
     </div>

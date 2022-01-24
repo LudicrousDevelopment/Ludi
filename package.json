@@ -11,16 +11,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sentry/browser": "^6.17.0",
+    "@sentry/tracing": "^6.17.0",
     "acorn-hammerhead": "^0.5.0",
     "body-parser": "^1.19.1",
+    "corrosion": "^1.0.0",
     "css-tree": "^2.0.4",
     "discord.js": "^12.0.0",
     "express": "^4.17.2",
     "jsdom": "^19.0.0",
     "node-fetch": "^3.2.0",
+    "palladiumub": "^1.2.0",
     "parse5": "^6.0.1",
+    "sentry": "^0.1.2",
     "uuid": "^8.3.2",
     "webpack": "^5.66.0",
     "ws": "^8.4.2"
-  }
+  },
+  "type": "module"
 }

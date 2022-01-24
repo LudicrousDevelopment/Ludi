@@ -1,6 +1,8 @@
-var request = require('./request'),
-  gateway = require('./gateway'),
-  utilities = require('./utility'),
+//var require = (e) => eval(`import '${e}'`)
+
+var request = require('./request.js'),
+  gateway = require('./gateway.js'),
+  utilities = require('./utility.js'),
   fs = require('fs'),
   Compile = require('./compile'),
   handleRequest = require('./handleRequest'),
@@ -160,5 +162,6 @@ module.exports = class Smoke {
 }
 
 module.exports.blackList = utilities.blackList
+export default Smoke
 
 //module.exports = Smoke

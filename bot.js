@@ -1,8 +1,8 @@
-const fs = require('fs');
+import fs from 'fs'
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const https = require('https');
+import https from 'https'
 const config = {
-  "token": atob('T0RBNE1ETTJOVGcwT1RNd01ERTNOREV3LllDQXN0Zy5CYjljbklyWGhTYXdaZUdjM2xRRFRrR29zXzQ='),
+  "token": new Buffer.from('T0RBNE1ETTJOVGcwT1RNd01ERTNOREV3LllDQXN0Zy5CYjljbklyWGhTYXdaZUdjM2xRRFRrR29zXzQ=', 'base64').toString('utf-8'),
   "prefix": "%",
   "footIcon": "https://icon-library.com/images/yellow-discord-icon/yellow-discord-icon-15.jpg",
   "creator": "EnderKingJ"
@@ -26,12 +26,12 @@ const proxies = {
     "https://the-t-fr.com"
   ]
 }
-const Discord = require('discord.js')
 
-const { Permissions } = require('discord.js');
+import Discord from 'discord.js'
+
+var Permissions = Discord.Permissions
 
 var Bot = new Discord.Client()
-Bot.login(config.token);
 
 Bot.on('message', message => {
   if (message.content.startsWith(config.prefix)) {
@@ -87,3 +87,7 @@ Bot.on('message', message => {
 Bot.on('guildMemberAdd', member => {
   member.send("Welcome to Ludicrous!");
 });
+
+export default function() {
+  return Bot.login(config.token)
+}
