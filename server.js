@@ -40,21 +40,20 @@ module.exports = function(config) {
     return str.replace('data-options=""', 'data-options='+JSON.stringify(config)+'')
   }
 
-  if (config.cookie) https.on('request', (req, res) => {
-    if (req.headers['cookie']) {
-      req.cookie = {}
-      var a = (req.headers['cookie'].split('; ').map(e => {
-        var name = e.split('=')[0],value=e.split('=')[1]
-        req.cookie[name] = value
-        return `${name}=${value}`
-      }).join('; '))
-      //console.log(a)
-      if (!req.cookie['ld-auth-setter']) if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
-    } else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
-  })
-
   https.on('request', (req, res) => {
-    if(req.headers.useragent === 'googlebot') return res.writeHead(403).end('');
+    if (config.cookie) {
+      if (req.headers['cookie']) {
+        req.cookie = {}
+        var a = (req.headers['cookie'].split('; ').map(e => {
+          var name = e.split('=')[0],value=e.split('=')[1]
+          req.cookie[name] = value
+          return `${name}=${value}`
+        }).join('; '))
+        //console.log(a)
+        if (!req.cookie['ld-auth-setter']) if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
+      } else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
+      if(req.headers.useragent === 'googlebot') return res.writeHead(403).end('');
+    }
     req.query = {};
     (req.url.split('?').map(e => e.split('&'))[1]||[]).map(e => e.includes('=')?req.query[e.split('=')[0]]=e.split('=')[1]:null)
     if (req.url.startsWith(Corrosion.prefix)) {

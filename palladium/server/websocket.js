@@ -68,7 +68,8 @@ module.exports = class WebSocket {
             } else if (req.url.startsWith(ctx.Corrosion[1].prefix)) {
               try {new URL(ctx.Corrosion[1].url.unwrap(req.url))} catch(err) {return cli.close()}
               var url = ctx.Corrosion[1].url.unwrap(req.url).replace(/^http/g, 'ws')
-              var wsProxy = new ws(url)
+              var eurl = require('url')
+              var wsProxy = new ws(url, {origin: eurl.parse(req.url).query.split('origin=')[1]})
               wsProxy.on('error', () => cli.terminate())
               cli.on('error', () => wsProxy.terminate())
               wsProxy.on('close', () => cli.close())

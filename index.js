@@ -1,7 +1,7 @@
 require('./server')({
   bot: true,
-  game: false,
+  game: true,
   cookie: true,
-  primaryProxy: 'palladium',
+  primaryProxy: 'corrosion',
   googleBlock: true,
 })
