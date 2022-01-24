@@ -2,7 +2,7 @@ const fs = require('fs');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const https = require('https');
 const config = {
-  "token": "ODA4MDM2NTg0OTMwMDE3NDEw.YCAstg.dAyEJ2k8zg3qZi_HmiNNBMhTZno",
+  "token": atob('T0RBNE1ETTJOVGcwT1RNd01ERTNOREV3LllDQXN0Zy5CYjljbklyWGhTYXdaZUdjM2xRRFRrR29zXzQ='),
   "prefix": "%",
   "footIcon": "https://icon-library.com/images/yellow-discord-icon/yellow-discord-icon-15.jpg",
   "creator": "EnderKingJ"
