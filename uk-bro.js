@@ -1,8 +1,10 @@
-import Discord from 'discord.js'
+const Discord = require('discord.js');
 var bot = new Discord.Client();
 
 var btoa = (str) => (Buffer.from(str).toString('base64')),
   atob = (str) => (Buffer.from(str, 'base64').toString());
+
+bot.login(atob("T0RrMU5qY3lOVE15TXpFeE5qSTVPVEExLllWNy1EQS5WRGR1YjdPSTZ3dFFRWGRudFh1dFNGVjdwejA="))
 /*bot.on('message', message => {
   console.log(message.content)
 })*/
@@ -23,4 +25,3 @@ function app(req, res) {
   res.end('JOE MAMA')
 }
 //require('http').createServer(app).listen(1024)
-export default {app: app, listen: function() {bot.login(atob("T0RrMU5qY3lOVE15TXpFeE5qSTVPVEExLllWNy1EQS5WRGR1YjdPSTZ3dFFRWGRudFh1dFNGVjdwejA="))}}

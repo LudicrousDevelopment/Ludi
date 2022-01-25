@@ -14,8 +14,8 @@ module.exports = class WebSocket {
             try {
               var proxyURL = req.url.split('?ws=')[1].replace(this.prefix, '')
               try {new URL(proxyURL)} catch(err) {return cli.close()}
-              var wsProxy = new ws(proxyURL, {
-                origin: proxyURL.split('&origin=')[1]
+              var wsProxy = new ws(proxyURL.split('&origin')[0].split('?origin')[0], {
+                origin: proxyURL.split('&origin=')[1].split('?origin=')[0]
               })
               wsProxy.on('error', () => cli.terminate())
               cli.on('error', () => wsProxy.terminate())
@@ -46,8 +46,8 @@ module.exports = class WebSocket {
               try {
                 var proxyURL = req.url.split('?ws=')[1].replace(this.prefix, '')
                 try {new URL(proxyURL)} catch(err) {return cli.close()}
-                var wsProxy = new ws(proxyURL, {
-                  origin: proxyURL.split('&origin=')[1]
+                var wsProxy = new ws(proxyURL.split('&origin')[0].split('?origin')[0], {
+                  origin: proxyURL.split('&origin=')[1].split('?origin=')[0]
                 })
                 wsProxy.on('error', () => cli.terminate())
                 cli.on('error', () => wsProxy.terminate())

@@ -1,5 +1,4 @@
-import e from './server.js';
-e({
+require('./server')({
   bot: true,
   game: true,
   cookie: true,

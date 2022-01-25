@@ -346,8 +346,6 @@
       <option value="https://youtube.com">Youtube</option>
       <option value="https://google.com">Google</option>
     </datalist>
-    <script type="module">
-    </script>
     <script data-options="">
       const $ = document.querySelectorAll.bind(document)
       var LudicrousConfig = JSON.parse(document.currentScript.getAttribute('data-options'))
@@ -521,6 +519,8 @@
       }
 
       if (location.href.includes('//ludicrous.gq')) alert2('Warning: <span class="embedtext">You are Using a Legacy Domain. Please Relocate to a Newer Location <a href="https://ridgethread.com">Here</a></span>'); else ;//alert2('<span class="embedtext">Welcome to Ludicrous!</span>')
+
+      alert2('<span class="embedtext">Important Notice:</span> The Ludicrous Server is Currently Being Transferred and Upgraded. I Apologize for any Inconveniences Caused by This.')
 
       var interval = setInterval(() => {
         var filter = 'filter: hue-rotate(180deg)'
