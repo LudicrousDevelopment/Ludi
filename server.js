@@ -51,7 +51,7 @@ module.exports = function(config) {
         }).join('; '))
         //console.log(a)
         if (!req.cookie['ld-auth-setter']) if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
-      } else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
+      }// else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
       if(req.headers.useragent === 'googlebot') return res.writeHead(403).end('');
     }
     req.query = {};

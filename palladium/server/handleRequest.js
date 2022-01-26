@@ -163,6 +163,8 @@ module.exports = function Request(req, res, ctx) {
         'x-frame-options',
       ].forEach(name => delete response.headers[name]);
 
+      response.headers['access-control-allow-origin'] = '*'
+
       //try {sendData = sendData.replace(/Function\.prototype\.apply\.call/gi, 'Function.prototype.call')} catch {}
 
       return res.writeHead(response.statusCode, response.headers).end(sendData)
