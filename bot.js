@@ -14,16 +14,21 @@ Array.prototype.random = function() {
 };
 const proxies = {
   "LD": [
+    "https://chemistryhelp.org",
+    "https://conventionalize.org",
     "https://cattlefood.org",
+    "https://bhutanfacts.xyz",
+    "https://ensuremath.com",
+    "https://physicalsalad.com",
+    "https://manualcars.net",
+    "https://geothermalmaps.com",
     "https://ludicrous.gq",
-    "https://ridgethread.com",
-    "https://ludicrous.icu",
     "https://ludicrous911.info",
     "https://creativehog.com",
+    "https://languagetips.net",
     "https://ludiub.com",
-    "https://bhutanfacts.xyz",
-    "https://conventionalize.org",
-    "https://chemistryhelp.org",
+    "https://ludicrous.icu",
+    "https://plantheaven.net",
     "https://the-t-fr.com"
   ]
 }
