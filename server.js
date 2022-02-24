@@ -24,6 +24,7 @@ module.exports = function(config) {
     forceHttps: true,
     prefix: '/service/',
     cookie: false,
+    ws: false,
   })
   const Palladium = new (require('./palladium/server'))({
     encode: 'plain',
