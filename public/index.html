@@ -334,6 +334,7 @@
         <input id="main-input" placeholder="Enter URL or Search Query" list="defaults" autocomplete="off"><br>
         <button class="main-input-button canc" id="corro-init">Corrosion</button>
         <button class="main-input-button canc" id="pal-init">Palladium</button>
+        <button class="main-input-button canc" id="rho-init">Rhodium</button>
         <button class="main-input-button canc" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));;document.querySelector('#main-input').value = ''})(this)">Community</button>
       </div>
       <a id="main-discord-widget" href="https://discord.com"></a>
@@ -481,6 +482,18 @@
         $('#bg-p')[0].style.display = 'block';
       }) 
 
+      $('#rho-init')[0].oclick(() => {
+        $('#bg-p')[0].src = ''
+        $('#frame-btns-over')[0].style.display = 'block';
+        $("#settings-placeholder")[0].style.display = 'none';
+        cookieAuth()
+        if (!$('#main-input')[0].value.startsWith('http')) {
+          $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/client/'+'https://google.com/search?q='+$('#main-input')[0].value; return $('#bg-p')[0].style.display = 'block';
+        }
+        $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/client/'+$('#main-input')[0].value
+        $('#bg-p')[0].style.display = 'block';
+      }) 
+
       var xor = (str,key)=>(str.split('').map((char,ind)=>ind%key?String.fromCharCode(char.charCodeAt()^key):char).join(''));
       $('#main-input')[0].addEventListener('keyup', (e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
@@ -555,7 +568,7 @@
 
       if (location.href.includes('//ludicrous.gq')) alert2('Warning: <span class="embedtext">You are Using a Legacy Domain. Please Relocate to a Newer Location <a href="https://ridgethread.com">Here</a></span>'); else ;//alert2('<span class="embedtext">Welcome to Ludicrous!</span>')
 
-      alert2('<span class="embedtext">Important Notice:</span> The Ludicrous Server is Currently Being Transferred and Upgraded. I Apologize for any Inconveniences Caused by This.')
+      alert2('<span class="enbedtext"></span>')
 
       var interval = setInterval(() => {
         var filter = 'filter: hue-rotate(180deg)'

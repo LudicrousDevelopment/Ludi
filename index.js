@@ -2,7 +2,7 @@ require('./server')({
   bot: false,
   game: false,
   cookie: true,
-  primaryProxy: 'corrosion',
+  primaryProxy: 'rhodium',
   googleBlock: true,
   routes: {
     "main": "normal",
