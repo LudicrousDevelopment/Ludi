@@ -31,7 +31,8 @@ module.exports = function(app) {
   
   // Routes
   app.get("/", (req, res) => {
-    res.render("pages/games", { SEO: SEO, games: gamesListed });
+    res.redirect('/games')
+    //res.render("pages/games", { SEO: SEO, games: gamesListed });
   });
 
   app.get("/games", (req, res) => {
