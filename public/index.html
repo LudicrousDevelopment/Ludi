@@ -122,7 +122,7 @@
         margin-right: 10px;
       }
 
-      #preferences-container, #exploit-container {
+      #preferences-container, #exploit-container, #game-container {
         text-align: center;
         margin: auto;
         margin-top: auto;
@@ -291,8 +291,12 @@
         color: #fff;
       }
       #exploits {
-        width: 100px;
-        margin: 10px;
+        width: auto;
+        margin: 10px 6px 0 10px;
+      }
+      #games {
+        width: auto;
+        margin: 0;
       }
       .exploits {
         display: flex;
@@ -325,17 +329,17 @@
     <title>Ludicrous</title>
   </head>
   <body>
-    <button class="main-input-button" id="exploits">Exploits</button>
+    <button class="main-input-button" id="exploits"><i class="fa-solid fa-bookmark"></i></button>
+    <button class="main-input-button" id="games"><i class="fas fa-gamepad"></i></button>
     <!--<button class="main-input-button" id="nightmare">Discord Chatbox</button>-->
     <div id="main-page-content">
       <div id="main-page-init">
-        <h1 class="main-title">Ludicrous <i class="fab fa-github" onclick="((e) => {document.querySelector('#main-input').value = 'https://github.com/ludicrousdevelopment/ludi';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));;document.querySelector('#main-input').value = ''})(this)"></i></h1>
+        <h1 class="main-title">Ludicrous <i class="fab fa-github" onclick="((e) => {document.querySelector('#main-input').value = 'https://github.com/ludicrousdevelopment/ludi';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));setTimeout(()=>document.querySelector('#main-input').value = '', 100)})(this)"></i></h1>
         <h3 class="main-desc">Surf the Unblocked Web</h3>
         <input id="main-input" placeholder="Enter URL or Search Query" list="defaults" autocomplete="off"><br>
         <button class="main-input-button canc" id="uv-init">Ultraviolet</button>
-        <button class="main-input-button canc" id="pal-init">Palladium</button>
         <button class="main-input-button canc" id="rho-init">Rhodium</button>
-        <button class="main-input-button canc" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));;document.querySelector('#main-input').value = ''})(this)">Community</button>
+        <button class="main-input-button canc" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));setTimeout(()=>document.querySelector('#main-input').value = '', 100)})(this)">Community</button>
       </div>
       <a id="main-discord-widget" href="https://discord.com"></a>
     </div>
@@ -350,11 +354,12 @@
     <div id="preferences-container"><h3 class="main-titl">Tab Cloaking</h3><br><input class="input" placeholder="Enter Title or Icon URL Here"><button class="settingsbutton" id="title-change">Title</button><button class="settingsbutton" id="icon-change">Icon</button><br><br><div style="
     width: 50%;
     display: inline-block;
-"><h3 class="main-titl" style="/* width:50%; */">Preferred Proxy (Press Enter in Input)</h3><br><select class="input"><option value="palladium">Palladium</option><option value="ultraviolet">Ultraviolet</option><option value="rhodium">Rhodium</option></select></div><div style="
+"><h3 class="main-titl" style="/* width:50%; */">Preferred Proxy (Press Enter in Input)</h3><br><select class="input"><option value="ultraviolet">Ultraviolet</option><option value="rhodium">Rhodium</option></select></div><div style="
     width: 50%;
     display: inline-block;
 "><h3 class="main-titl" style="/* width:50%; */">Themes</h3><br><select class="theme input"><option value="normal">Normal</option><option value="palladium">Hacker</option><option value="corrosion">No-Particle</option></select></div></div>
     <div id="exploit-container"><h3 class="main-title">Exploits</h3><h2>Copies Automatically</h2><div class="exploits"><div class="exploit"><h3 class="second-desc">Youtube Exploit</h3><button class="settingsbutton" id="yt-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">Porta UB</h3><button class="settingsbutton" id="porta-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">Snake</h3><button class="settingsbutton" id="snake-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">CrownJS</h3><button class="settingsbutton" id="crown-instructions">Instructions</button></div></div></div>
+    <div id="game-container"></div>
     <div id="particles-js" style="height: 100vh"></div>
     <datalist id="defaults">
       <option value="https://discord.com">Discord</option>
@@ -391,6 +396,13 @@
         window.location.hash = 'e'
         $('#exploit-container')[0].classList.toggle('visible')
         $('#preferences-container')[0].classList.remove('visible')
+        $('#game-container')[0].classList.remove('visible')
+      })
+      $('#games')[0].oclick(() => {
+        window.location.hash = 'g'
+        $('#exploit-container')[0].classList.remove('visible')
+        $('#preferences-container')[0].classList.remove('visible')
+        $('#game-container')[0].classList.toggle('visible')
       })
  
       /*$('#nightmare')[0].oclick(() => {
@@ -405,8 +417,12 @@
         $('#preferences-container')[0].classList.toggle('visible')
       }
 
+      if (window.location.hash=='#g') {
+        $('#game-container')[0].classList.toggle('visible')
+      }
+
       setInterval(() => {
-        if (!$('#exploit-container')[0].classList.contains('visible') && !$('#preferences-container')[0].classList.contains('visible')) window.location.hash = ''
+        if ((!$('#exploit-container')[0].classList.contains('visible')) && (!$('#preferences-container')[0].classList.contains('visible')) && (!$('#game-container')[0].classList.contains('visible'))) window.location.hash = ''
       }, 100)
 
       $('#snake-instructions')[0].oclick(() => {
@@ -471,7 +487,7 @@
         $('#frame-btns-over')[0].classList.toggle('visible')
       })*/
 
-      $('#pal-init')[0].oclick(() => {
+      /*$('#pal-init')[0].oclick(() => {
         $('#bg-p')[0].src = ''
         $('#frame-btns-over')[0].style.display = 'block';
         $("#settings-placeholder")[0].style.display = 'none';
@@ -481,7 +497,7 @@
         }
         $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/surf/'+$('#main-input')[0].value
         $('#bg-p')[0].style.display = 'block';
-      }) 
+      })*/
 
       $('#rho-init')[0].oclick(() => {
         $('#bg-p')[0].src = ''
@@ -499,10 +515,7 @@
       $('#main-input')[0].addEventListener('keyup', (e) => {
         if (e.key === 'Enter' || e.keyCode === 13) {
           switch(localStorage['ld-setting-main-pick']||LudicrousConfig.primaryProxy) {
-            case "palladium":
-              $('#pal-init')[0].click()
-              break;
-            case "ultraviolt":
+            case "ultraviolet":
               $('#uv-init')[0].click()
               break;
             case "rhodium":
@@ -545,6 +558,7 @@
         window.location.hash = 's'
         $('#preferences-container')[0].classList.toggle('visible')
         $('#exploit-container')[0].classList.remove('visible')
+        $('#game-container')[0].classList.remove('visible')
       })
 
       $('#title-change')[0].oclick(() => {

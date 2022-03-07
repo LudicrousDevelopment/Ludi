@@ -2,6 +2,7 @@ import Server from './bare-server-node/Server.mjs';
 import { readFileSync } from 'fs';
 import http from 'http';
 import Serve from './serve.mjs'
+import UkBro from './uk-bro.js'
 
 async function config(config) {
   const bare =  new Server('/bare/', '');
@@ -34,6 +35,7 @@ async function config(config) {
       if (bare.route_request(request, response)) return true;
       (request, response)
       if (request.url.startsWith('/client/')) {return Rhodium.request(request, response)}
+      if (request.url.startsWith('/cdn')) return response.writeHead(301, {location: 'https://cdn.'+request.headers['host']}).end('')
       serve(request, response)
   });
 

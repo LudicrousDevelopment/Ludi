@@ -1,7 +1,7 @@
 (async() => {
   await import('./server.mjs').then(e=>e.default({
-    bot: false,
-    game: false,
+    bot: true,
+    game: true,
     cookie: true,
     primaryProxy: 'ultraviolet',
     googleBlock: true,

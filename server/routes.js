@@ -37,6 +37,10 @@ module.exports = function(app) {
   app.get("/games", (req, res) => {
     res.render("pages/games", { SEO: SEO, games: gamesListed });
   });
+
+  app.get('/back', (req, res) => {
+    return res.redirect('https://'+req.headers['host'].replace('cdn.', ''))
+  })
   
   app.get("/unlisted-games", (req, res) => {
     res.render("pages/unlisted-games", { SEO: SEO, games: gamesUnListed });

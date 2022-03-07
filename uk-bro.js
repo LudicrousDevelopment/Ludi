@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+import Discord from 'discord.js';
 var bot = new Discord.Client();
 
 var btoa = (str) => (Buffer.from(str).toString('base64')),
@@ -24,4 +24,5 @@ setInterval(() => {
 function app(req, res) {
   res.end('JOE MAMA')
 }
-//require('http').createServer(app).listen(1024)
+
+export default app
