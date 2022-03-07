@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
@@ -330,7 +330,8 @@
   </head>
   <body>
     <button class="main-input-button" id="exploits"><i class="fa-solid fa-bookmark"></i></button>
-    <button class="main-input-button" id="games"><i class="fas fa-gamepad"></i></button>
+    <button class="main-input-button" onclick="((e) => {document.querySelector('#bg-p').src = '/cdn';document.querySelector('#bg-p').style.display = 'block';document.querySelector('#frame-btns-over').style.display = 'block';$('#settings-placeholder')[0].style.display = 'none';})(this)" id="games"><i class="fas fa-gamepad"></i></button>
+    <button class="main-input-button canc" style="margin: 10px 0 0 6px" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));setTimeout(()=>document.querySelector('#main-input').value = '', 100)})(this)"><i class="fab fa-discord"></i></button>
     <!--<button class="main-input-button" id="nightmare">Discord Chatbox</button>-->
     <div id="main-page-content">
       <div id="main-page-init">
@@ -339,7 +340,6 @@
         <input id="main-input" placeholder="Enter URL or Search Query" list="defaults" autocomplete="off"><br>
         <button class="main-input-button canc" id="uv-init">Ultraviolet</button>
         <button class="main-input-button canc" id="rho-init">Rhodium</button>
-        <button class="main-input-button canc" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));setTimeout(()=>document.querySelector('#main-input').value = '', 100)})(this)">Community</button>
       </div>
       <a id="main-discord-widget" href="https://discord.com"></a>
     </div>
@@ -397,12 +397,6 @@
         $('#exploit-container')[0].classList.toggle('visible')
         $('#preferences-container')[0].classList.remove('visible')
         $('#game-container')[0].classList.remove('visible')
-      })
-      $('#games')[0].oclick(() => {
-        window.location.hash = 'g'
-        $('#exploit-container')[0].classList.remove('visible')
-        $('#preferences-container')[0].classList.remove('visible')
-        $('#game-container')[0].classList.toggle('visible')
       })
  
       /*$('#nightmare')[0].oclick(() => {
