@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "Rhodium": "git+https://github.com/ludicrousdevelopment/rhodium.git",
+    "Tomp": "git+https://github.com/tomphttp/bare-server-node.git",
     "acorn-hammerhead": "^0.5.0",
     "axios": "^0.25.0",
     "body-parser": "^1.19.1",
@@ -20,10 +21,13 @@
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "jsdom": "^19.0.0",
-    "node-fetch": "^3.2.0",
+    "mime": "^3.0.0",
+    "node-fetch": "^2.0.0",
     "parse5": "^6.0.1",
+    "tomp-bare-server": "git+https://github.com/tomphttp/bare-server-node.git",
     "uuid": "^8.3.2",
     "webpack": "^5.66.0",
     "ws": "^8.4.2"
-  }
+  },
+  "type": "module"
 }

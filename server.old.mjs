@@ -1,5 +1,15 @@
-module.exports = function(config) { 
+export default function(config) { 
+
+  import Server from './bare/Server.mjs';
+  import { readFileSync } from 'fs';
+  import http from 'http';
+  import nodeStatic from 'node-static';
+  
+  
+  const bare =  new Server('/bare/', '');
+  
   const express = require('express');
+  const fetch = require('node-fetch')
   const bodyParser = require('body-parser');
   if (config.bot) bot = require('./bot')
   if (config.game) game = require('./game')
@@ -17,6 +27,8 @@ module.exports = function(config) {
   if (config.googleBlock) var middle1 = require('./lib/server/index.js').middleware.blacklist(['accounts.google.com'], 'Blocked By Host to Prevent Google Phishing Block'); else var middle1 = function() {return function() {}}
 
   if (config.googleBlock) var middle2 = require('./palladium/server').blackList(['accounts.google.com'], 'Blocked By Host to Prevent Google Phishing Block'); else var middle2 = function() {return function() {}}
+
+  var uv = '';
 
   const Corrosion = new (require('./lib/server/index.js'))({
     codec: 'xor',
@@ -65,6 +77,13 @@ module.exports = function(config) {
           if (!req.cookie['ld-auth-setter']) if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
         }// else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
         if(req.headers.useragent === 'googlebot') return res.writeHead(403).end('');
+      }
+      if (req.headers['host'].startsWith('cdn.')) {
+        var response;
+        var url = 'http://'+req.headers['host']+':8080'+req.url
+        if (req.url.startsWith('/method/swf')) return res.writeHead(301, {location: 'https://'+req.headers['host'].replace('cdn.','')+'/client/gateway?url=https://cohenerickson.github.io/radon-games-assets'+req.url.replace('/method','')}).end('')//url = 'https://cohenerickson.github.io/radon-games-assets'+req.url
+        fetch(url).then(r => {response=r;return r.text()}).then(text=>{var headers = response.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));res.writeHead(response.status,headers).end(text)})
+        return ''
       }
       req.query = {};
       (req.url.split('?').map(e => e.split('&'))[1]||[]).map(e => e.includes('=')?req.query[e.split('=')[0]]=e.split('=')[1]:null)

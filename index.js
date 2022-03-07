@@ -1,12 +1,9 @@
-require('./server')({
-  bot: false,
-  game: false,
-  cookie: true,
-  primaryProxy: 'rhodium',
-  googleBlock: true,
-  routes: {
-    "main": "normal",
-    "rhodiumub.dev": "rhodium",
-    "shark.*": "rammerhead"
-  }
-})
+(async() => {
+  await import('./server.mjs').then(e=>e.default({
+    bot: false,
+    game: false,
+    cookie: true,
+    primaryProxy: 'ultraviolet',
+    googleBlock: true,
+  }));
+})();

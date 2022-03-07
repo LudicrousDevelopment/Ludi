@@ -332,7 +332,7 @@
         <h1 class="main-title">Ludicrous <i class="fab fa-github" onclick="((e) => {document.querySelector('#main-input').value = 'https://github.com/ludicrousdevelopment/ludi';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));;document.querySelector('#main-input').value = ''})(this)"></i></h1>
         <h3 class="main-desc">Surf the Unblocked Web</h3>
         <input id="main-input" placeholder="Enter URL or Search Query" list="defaults" autocomplete="off"><br>
-        <button class="main-input-button canc" id="corro-init">Corrosion</button>
+        <button class="main-input-button canc" id="uv-init">Ultraviolet</button>
         <button class="main-input-button canc" id="pal-init">Palladium</button>
         <button class="main-input-button canc" id="rho-init">Rhodium</button>
         <button class="main-input-button canc" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));;document.querySelector('#main-input').value = ''})(this)">Community</button>
@@ -350,10 +350,10 @@
     <div id="preferences-container"><h3 class="main-titl">Tab Cloaking</h3><br><input class="input" placeholder="Enter Title or Icon URL Here"><button class="settingsbutton" id="title-change">Title</button><button class="settingsbutton" id="icon-change">Icon</button><br><br><div style="
     width: 50%;
     display: inline-block;
-"><h3 class="main-titl" style="/* width:50%; */">Preferred Proxy (Press Enter in Input)</h3><br><select class="input"><option value="palladium">Palladium</option><option value="corrosion">Corrosion</option></select></div><div style="
+"><h3 class="main-titl" style="/* width:50%; */">Preferred Proxy (Press Enter in Input)</h3><br><select class="input"><option value="palladium">Palladium</option><option value="ultraviolet">Ultraviolet</option><option value="rhodium">Rhodium</option></select></div><div style="
     width: 50%;
     display: inline-block;
-"><h3 class="main-titl" style="/* width:50%; */">Themes</h3><br><select class="input"><option value="normal">Normal</option><option value="palladium">Hacker</option><option value="corrosion">No-Particle</option></select></div></div>
+"><h3 class="main-titl" style="/* width:50%; */">Themes</h3><br><select class="theme input"><option value="normal">Normal</option><option value="palladium">Hacker</option><option value="corrosion">No-Particle</option></select></div></div>
     <div id="exploit-container"><h3 class="main-title">Exploits</h3><h2>Copies Automatically</h2><div class="exploits"><div class="exploit"><h3 class="second-desc">Youtube Exploit</h3><button class="settingsbutton" id="yt-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">Porta UB</h3><button class="settingsbutton" id="porta-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">Snake</h3><button class="settingsbutton" id="snake-instructions">Instructions</button></div><div class="exploit"><h3 class="second-desc">CrownJS</h3><button class="settingsbutton" id="crown-instructions">Instructions</button></div></div></div>
     <div id="particles-js" style="height: 100vh"></div>
     <datalist id="defaults">
@@ -363,6 +363,7 @@
       <option value="https://youtube.com">Youtube</option>
       <option value="https://google.com">Google</option>
     </datalist>
+    <script>self.__uv$config = {prefix: '/service/'}</script>
     <script data-options="">
       const $ = document.querySelectorAll.bind(document)
       var LudicrousConfig = JSON.parse(document.currentScript.getAttribute('data-options'))
@@ -501,24 +502,36 @@
             case "palladium":
               $('#pal-init')[0].click()
               break;
-            case "corrosion":
-              $('#corro-init')[0].click()
+            case "ultraviolt":
+              $('#uv-init')[0].click()
               break;
+            case "rhodium":
+              $('#rho-init')[0].click()
             default:
               break;
           }
         }
       })
 
-      $('#corro-init')[0].oclick(() => {
+      $('#uv-init')[0].oclick(() => {
+  
         $('#bg-p')[0].src = ''
         $('#frame-btns-over')[0].style.display = 'block'
         $("#settings-placeholder")[0].style.display = 'none'
         cookieAuth()
-        if (!$('#main-input')[0].value.startsWith('http')) {
-          $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/service/gateway?url='+'https://google.com/search?q='+$('#main-input')[0].value; return $('#bg-p')[0].style.display = 'block';
-        }
-        $('#bg-p')[0].src = location.protocol+'//'+window.location.host+'/service/gateway?url='+$('#main-input')[0].value
+       function isUrl(val = ''){
+    if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
+    return false;
+}; window.navigator.serviceWorker.register('./sw.js', {
+            scope: __uv$config.prefix
+        }).then(() => {
+            let url = document.querySelector('#main-input').value.trim();
+            if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
+            else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
+    
+    
+            $('#bg-p')[0].src = __uv$config.prefix + xor(url, 2);
+        });
         $('#bg-p')[0].style.display = 'block';
       })
 
@@ -568,7 +581,7 @@
 
       if (location.href.includes('//ludicrous.gq')) alert2('Warning: <span class="embedtext">You are Using a Legacy Domain. Please Relocate to a Newer Location <a href="https://ridgethread.com">Here</a></span>'); else ;//alert2('<span class="embedtext">Welcome to Ludicrous!</span>')
 
-      alert2('<span class="enbedtext"></span>')
+      //alert2('<span class="enbedtext"></span>')
 
       var interval = setInterval(() => {
         var filter = 'filter: hue-rotate(180deg)'
