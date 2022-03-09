@@ -1,0 +1,16 @@
+html, body {
+  background: #ab6e00 !important;
+}
+
+#main-page-content, #preferences-container, #exploit-container {
+  background: #bb7a00 !important;
+}
+
+#frame-close, #frame-reload {
+  background: #ab6e00 !important;
+  box-shadow: 0px 0px 5px #ab6e00 !important;
+}
+
+#frame-close:hover, #frame-reload:hover {
+  box-shadow: 0px 0px 20px #ab6e00 !important;
+}

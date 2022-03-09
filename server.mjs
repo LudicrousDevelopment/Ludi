@@ -37,25 +37,26 @@ async function config(config) {
       if (request.url.startsWith('/client/')) {return Rhodium.request(request, response)}
       if (request.url.startsWith('/cdn')) return response.writeHead(301, {location: 'https://cdn.'+request.headers['host']}).end('')
       if (config.cookie) {
-        if (req.headers['cookie']) {
-          req.cookie = {}
-          var a = (req.headers['cookie'].split('; ').map(e => {
+        if (request.headers['cookie']) {
+          request.cookie = {}
+          var a = (request.headers['cookie'].split('; ').map(e => {
             var name = e.split('=')[0],value=e.split('=')[1]
-            req.cookie[name] = value
+            request.cookie[name] = value
             return `${name}=${value}`
           }).join('; '))
           //console.log(a)
-          if (!req.cookie['ld-auth-setter']) if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
+          if (!request.cookie['ld-auth-setter']) if (request.url.startsWith('/client/')||request.url.startsWith('/service/')) return response.writeHead(403).end(fs.readFileSync('./public/401.html'))
         }// else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
-        if(req.headers.useragent === 'googlebot') return res.writeHead(403).end('');
+        if(request.headers.useragent === 'googlebot') return res.writeHead(403).end('');
       }
-      if (req.headers['host'].startsWith('cdn.')) {
+      if (request.headers['host'].startsWith('cdn.')) {
         var response;
-        var url = 'http://'+req.headers['host']+':8080'+req.url
-        if (req.url.startsWith('/method/swf')) return res.writeHead(301, {location: 'https://'+req.headers['host'].replace('cdn.','')+'/client/gateway?url=https://cohenerickson.github.io/radon-games-assets'+req.url.replace('/method','')}).end('')//url = 'https://cohenerickson.github.io/radon-games-assets'+req.url
+        var url = 'http://'+request.headers['host']+':8080'+req.url
+        if (request.url.startsWith('/method/swf')) return response.writeHead(301, {location: 'https://'+request.headers['host'].replace('cdn.','')+'/client/gateway?url=https://cohenerickson.github.io/radon-games-assets'+request.url.replace('/method','')}).end('')//url = 'https://cohenerickson.github.io/radon-games-assets'+req.url
         fetch(url).then(r => {response=r;return r.text()}).then(text=>{var headers = response.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));res.writeHead(response.status,headers).end(text)})
         return ''
       }
+    if (request.url.startsWith())
       serve(request, response)
   });
 

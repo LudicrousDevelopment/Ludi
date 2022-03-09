@@ -1,0 +1,27 @@
+:root{
+    --black:#130f40;
+    --white:#fff;
+    --gradient:linear-gradient(#23272a, #18191A);
+    --background:rgba(255,255,255,.1);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(255,255,255,.1);
+    --border-top:.1rem solid rgba(255,255,255,.3);
+    --border-left:.1rem solid rgba(255,255,255,.3);
+}
+
+#main-page-content, #preferences-container, #exploit-container {
+  background: linear-gradient(-45deg, #363636, #31333e) !important;
+}
+
+html, body {
+  background: var(--gradient) !important;
+}
+
+#frame-close, #frame-reload {
+  background: #222222 !important;
+  box-shadow: 0px 0px 5px #222222 !important;
+}
+
+#frame-close:hover, #frame-reload:hover {
+  box-shadow: 0px 0px 20px #222222 !important;
+}
