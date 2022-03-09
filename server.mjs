@@ -1,11 +1,11 @@
-import Server from './bare-server-node/Server.mjs';
+import BareServer from 'bare-server-node';
 import { readFileSync } from 'fs';
 import http from 'http';
 import Serve from './serve.mjs'
 import UkBro from './uk-bro.js'
 
 async function config(config) {
-  const bare =  new Server('/bare/', '');
+  const bare =  new BareServer('/bare/', '');
   var server = http.createServer();  
   
   var Rhodium = await import('Rhodium');
