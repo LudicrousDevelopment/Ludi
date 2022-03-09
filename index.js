@@ -2,7 +2,7 @@
   await import('./server.mjs').then(e=>e.default({
     bot: true,
     game: true,
-    cookie: true,
+    cookie: false,
     primaryProxy: 'ultraviolet',
     googleBlock: true,
   }));

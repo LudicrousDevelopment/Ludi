@@ -1,11 +1,12 @@
-import BareServer from 'bare-server-node';
+import Server from './bare-server-node/Server.js';
 import { readFileSync } from 'fs';
 import http from 'http';
 import Serve from './serve.mjs'
 import UkBro from './uk-bro.js'
+import fetch from 'node-fetch'
 
 async function config(config) {
-  const bare =  new BareServer('/bare/', '');
+  const bare =  new Server('/bare/', '');
   var server = http.createServer();  
   
   var Rhodium = await import('Rhodium');
@@ -32,8 +33,8 @@ async function config(config) {
   const serve = Serve('./public', handler)
   
   server.on('request', (request, response) => {
+    
       if (bare.route_request(request, response)) return true;
-      (request, response)
       if (request.url.startsWith('/client/')) {return Rhodium.request(request, response)}
       if (request.url.startsWith('/cdn')) return response.writeHead(301, {location: 'https://cdn.'+request.headers['host']}).end('')
       if (config.cookie) {
@@ -56,7 +57,7 @@ async function config(config) {
         fetch(url).then(r => {response=r;return r.text()}).then(text=>{var headers = response.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));res.writeHead(response.status,headers).end(text)})
         return ''
       }
-    if (request.url.startsWith())
+    if (request.url.startsWith('/key')) return fetch('http://cdn.ludicrous911.info:8443/').then(e=>e.text()).then(e=>response.end(e));//fetch('https://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e))
       serve(request, response)
   });
 

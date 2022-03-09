@@ -29,7 +29,10 @@ const proxies = {
     "https://ludiub.com",
     "https://ludicrous.icu",
     "https://plantheaven.net",
-    "https://the-t-fr.com"
+    "https://the-t-fr.com",
+    "https://911911911.info",
+    "https://regionalmapping.com",
+    "https://shirt.gq"
   ]
 }
 const Discord = require('discord.js')
