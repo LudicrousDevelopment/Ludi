@@ -12,7 +12,7 @@ const config = {
 Array.prototype.random = function() {
   return this[Math.floor(Math.random() * (this.length))]
 };
-const proxies = {
+const proxies = JSON.stringify({
   "LD": [
     "https://chemistryhelp.org",
     "https://conventionalize.org",
@@ -35,7 +35,7 @@ const proxies = {
     "https://shirt.gq",
     "https://zester.network"
   ]
-}
+})
 
 import Discord from 'discord.js'
 var { Permissions } = Discord
@@ -89,7 +89,7 @@ Bot.on('message', message => {
       })
     }
     if (command=='domains') {
-      return message.channel.send('There are Currently '+JSON.parse(proxies)['LD'].length+' Domains!\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.com') ? "true" : ' ').toString().replace(/, /gi, '').replace(/,/, '')+']').length+' .com\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.org') ? "true" : ' ').toString().replace(/, /gi, '').replace(/^,/, '')+']').length+' .org')
+      return message.channel.send('There are Currently '+JSON.parse(proxies)['LD'].length+' Domains!\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.com') ? "true" : ' ').toString().replace(/, /gi, '').replace(/,/, '')+']').length+' .com\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.org') ? "true" : ' ').toString().replace(/, /gi, '').replace(/^,/, '')+']').length+' .org'+'\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.net') ? "true" : ' ').toString().replace(/, /gi, '').replace(/,/, '')+']').length+' .net')
     }
   }
 })

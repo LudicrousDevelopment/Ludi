@@ -17,6 +17,7 @@ async function config(config) {
 
   if (config.game==true) {await import('./game.js')}
   if (config.bot==true) {await import('./bot.js')}
+  if (config.rammerhead==true) {await import('./rammerhead.js')}
   
   const handler = {
     '404': function(req, res) {
@@ -67,7 +68,9 @@ async function config(config) {
   });
 
   Rhodium.init()
+
+  const port = process.env.PORT || (configuration.port || 8080)
   
-  server.listen(process.env.PORT || (configuration.port || 8080));
+  server.listen(port, console.log('http://localhost:'+port));
 }
 export default config

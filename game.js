@@ -15,4 +15,5 @@ app.use(express$2.urlencoded({ extended: true }));
 // register routes
 routes(app);
 // listen for requests
-app.listen(process.env.PORT || config.gamesPort || 3000, console.log('Ludicrous Games Running at https://localhost:3000'));
+const port = process.env.PORT || config.gamesPort || 3000
+app.listen((port), console.log('Ludicrous Games Running at http://localhost:'+port));

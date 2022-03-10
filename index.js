@@ -6,5 +6,6 @@
     primaryProxy: 'ultraviolet',
     googleBlock: true,
     cors: true,
+    rammerhead: true,
   }));
 })();
