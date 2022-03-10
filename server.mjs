@@ -57,7 +57,7 @@ async function config(config) {
       }
       if (request.headers['host'].startsWith('cdn.')) {
         var response;
-        var url = 'http://'+request.headers['host']+':8080'+req.url
+        var url = 'http://'+request.headers['host']+':8080'+request.url
         if (request.url.startsWith('/method/swf')) return response.writeHead(301, {location: 'https://'+request.headers['host'].replace('cdn.','')+'/client/gateway?url=https://cohenerickson.github.io/radon-games-assets'+request.url.replace('/method','')}).end('')//url = 'https://cohenerickson.github.io/radon-games-assets'+req.url
         fetch(url).then(r => {response=r;return r.text()}).then(text=>{var headers = response.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));res.writeHead(response.status,headers).end(text)})
         return ''
