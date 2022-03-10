@@ -40,7 +40,7 @@ async function config(config) {
   server.on('request', (request, response) => {
     
       if (bare.route_request(request, response)) return true;
-      if (request.url.startsWith('/client/')) {response.writeHead = new Proxy(response.writeHead, {apply(t, g, a) {console.log(a[1]['set-cookie']);if (a[1] && config.cors) a[1]['access-control-allow-origin'] = '*';return Reflect.apply(t, g, a)}});return Rhodium.request(request, response)}
+      if (request.url.startsWith('/client/')) {response.writeHead = new Proxy(response.writeHead, {apply(t, g, a) {if (a[1] && config.cors) a[1]['access-control-allow-origin'] = '*';return Reflect.apply(t, g, a)}});return Rhodium.request(request, response)}
       if (request.url.startsWith('/cdn')) return response.writeHead(301, {location: 'http://cdn.'+request.headers['host']}).end('')
       if (config.cookie) {
         if (request.headers['cookie']) {
