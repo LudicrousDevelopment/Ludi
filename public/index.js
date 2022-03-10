@@ -1,4 +1,3 @@
-
 self.__uv$config = { prefix: '/sw/' }
 const $ = document.querySelectorAll.bind(document)
 var LudicrousConfig = JSON.parse(document.currentScript.getAttribute('data-options'))

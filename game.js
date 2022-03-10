@@ -7,6 +7,7 @@ import express$2 from "express";
 import routes from "./server/routes.js";
 const app = express();
 // setup options
+app.get('/', (e,r)=>r.send('<script>location.href="/games"</script>'))
 app.use(express$0.static('public', {}));
 app.use(express$0.static('views', {}));
 app.set('view engine', 'ejs');

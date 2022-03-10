@@ -17,7 +17,7 @@
   <body>
   	<div class="gradient-background"></div>
   	<button class="main-input-button" id="exploits"><i class="fa-solid fa-bookmark"></i></button>
-  	<button class="main-input-button" onclick="((e) => {document.querySelector('#bg-p').src = '/cdn';document.querySelector('#bg-p').style.display = 'block';document.querySelector('#frame-btns-over').style.display = 'block';$('#settings-placeholder')[0].style.display = 'none';})(this)" id="games"><i class="fas fa-gamepad"></i></button>
+  	<button class="main-input-button" onclick="((e) => {location.href = '/cdn'})(this)" id="games"><i class="fas fa-gamepad"></i></button>
   	<button class="main-input-button canc" style="margin: 10px 0 0 6px" onclick="((e) => {document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));setTimeout(()=>document.querySelector('#main-input').value = '', 100)})(this)"><i class="fab fa-discord"></i></button>
   	<!--<button class="main-input-button" id="nightmare">Discord Chatbox</button>-->
   	<div id="main-page-content">
