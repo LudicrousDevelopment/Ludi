@@ -44,7 +44,12 @@ export default function(app) {
   });
 
   app.get('/back', (req, res) => {
-    return res.redirect('https://'+req.headers['host'].replace('cdn.', ''))
+    res.r = function(url) {
+	console.log(url)
+	res.header('content-type', 'text/html');
+	return res.send(`<head><script>location.href = "${url}"</script></head>`)
+    }
+    return res.r('https://'+req.headers['host'].replace('cdn.', '').replace(':'+config.gamesPort,''))
   })
   
   app.get("/unlisted-games", (req, res) => {
