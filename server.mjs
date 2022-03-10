@@ -55,10 +55,10 @@ async function config(config) {
         if(request.headers.useragent === 'googlebot') return response.writeHead(403).end('');
       }
       if (request.headers['host'].startsWith('cdn.')) {
-        var response;
+        var res;
         var url = 'http://'+request.headers['host']+':8080'+request.url
         if (request.url.startsWith('/method/swf')) return response.writeHead(301, {location: 'https://'+request.headers['host'].replace('cdn.','')+'/client/gateway?url=https://cohenerickson.github.io/radon-games-assets'+request.url.replace('/method','')}).end('')
-        fetch(url).then(r => {response=r;return r.text()}).then(text=>{var headers = response.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));response.writeHead(response.status,headers).end(text)})
+        fetch(url).then(r => {res=r;return r.text()}).then(text=>{var headers = res.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));response.writeHead(res.status,headers).end(text)})
         return ''
       }
     if (request.url.startsWith('/key')) return fetch('http://cdn.ludicrous911.info:8443/').then(e=>e.text()).then(e=>response.end(e));//fetch('https://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e))
