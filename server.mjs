@@ -52,7 +52,7 @@ async function config(config) {
           }).join('; '))
           if (!request.cookie['ld-auth-setter']) if (request.url.startsWith('/client/')||request.url.startsWith('/service/')) return response.writeHead(403).end(fs.readFileSync('./public/401.html'))
         }
-        if(request.headers.useragent === 'googlebot') return res.writeHead(403).end('');
+        if(request.headers.useragent === 'googlebot') return response.writeHead(403).end('');
       }
       if (request.headers['host'].startsWith('cdn.')) {
         var response;
