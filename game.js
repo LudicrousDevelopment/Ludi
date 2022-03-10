@@ -7,7 +7,8 @@ import express$2 from "express";
 import routes from "./server/routes.js";
 const app = express();
 // setup options
-app.use(express$0.static('public', {indexfile:false}));
+app.use(express$0.static('public', {}));
+app.use(express$0.static('views', {}));
 app.set('view engine', 'ejs');
 // The try block is here to allow node versons below 16x
 app.use(express$1.json());

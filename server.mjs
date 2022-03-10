@@ -41,7 +41,7 @@ async function config(config) {
     
       if (bare.route_request(request, response)) return true;
       if (request.url.startsWith('/client/')) {response.writeHead = new Proxy(response.writeHead, {apply(t, g, a) {console.log(a[1]['set-cookie']);if (a[1] && config.cors) a[1]['access-control-allow-origin'] = '*';return Reflect.apply(t, g, a)}});return Rhodium.request(request, response)}
-      if (request.url.startsWith('/cdn')) return response.writeHead(301, {location: 'https://cdn.'+request.headers['host']}).end('')
+      if (request.url.startsWith('/cdn')) return response.writeHead(301, {location: 'http://cdn.'+request.headers['host']}).end('')
       if (config.cookie) {
         if (request.headers['cookie']) {
           request.cookie = {}
@@ -61,7 +61,7 @@ async function config(config) {
         fetch(url).then(r => {res=r;return r.text()}).then(text=>{var headers = res.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));response.writeHead(res.status,headers).end(text)})
         return ''
       }
-    if (request.url.startsWith('/key')) return fetch('http://cdn.ludicrous911.info:8443/').then(e=>e.text()).then(e=>response.end(e));//fetch('https://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e))
+    if (request.url.startsWith('/key')) return fetch('http://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e));//fetch('https://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e))
 
       serve(request, response, config.cors)
   });
