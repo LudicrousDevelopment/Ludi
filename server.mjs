@@ -50,16 +50,15 @@ async function config(config) {
             request.cookie[name] = value
             return `${name}=${value}`
           }).join('; '))
-          //console.log(a)
           if (!request.cookie['ld-auth-setter']) if (request.url.startsWith('/client/')||request.url.startsWith('/service/')) return response.writeHead(403).end(fs.readFileSync('./public/401.html'))
-        }// else if (req.url.startsWith(prefix)||req.url.startsWith(Corrosion.prefix)) return res.writeHead(403).end(fs.readFileSync('./public/401.html'))
+        }
         if(request.headers.useragent === 'googlebot') return res.writeHead(403).end('');
       }
       if (request.headers['host'].startsWith('cdn.')) {
         var response;
         var url = 'http://'+request.headers['host']+':8080'+request.url
-        if (request.url.startsWith('/method/swf')) return response.writeHead(301, {location: 'https://'+request.headers['host'].replace('cdn.','')+'/client/gateway?url=https://cohenerickson.github.io/radon-games-assets'+request.url.replace('/method','')}).end('')//url = 'https://cohenerickson.github.io/radon-games-assets'+req.url
-        fetch(url).then(r => {response=r;return r.text()}).then(text=>{var headers = response.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));res.writeHead(response.status,headers).end(text)})
+        if (request.url.startsWith('/method/swf')) return response.writeHead(301, {location: 'https://'+request.headers['host'].replace('cdn.','')+'/client/gateway?url=https://cohenerickson.github.io/radon-games-assets'+request.url.replace('/method','')}).end('')
+        fetch(url).then(r => {response=r;return r.text()}).then(text=>{var headers = response.headers;Object.entries(headers).forEach(([e,v])=>headers[e]=v.join(''));response.writeHead(response.status,headers).end(text)})
         return ''
       }
     if (request.url.startsWith('/key')) return fetch('http://cdn.ludicrous911.info:8443/').then(e=>e.text()).then(e=>response.end(e));//fetch('https://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e))
