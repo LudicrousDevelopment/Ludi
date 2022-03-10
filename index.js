@@ -5,5 +5,6 @@
     cookie: false,
     primaryProxy: 'ultraviolet',
     googleBlock: true,
+    cors: true,
   }));
 })();

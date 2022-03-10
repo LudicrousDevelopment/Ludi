@@ -17,6 +17,7 @@
     "axios": "^0.25.0",
     "bare-server-node": "github:tomphttp/bare-server-node",
     "body-parser": "^1.19.1",
+    "cjstoesm": "^1.1.4",
     "commander": "^9.0.0",
     "css-tree": "^2.0.4",
     "discord.js": "^12.0.0",

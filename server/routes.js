@@ -1,18 +1,22 @@
-const fs = require("fs");
-const { post } = require("axios");
-const config = require("../config.json");
+import fs from "fs";
+import axios from "axios";
+var post = axios.post
+var config = JSON.parse(fs.readFileSync('./config.json'))
+var allGames = JSON.parse(fs.readFileSync('./games.json'))
 
-module.exports = function(app) {
+var {version} = JSON.parse(fs.readFileSync('./version.json'))
+
+var SEO = JSON.parse(fs.readFileSync('./seo.json'))
+
+export default function(app) {
   // start proxy server
   if(config.gameProxy) {
-    require("./proxy.js")(app);
+    //require("./proxy.js")(app);
   }
 
   // Search Engine Optimisation
-  const SEO = require("../seo.json");
   
   // Sort games
-  let allGames = require("../games.json");
   allGames = allGames.filter(x => x.title);
   
   let gamesListed = allGames;
@@ -77,22 +81,22 @@ module.exports = function(app) {
   
   // request and report routes
   app.get("/report", (req, res) => {
-    res.render("pages/report", { SEO: SEO, version: require("../version.json").version });
+    res.render("pages/report", { SEO: SEO, version: version });
   });
   
   app.post("/report", (req, res) => {
     let reqData = req.body;
     if(!reqData.message) {
-      return res.render("pages/report", { SEO: SEO, error: "Some feilds were not filled out properly.", version: require("../version.json").version });
+      return res.render("pages/report", { SEO: SEO, error: "Some feilds were not filled out properly.", version: version });
     }
     post("https://radon-api.cohenerickson.repl.co/report", reqData)
     .then((r) => {
-      if(r.data.status !== 202) return res.render("pages/report", { SEO: SEO, error: "Some feilds were not filled out properly.", version: require("../version.json").version });
-      return res.render("pages/report", { SEO: SEO, message: "Success!", version: require("../version.json").version });
+      if(r.data.status !== 202) return res.render("pages/report", { SEO: SEO, error: "Some feilds were not filled out properly.", version: version });
+      return res.render("pages/report", { SEO: SEO, message: "Success!", version: version });
     })
     .catch((e) => {
       console.error(e);
-      return res.render("pages/report", { SEO: SEO, error: "An unexpected error occurred, please try again later.", version: require("../version.json").version });
+      return res.render("pages/report", { SEO: SEO, error: "An unexpected error occurred, please try again later.", version: version });
     });
   });
   

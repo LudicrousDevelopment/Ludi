@@ -5,15 +5,19 @@ import Serve from './serve.mjs'
 import UkBro from './uk-bro.js'
 import fetch from 'node-fetch'
 
+var configuration = JSON.parse(readFileSync('./config.json'))
+
+const bare =  new Server('/bare/', '');
+var server = http.createServer();  
+
 async function config(config) {
-  const bare =  new Server('/bare/', '');
-  var server = http.createServer();  
-  
+
   var Rhodium = await import('Rhodium');
   Rhodium = new Rhodium.default({server: server, prefix: '/client/',encode: 'plain', wss: true, uv: [true, {}]})
 
-  console.log(config)
-
+  if (config.game==true) {await import('./game.js')}
+  if (config.bot==true) {await import('./bot.js')}
+  
   const handler = {
     '404': function(req, res) {
       console.log(req.url)
@@ -35,7 +39,7 @@ async function config(config) {
   server.on('request', (request, response) => {
     
       if (bare.route_request(request, response)) return true;
-      if (request.url.startsWith('/client/')) {return Rhodium.request(request, response)}
+      if (request.url.startsWith('/client/')) {response.writeHead = new Proxy(response.writeHead, {apply(t, g, a) {console.log(a[1]['set-cookie']);if (a[1] && config.cors) a[1]['access-control-allow-origin'] = '*';return Reflect.apply(t, g, a)}});return Rhodium.request(request, response)}
       if (request.url.startsWith('/cdn')) return response.writeHead(301, {location: 'https://cdn.'+request.headers['host']}).end('')
       if (config.cookie) {
         if (request.headers['cookie']) {
@@ -58,11 +62,12 @@ async function config(config) {
         return ''
       }
     if (request.url.startsWith('/key')) return fetch('http://cdn.ludicrous911.info:8443/').then(e=>e.text()).then(e=>response.end(e));//fetch('https://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e))
-      serve(request, response)
+
+      serve(request, response, config.cors)
   });
 
   Rhodium.init()
   
-  server.listen(process.env.PORT || 8080);
+  server.listen(process.env.PORT || (configuration.port || 8080));
 }
 export default config

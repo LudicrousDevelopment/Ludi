@@ -1,5 +1,5 @@
 
-self.__uv$config = { prefix: '/service/' }
+self.__uv$config = { prefix: '/sw/' }
 const $ = document.querySelectorAll.bind(document)
 var LudicrousConfig = JSON.parse(document.currentScript.getAttribute('data-options'))
 
@@ -270,7 +270,6 @@ $('#uv-init')[0].oclick(() => {
 
 
     $('#bg-p')[0].src = __uv$config.prefix + encodeURIComponent(xor(url, 2));
-    console.log($('#bg-p')[0].src)
   });
   $('#bg-p')[0].style.display = 'block';
 })

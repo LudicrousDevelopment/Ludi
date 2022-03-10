@@ -1,6 +1,6 @@
-const fs = require('fs');
+import fs from 'fs'
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const https = require('https');
+import https from 'https'
 var atob = str => new Buffer.from(str, 'base64').toString('utf-8')
 const config = {
   "token": atob('T0RBNE1ETTJOVGcwT1RNd01ERTNOREV3LllDQXN0Zy5CYjljbklyWGhTYXdaZUdjM2xRRFRrR29zXzQ='),
@@ -32,12 +32,13 @@ const proxies = {
     "https://the-t-fr.com",
     "https://911911911.info",
     "https://regionalmapping.com",
-    "https://shirt.gq"
+    "https://shirt.gq",
+    "https://zester.network"
   ]
 }
-const Discord = require('discord.js')
 
-const { Permissions } = require('discord.js');
+import Discord from 'discord.js'
+var { Permissions } = Discord
 
 var Bot = new Discord.Client()
 Bot.login(config.token);

@@ -25,8 +25,6 @@ async function fetch(server, server_request, request_headers, url){
 		path: url.path,
 		method: server_request.method,
 		headers: request_headers,
-		setHost: false,
-		localAddress: server.local_address,
 	};
 	
 	let outgoing;
@@ -214,6 +212,8 @@ async function v1(server, server_request){
 
 	let response;
 
+  console.log(remote)
+  
 	try{
 		response = await fetch(server, server_request, headers, remote);
 	}catch(err){

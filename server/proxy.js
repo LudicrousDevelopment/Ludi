@@ -1,5 +1,5 @@
-var https = require("https");
-var http = require("http");
+import 'https' from 'https';
+import 'http' from 'http';
 
 module.exports = (app) => {
   app.use("/method", function(clientRequest, clientResponse) {
