@@ -9,7 +9,7 @@ const app = express();
 // setup options
 app.get('/', (e,r)=>r.send('<script>location.href="/games"</script>'))
 app.use('/assets/', (req, res) => {
-  return res.sendFile('./public/assets'+req.url, {root: './'})
+  return res.send('no')
 })
 app.use('/webretro/', express$0.static('public/webretro', {}))
 app.use(express$0.static('public', {}));
