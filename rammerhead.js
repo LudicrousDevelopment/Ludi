@@ -13,4 +13,4 @@ server.on("request", (req, res) => {
   }).end()
 });
 
-server.listen(process.env.PORT || 8443);
+server.listen(process.env.PORT || 8443, console.log('Ludicrous Rammerhead Running at http://localhost:'+(process.env.PORT || 8443)));

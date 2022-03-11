@@ -275,7 +275,7 @@ $('#uv-init')[0].oclick(() => {
 
 //$('.canc').oclick(() => {alert('Ludicrous is Experiencing Heavy Load Issues, Please Try Again Later or Use An Alternate Site.\n\nWe Are Sorry for the Inconvenience')})
 
-$('#frame-close')[0].oclick(() => { $('#bg-p')[0].contentWindow.location.href = 'about:blank'; $('#bg-p')[0].style.display = 'none'; $('#frame-btns-over')[0].style.display = 'none'; $("#settings-placeholder")[0].style.display = 'block'; $('#frame-btns-over')[0].classList.remove('visible'); $('#bg-p')[0].classList.remove('visible') })
+$('#frame-close')[0].oclick(() => { $('#bg-p')[0].setAttribute('src', 'about:blank'); $('#bg-p')[0].style.display = 'none'; $('#frame-btns-over')[0].style.display = 'none'; $("#settings-placeholder")[0].style.display = 'block'; $('#frame-btns-over')[0].classList.remove('visible'); $('#bg-p')[0].classList.remove('visible') })
 
 $('#frame-reload')[0].oclick(() => { $('#bg-p')[0].contentWindow.location.reload() })
 

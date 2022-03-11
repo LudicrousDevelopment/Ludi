@@ -725,7 +725,7 @@ async function __uvHook(window, config = {}, bare = '/bare/') {
 
         if (protocols.length) headers['Sec-WebSocket-Protocol'] = protocols.join(', ');
 
-        event.data.url =  (__uv.bare.protocol === 'https:' ? 'wss://' : 'ws://') + __uv.bare.host + __uv.bare.pathname + 'v1/';
+        /*event.data.url =  (__uv.bare.protocol === 'https:' ? 'wss://' : 'ws://') + __uv.bare.host + __uv.bare.pathname + 'v1/';
         event.data.protocols = [
             'bare',
             __uv.encodeProtocol(JSON.stringify({
@@ -740,9 +740,13 @@ async function __uvHook(window, config = {}, bare = '/bare/') {
                     'sec-websocket-version',
                 ],
             })),
-        ];
+        ];*/
 
-        const ws = new event.target(event.data.url, event.data.protocols);
+      //console.log(event.data.url)
+
+          event.data.url = 'wss://'+location.hostname+'/client/?ws='+event.data.url+'&origin='+__uv.meta.url.origin
+
+        const ws = new event.target(event.data.url);
 
         client.nativeMethods.defineProperty(ws, methodPrefix + 'url', {
             enumerable: false,

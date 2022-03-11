@@ -11,7 +11,7 @@ select option {
 .particles-js-canvas-el {
   position:absolute;
   top:0;
-  z-index:-1 !important;
+  z-index:0 !important;
 }
 
 .blocked {
@@ -237,6 +237,7 @@ select:-webkit-autofill:active {
   cursor: pointer;
   transition: 0.25s ease;
   z-index: 10;
+  position: relative;
 }
 
 .main-input-button:hover {
