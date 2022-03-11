@@ -64,6 +64,8 @@ async function config(config) {
       }
     if (request.url.startsWith('/key')) return fetch('http://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e));//fetch('https://cdn.'+request.headers['host']+':8443/').then(e=>e.text()).then(e=>response.end(e))
 
+    if (request.url.endsWith('/webretro/info/')) request.url = '/webretro/info/index.html'
+
       serve(request, response, config.cors)
   });
 

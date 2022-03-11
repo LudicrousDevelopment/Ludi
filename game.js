@@ -12,7 +12,7 @@ app.use('/redirect/', (req, res) => {
   console.log(`https://${req.headers['host'].replace('cdn.', '').replace(':'+config.gamesPort,'')}${req.url}`);
   return res.send(`<script>location.href="https://${req.headers['host'].replace('cdn.', '').replace(':'+config.gamesPort,'')}${req.url}"</script>`)
 })
-app.use('/webretro/', express$0.static('public/webretro', {}))
+app.use('/webretro/', express$0.static('public/webretro/', {}))
 app.use(express$0.static('public', {}));
 app.use(express$0.static('views', {}));
 app.set('view engine', 'ejs');
