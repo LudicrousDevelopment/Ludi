@@ -9,6 +9,7 @@ const app = express();
 // setup options
 app.get('/', (e,r)=>r.send('<script>location.href="/games"</script>'))
 app.use('/webretro/', express$0.static('public/webretro', {}))
+app.use('/assets/', express$0.static('public/assets', {}))
 app.use(express$0.static('public', {}));
 app.use(express$0.static('views', {}));
 app.set('view engine', 'ejs');
