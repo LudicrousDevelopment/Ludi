@@ -301,6 +301,9 @@ select:-webkit-autofill:active {
   border: #fff solid 3px;
   border-radius: 3px;
   color: #fff;
+  font-size: 13.3333px;
+  text-decoration: none;
+  font-weight: 400;
 }
 #exploits {
   width: auto;
@@ -334,7 +337,7 @@ select:-webkit-autofill:active {
 .fa-github {cursor: pointer;}
 h2 {color: white;margin-top: 10px;margin-bottom:15px;}
 
-@media only screen and (max-width: 804px) {
+@media only screen and (max-width: 885px) {
   #preferences-container, #exploit-container {
     visibility: hidden !important;
     display: none !important;

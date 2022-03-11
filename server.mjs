@@ -28,7 +28,7 @@ async function config(config) {
     },
     'index': function(req, res, data, type) {
       function Configuration(str) {
-        return str.replace('data-options=""', 'data-options='+JSON.stringify(config)+'')
+        return str.replace('data-options=""', 'data-options='+JSON.stringify(config)+'').replace('${location.origin}', 'https://'+req.headers['host'])
       }
       res.writeHead(200, {'content-type':type}).end(Configuration(data.toString()))
     },

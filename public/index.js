@@ -52,6 +52,8 @@ setInterval(() => {
   if ((!$('#exploit-container')[0].classList.contains('visible')) && (!$('#preferences-container')[0].classList.contains('visible')) && (!$('#game-container')[0].classList.contains('visible'))) window.location.hash = ''
 }, 100)
 
+/*
+
 $('#snake-instructions')[0].oclick(() => {
   alert('Copied to Clipboard')
   copyCode("javascript:((b,P,Q=64,u=98,j=document,w=0,S=0,l='appendChild',f=2079,t=f+1,x=j[b]`a`,X=j.all[0][l](x)[l](j[b]`input`),s=x[l](b=j[b]`canvas`).getContext`2d`,p=l&=b.width=b.height=320,h=j=t,m=b=Q*Q,F=X.onkeydown=X.onblur=(e,z,y=e%Q)=>![z?x[f]?F(f=(f=Math.random(w+=m,l+=8)*3844|0)+Q+(f/31|1),u=9):F(f):e?+e?s.fillRect(y*5,(e>>6)*5,5,5,s.fillStyle=`hsl(${!x[z=x[e]=e<Q|e>4031|!y|y>62|(y=e==h)+y,x[y*j]=2+h,e]*99},${m+m}%,${(z+=e==f)*50}%)`):(e=e.keyCode-37)-43?p=P&4/e>1&&e^2^b?e:p:(P=e&!P)&&F():x[l?l--:t=x[t]-2+F(t),S+=(w*=.8)/4,m=999/++u,h+=[-1,-Q,1,Q][b=p]]?x.remove(alert`Game Over`):X.value=F(e,j=F(h)+h)+P?S|!setTimeout(F,50,e):'Press P'])=>{for(x.style='position:fixed;top:0;display:grid';b--;)F(b)})`createElement`")
@@ -67,7 +69,7 @@ var darkIcon = './dark.ico'
   document.querySelector('#main-input').value = ''
 }*/
 //})
-
+/*
 $('#yt-instructions')[0].oclick(() => {
   alert('Copied to Clipboard')
   copyCode('javascript:(h=>{/youtube/.test(h+=location)?location=`//www.youtube-nocookie.com/embed/${[h.match`(?<=youtu.be/|[ve]/|u/\\w+/|v=)[^%23&?]*`]}?autoplay=1`:0})``')
@@ -78,7 +80,7 @@ $('#yt-instructions')[0].oclick(() => {
     navigator.clipboard.writeText(document.querySelector('#main-input').value);
     document.querySelector('#main-input').value = ''
   }*/
-})
+/*})
 $('#porta-instructions')[0].oclick(() => {
   alert('Copied to Clipboard')
   copyCode(`javascript:(function(){var a=document.getElementById("rusic-modal")||document.createElement("iframe");a.setAttribute("allow","fullscreen");a.src=prompt("Enter URL", "https://google.com");a.id="rusic-modal";a.style="position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";document.body.appendChild(a);}());`)
@@ -89,13 +91,15 @@ $('#porta-instructions')[0].oclick(() => {
     navigator.clipboard.writeText(document.querySelector('#main-input').value);
     document.querySelector('#main-input').value = ''
   }*/
-})
+/*})
 $('#crown-instructions')[0].oclick(() => {
   alert('Copied to Clipboard')
   var code = `(()=>{let script=document.createElement("script");script.src="${location.origin}/crown.js";document.body.appendChild(script)})()`
   copyCode(code)
   //if (confirm('CrownJS:\n\nMade by jango#5518\n\nPress "ok" to view code.')) location.href = '/crown.js'
-})
+})*/
+
+var darkIcon = './dark.ico'
 
 window.copyCode = function(code) {
   var oval = document.querySelector('#main-input').value
