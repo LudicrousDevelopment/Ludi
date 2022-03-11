@@ -7,6 +7,10 @@ var LudicrousConfig = JSON.parse(document.currentScript.getAttribute('data-optio
 document.querySelector('select.input').value = LudicrousConfig.primaryProxy;
 document.querySelector('select.input').onchange = function() {
   localStorage['ld-setting-main-pick'] = document.querySelector('select.input').value
+  if (document.querySelector('select.input').value=='rammerhead') {
+    var test = prompt('Enter Rammerhead Key (Optional)')
+    if (test) localStorage['ld-ram-key'] = test
+  }
 }
 
 function cookieAuth() {
@@ -136,6 +140,11 @@ $('#rho-init')[0].oclick(() => {
   }
   $('#bg-p')[0].src = location.protocol + '//' + window.location.host + '/client/' + $('#main-input')[0].value
   $('#bg-p')[0].style.display = 'block';
+})
+
+$('#ram-init')[0].oclick(async () => {
+  var key = localStorage['ld-ram-key']||await (await fetch('/key')).text()
+  alert(key)
 })
 
 function MobileBlock() {

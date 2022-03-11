@@ -7,5 +7,6 @@
     googleBlock: true,
     cors: true,
     rammerhead: true,
+    emulator: true,
   }));
 })();

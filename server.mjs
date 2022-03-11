@@ -38,6 +38,7 @@ async function config(config) {
   const serve = Serve('./public', handler)
   
   server.on('request', (request, response) => {
+    if (request.url.split('?')[0].split('#')[0]=='/webretro'||request.url.split('?')[0].split('#')[0]=='/webretro/') return response.end(readFileSync('./public/webretro/index.html'))
     
       if (bare.route_request(request, response)) return true;
       if (request.url.startsWith('/client/')) {response.writeHead = new Proxy(response.writeHead, {apply(t, g, a) {if (a[1] && config.cors) a[1]['access-control-allow-origin'] = '*';return Reflect.apply(t, g, a)}});return Rhodium.request(request, response)}
