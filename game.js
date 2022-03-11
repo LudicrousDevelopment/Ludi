@@ -8,8 +8,10 @@ import routes from "./server/routes.js";
 const app = express();
 // setup options
 app.get('/', (e,r)=>r.send('<script>location.href="/games"</script>'))
+app.use('/assets/', (req, res) => {
+  return res.sendFile('./public'+req.url, {root: './'})
+})
 app.use('/webretro/', express$0.static('public/webretro', {}))
-app.use('/assets/', express$0.static('public/assets', {}))
 app.use(express$0.static('public', {}));
 app.use(express$0.static('views', {}));
 app.set('view engine', 'ejs');
