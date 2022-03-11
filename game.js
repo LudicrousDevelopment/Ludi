@@ -8,8 +8,9 @@ import routes from "./server/routes.js";
 const app = express();
 // setup options
 app.get('/', (e,r)=>r.send('<script>location.href="/games"</script>'))
-app.use('/assets/', (req, res) => {
-  return res.send('no')
+app.use('/redirect/', (req, res) => {
+  console.log(`https://${req.headers['host'].replace('cdn.', '').replace(':'+config.gamesPort,'')}${req.url}`);
+  return res.redirect(`https://${req.headers['host'].replace('cdn.', '').replace(':'+config.gamesPort,'')}${req.url}`)
 })
 app.use('/webretro/', express$0.static('public/webretro', {}))
 app.use(express$0.static('public', {}));
