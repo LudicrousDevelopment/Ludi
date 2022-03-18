@@ -211,8 +211,6 @@ async function v1(server, server_request){
 	}
 
 	let response;
-
-  console.log(remote)
   
 	try{
 		response = await fetch(server, server_request, headers, remote);

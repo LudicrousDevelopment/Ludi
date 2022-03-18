@@ -38,12 +38,15 @@ const proxies = JSON.stringify({
 })
 
 import Discord from 'discord.js'
-var { Permissions } = Discord
+var { Permissions, Intents } = Discord
 
-var Bot = new Discord.Client()
+var Bot = new Discord.Client({
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS],
+	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+})
 Bot.login(config.token);
 
-Bot.on('message', message => {
+Bot.on('message', async message => {
   if (message.content.startsWith(config.prefix)) {
     message.arguments = message.content.split(' ')
     message.arguments[0] = message.arguments[0].split(config.prefix)[1]
@@ -91,7 +94,22 @@ Bot.on('message', message => {
     if (command=='domains') {
       return message.channel.send('There are Currently '+JSON.parse(proxies)['LD'].length+' Domains!\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.com') ? "true" : ' ').toString().replace(/, /gi, '').replace(/,/, '')+']').length+' .com\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.org') ? "true" : ' ').toString().replace(/, /gi, '').replace(/^,/, '')+']').length+' .org'+'\n\n'+JSON.parse('['+JSON.parse(proxies)['LD'].map((e) => e.includes('.net') ? "true" : ' ').toString().replace(/, /gi, '').replace(/,/, '')+']').length+' .net')
     }
+    if (command=='verify'&&message.author.id=='704014251236524033') {
+      var sent = await message.channel.send('Press <:ludicrous:928115678223958046> to Verify')
+      await sent.react('<:ludicrous:928115678223958046>')
+    }
   }
+})
+
+Bot.on('messageReactionAdd', (message, user) => {
+  //console.log(message)
+  if (user.bot==true) return false;
+  //return false
+  let role = message.message.channel.guild.roles.cache.find(r => r.id === "910032085694160963");
+
+  let member = message.message.channel.guild.members.cache.find(r => r.id === user.id);
+
+  member.roles.add(role);
 })
 
 Bot.on('guildMemberAdd', member => {

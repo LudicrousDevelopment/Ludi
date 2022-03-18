@@ -5,12 +5,14 @@ import Serve from './serve.mjs'
 import UkBro from './uk-bro.js'
 import fetch from 'node-fetch'
 
-var configuration = JSON.parse(readFileSync('./config.json'))
+//var configuration = JSON.parse(readFileSync('./config.json'))
 
 const bare =  new Server('/bare/', '');
 var server = http.createServer();  
 
 async function config(config) {
+
+  const configuration = config.config
 
   var Rhodium = await import('Rhodium');
   Rhodium = new Rhodium.default({server: server, prefix: '/client/',encode: 'plain', wss: true, uv: [true, {}]})

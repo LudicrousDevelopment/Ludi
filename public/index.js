@@ -2,6 +2,87 @@ self.__uv$config = { prefix: '/sw/' }
 const $ = document.querySelectorAll.bind(document)
 var LudicrousConfig = JSON.parse(document.currentScript.getAttribute('data-options'))
 
+document.querySelector('.main-page-stealth-switch').onclick = function() {
+  this.classList.toggle('stealth')
+  this.querySelector('i').classList.toggle('fa-eye')
+  this.querySelector('i').classList.toggle('fa-eye-slash')
+  localStorage.setItem('ld-setting-stealth', this.classList.contains('stealth')?'on':'off')
+}
+
+if (localStorage['ld-setting-stealth']) {
+  switch(localStorage['ld-setting-stealth']) {
+    case "off":
+      window.LudicrousConfig.stealth = false;
+      break;
+    default:
+      window.LudicrousConfig.stealth = true;
+      document.querySelector('.main-page-stealth-switch').click();
+      break;
+  }
+} else {
+  window.LudicrousConfig.stealth = true;
+  document.querySelector('.main-page-stealth-switch').click();
+}
+
+const mod = (n, m) => ((n % m) + m) % m;
+class StrShuffler {
+  static baseDictionary = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~-';
+  static shuffledIndicator = '_rhs';
+  static generateDictionary() {
+    let str = '';
+    const split = StrShuffler.baseDictionary.split('');
+    while (split.length > 0) {
+      str += split.splice(Math.floor(Math.random() * split.length), 1)[0];
+    }
+    return str;
+  }
+
+  constructor(dictionary = StrShuffler.generateDictionary()) {
+    this.dictionary = dictionary;
+  }
+  shuffle(str) {
+    if (str.startsWith(StrShuffler.shuffledIndicator)) {
+      return str;
+    }
+    let shuffledStr = '';
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charAt(i);
+      const idx = StrShuffler.baseDictionary.indexOf(char);
+      if (idx === -1) {
+        shuffledStr += char;
+      } else {
+        shuffledStr += this.dictionary.charAt(mod(idx + i, StrShuffler.baseDictionary.length));
+      }
+    }
+    return StrShuffler.shuffledIndicator + shuffledStr;
+  }
+  unshuffle(str) {
+    if (!str.startsWith(StrShuffler.shuffledIndicator)) {
+      return str;
+    }
+
+    str = str.slice(StrShuffler.shuffledIndicator.length);
+
+    let unshuffledStr = '';
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charAt(i);
+      const idx = this.dictionary.indexOf(char);
+      if (idx === -1) {
+        unshuffledStr += char;
+      } else {
+        unshuffledStr += StrShuffler.baseDictionary.charAt(mod(idx - i, StrShuffler.baseDictionary.length));
+      }
+    }
+    return unshuffledStr;
+  }
+}
+async function e() {
+    var key = localStorage['ld-ram-key']||await (await fetch('/key')).text()
+    var input = $('#main-input')[0].value
+    if (!input.startsWith('http')) input = 'https://google.com/search?q='+input
+    location.href = 'https://r.'+location.host+'/'+key+'/'+new StrShuffler().shuffle(input)
+}
+
 //document.querySelector('#bg-p')[0].contentWindow.location.href = 'about:blank'
 
 document.querySelector('select.input').value = LudicrousConfig.primaryProxy;
@@ -140,16 +221,14 @@ $('#rho-init')[0].oclick(() => {
   $("#settings-placeholder")[0].style.display = 'none';
   cookieAuth()
   if (!$('#main-input')[0].value.startsWith('http')) {
-    $('#bg-p')[0].src = location.protocol + '//' + window.location.host + '/client/' + 'https://google.com/search?q=' + $('#main-input')[0].value; return $('#bg-p')[0].style.display = 'block';
+    $('#bg-p')[0].src = location.protocol + '//' + window.location.host + '/client/' + 'https://google.com/search?q=' + $('#main-input')[0].value; if (LudicrousConfig.stealth==false) {return location.assign($('#bg-p')[0].src)};return $('#bg-p')[0].style.display = 'block';
   }
   $('#bg-p')[0].src = location.protocol + '//' + window.location.host + '/client/' + $('#main-input')[0].value
-  $('#bg-p')[0].style.display = 'block';
+  if (LudicrousConfig.stealth==false) {return location.assign($('#bg-p')[0].src)};
+  return $('#bg-p')[0].style.display = 'block';
 })
 
-$('#ram-init')[0].oclick(async () => {
-  var key = localStorage['ld-ram-key']||await (await fetch('/key')).text()
-  alert(key)
-})
+$('#ram-init')[0].oclick(e)
 
 function MobileBlock() {
   if (navigator.userAgent) {
@@ -161,7 +240,7 @@ function MobileBlock() {
   }
 }
 
-setInterval(MobileBlock, 100)
+//setInterval(MobileBlock, 100)
 
 var xor = (str, key) => (str.split('').map((char, ind) => ind % key ? String.fromCharCode(char.charCodeAt() ^ key) : char).join(''));
 $('#main-input')[0].addEventListener('keyup', (e) => {
@@ -264,6 +343,13 @@ document.querySelector('.theme.input').onchange = function(params) {
   }, 200)
 }
 
+function SetHeight() {
+  var height = (document.querySelector('#main-page-content').offsetHeight-20)+'px';
+  document.querySelectorAll('#preferences-container, #exploit-container').forEach(e=>e.style.height=height);
+}
+
+setInterval(SetHeight, 10)
+
 $('#uv-init')[0].oclick(() => {
 
   $('#bg-p')[0].src = ''
@@ -282,6 +368,8 @@ $('#uv-init')[0].oclick(() => {
 
 
     $('#bg-p')[0].src = __uv$config.prefix + encodeURIComponent(xor(url, 2));
+
+    if (LudicrousConfig.stealth==false) {return location.assign($('#bg-p')[0].src)};
   });
   $('#bg-p')[0].style.display = 'block';
 })
