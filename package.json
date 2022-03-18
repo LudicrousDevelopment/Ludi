@@ -1,11 +1,11 @@
 {
   "name": "Ludi",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Ludicrous Web Proxy Site: Fast, Simple, Small ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --max-old-space-size=3072 index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,18 +17,14 @@
     "axios": "^0.25.0",
     "bare-server-node": "github:tomphttp/bare-server-node",
     "body-parser": "^1.19.1",
-    "cjstoesm": "^1.1.4",
     "commander": "^9.0.0",
     "css-tree": "^2.0.4",
     "discord.js": "^12.0.0",
-    "ejs": "^3.1.6",
     "express": "^4.17.2",
     "jsdom": "^19.0.0",
     "mime": "^3.0.0",
     "node-fetch": "^2.0.0",
     "parse5": "^6.0.1",
-    "tomp-bare-server": "git+https://github.com/tomphttp/bare-server-node.git",
-    "uuid": "^8.3.2",
     "webpack": "^5.66.0",
     "ws": "^8.4.2"
   },
