@@ -13,5 +13,10 @@
   "website": "https://ludicrousdev.org",
   "repository": "https://github.com/LudicrousDevelopment/Ludicrous",
   "logo": "https://raw.githubusercontent.com/LudicrousDevelopment/Ludi/main/public/favicon.ico",
-  "success_url": "https://welcome.ludicrous.icu/README.md"
+  "success_url": "https://welcome.ludicrous.icu/README.md",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
 }
