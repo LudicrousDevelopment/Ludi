@@ -742,7 +742,7 @@ async function __uvHook(window, config = {}, bare = '/bare/') {
             })),
         ];
 
-        event.data.url = (__uv.bare.protocol === 'https:' ? 'wss://' : 'ws://') + __uv.bare.host + '/service/?ws='+remote.protocol+'//'+remote.host+remote.path;
+        event.data.url = (__uv.bare.protocol === 'https:' ? 'wss://' : 'ws://') + __uv.bare.host + '/client/?ws='+remote.protocol+'//'+remote.host+remote.path+'?origin='+__uv.meta.url.origin;
 
       console.log(event.data.url)
 

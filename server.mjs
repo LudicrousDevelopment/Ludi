@@ -40,6 +40,8 @@ async function config(config) {
   const serve = Serve('./public', handler)
   
   server.on('request', (request, response) => {
+
+    if (request.url.startsWith('/sw/')) return response.writeHead(200, {'content-type': 'text/html'}).end('<script>location.reload()</script>');
     if (request.url.split('?')[0].split('#')[0]=='/webretro'||request.url.split('?')[0].split('#')[0]=='/webretro/') return response.end(readFileSync('./public/webretro/index.html'))
     
       if (bare.route_request(request, response)) return true;
