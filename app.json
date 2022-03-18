@@ -1,0 +1,17 @@
+{
+  "name": "Ludicrous",
+  "description": "The Ludicrous Web Proxy Site: Fast, Simple, Small",
+  "keywords": [
+    "unblock",
+    "proxy",
+    "proxy site",
+    "ludicrous",
+    "unblocker",
+    "school",
+    "cheat"
+  ],
+  "website": "https://ludicrousdev.org",
+  "repository": "https://github.com/LudicrousDevelopment/Ludicrous",
+  "logo": "https://raw.githubusercontent.com/LudicrousDevelopment/Ludi/main/public/favicon.ico",
+  "success_url": "https://welcome.ludicrous.icu",
+}
