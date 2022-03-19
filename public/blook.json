@@ -1,9 +1,0 @@
-{
-	"title": "Glixzzy Scripts",
-	"description": "Add Glixzzy's scripts to the GUI. Learn how to open the GUI by going to https://thatfrueddued.github.io/blooket-utility.",
-	"author": "ThatFruedDued",
-	"url": "https://beta.manualcars.net/blook.json",
-	"scripts": [
-		"https://beta.manualcars.net/blook.js"
-	]
-}
