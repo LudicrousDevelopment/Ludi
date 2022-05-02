@@ -7,7 +7,7 @@
     primaryPrxxy: 'ultraviolet',
     googleBlock: true,
     cors: true,
-    rammerhead: true,
+    rammerhead: true, 
     rammerheadURL: 'r.911911911.info',
     emulator: true,
     config: {
