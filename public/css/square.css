@@ -1,0 +1,72 @@
+:root{
+    --black:#130f40;
+    --white:#fff;
+    --gradient:linear-gradient(#23272a, #18191A);
+    --background:rgba(255,255,255,.1);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(255,255,255,.1);
+    --border-top:.1rem solid rgba(255,255,255,.3);
+    --border-left:.1rem solid rgba(255,255,255,.3);
+}
+
+#particles-js {
+  display: none !important;
+}
+
+#main-page-content, #preferences-container, #exploit-container {
+  background: linear-gradient(-45deg, #363636, #31333e) !important;
+}
+
+html, body {
+  background: var(--gradient) !important;
+}
+
+.gradient-background{
+    height: 100%;
+    width: 100%;
+    background: var(--gradient);
+    position: fixed;
+    top:0; left: 0;
+    z-index: 0;
+    overflow:hidden;
+}
+
+.main-input-button {
+  position: relative;
+}
+
+.gradient-background .animated-box{
+    position: absolute;
+    background:rgba(255,255,255,.2);
+    display: block;
+    pointer-events: none;
+    border-radius: .5rem;
+    animation: animate 6s linear infinite;
+    z-index: 1000;
+}
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+        transform:scale(0) translateY(-200%) rotate(0deg);
+    }
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform:scale(0.5) translateY(-500%) rotate(360deg);
+    }
+}
+
+#frame-close, #frame-reload {
+  background: #222222 !important;
+  box-shadow: 0px 0px 5px #222222 !important;
+}
+
+#frame-close:hover, #frame-reload:hover {
+  box-shadow: 0px 0px 20px #222222 !important;
+}

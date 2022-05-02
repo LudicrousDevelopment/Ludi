@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script async src="https://arc.io/widget.min.js#Uj7TAd9Q"></script>
+<title>eagler</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Eaglercraft is real Minecraft 1.5.2 that you can play in any regular web browser. That includes school chromebooks, it works on all chromebooks. You can join real Minecraft 1.5.2 servers with it through a custom proxy based on Bungeecord." />
+<meta name="keywords" content="minecraft, applet, chromebook, lax1dude, games, eaglercraft, eagler" />
+<meta name="author" content="LAX1DUDE" />
+<meta property="og:title" content="Eaglercraft" />
+<meta property="og:locale" content="en-US" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://media.discordapp.net/attachments/378764518081429506/932053915061587978/thumbnail2.png" />
+<meta property="og:description" content="Eaglercraft is real Minecraft 1.5.2 that you can play in any regular web browser. That includes school chromebooks, it works on all chromebooks. You can join real Minecraft 1.5.2 servers with it through a custom proxy based on Bungeecord." />
+<script type="text/javascript" src="classes.js"></script>
+<script src="/js/analytics.js"></script>
+<script type="text/javascript">
+var name="TitaniumNetwork SMP",motd="Default motd",ip="ws"+window.location.origin.slice(4)+"/eag";
+if(document.location.href.startsWith("file:")) {
+console.log("You're not supposed to 'open' this file in your browser. Please upload this folder to your HTTP(s) server and access it via the internet. This is not a bug, please read the documentation");
+}else {
+window.addEventListener("load", function(){
+window.minecraftOpts = [
+"game_frame","assets.epk",
+btoa(atob("CgAACQAHc2VydmVycwoAAAABCAAKZm9yY2VkTU9URABtb3RkaGVyZQEAC2hpZGVBZGRyZXNzAQgAAmlwAGlwaGVyZQgABG5hbWUAbmFtZWhlcmUAAA==").replace("motdhere",String.fromCharCode(motd.length)+motd).replace("namehere",String.fromCharCode(name.length)+name).replace("iphere",String.fromCharCode(ip.length)+ip))
+];
+(function(){
+var q = window.location.search;
+if(typeof q === 'string' && q.startsWith("?")) {
+	q = new URLSearchParams(q);
+	var s = q.get("server");
+	if(s) window.minecraftOpts.push(s);
+}
+})();
+main();
+});}
+
+var $ = document.querySelectorAll.bind(document)
+
+var interval = setInterval(() => {
+    window.focus()
+    var filter = 'filter: hue-rotate(180deg)'
+    try {
+        $('#arc-widget-launcher-iframe')[0].contentWindow.document.querySelector('#launcher').style.background = (document.body.style.background == "linear-gradient(rgb(57, 62, 66), rgb(24, 25, 26))" ? "linear-gradient(-45deg, rgb(90 91 92), rgb(50 50 50))" : "rgb(36, 103, 165)");
+        document.getElementById('arc-popper-iframe').contentWindow.document.querySelector('#popper header').style['backgroundImage'] = 'linear-gradient(238deg, rgb(59, 174, 255) 1%, rgb(88, 124, 255) 100%)';
+        clearInterval(interval)
+    } catch (err) {}
+}, 5)
+</script>
+</head>
+<body style="margin:0px;width:100vw;height:100vh;" id="game_frame">
+</body>
+</html>

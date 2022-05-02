@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.particles-js-canvas-el {
+    position: absolute;
+    top: 0;
+    z-index: 0 !important;
+}
+
+body {
+    /*background: linear-gradient(-45deg, #747474, #4d5061, rgba(0 93 172));
+  letter-spacing: 1px;
+  height: 100vh;
+  width: 100vw;
+  background-size: max-content;*/
+    background: rgb(0, 79, 148);
+    margin: 0;
+    font-weight: bolder;
+    overflow: hidden auto;
+    width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    height: 100vh;
+    text-align: center;
+}
+
+* {
+    font-family: Roboto, sans-serif;
+}
+
+h1:first-of-type {
+    color: white;
+    font-size: 40px;
+    margin: 15px 5px 10px 5px;
+}
+
+a.nav {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.main-container {
+    padding: 30px;
+    color: white;
+    margin-top: -10px;
+    height: max-content;
+    width: calc(100% - 60px);
+    columns: 3 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.game:hover {
+    transform: scale(1.03);
+}
+
+.gxme {
+    width: 180px;
+    transition: 0.2s ease;
+    height: 234px;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px 3px #fff;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gimg {
+    width: 90%;
+    height: auto;
+    margin-bottom: 50px;
+    max-height: 180px;
+}
+
+gtitle {
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.question {
+    height: auto;
+    padding: 10px;
+    display: block;
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+.question-title {
+    margin-bottom: 0px;
+    font-weight: bold !important;
+    font-size: 25px;
+    color: white;
+    margin-left: 20px;
+    text-align: left;
+    position: relative
+}
+
+.question-title::before {
+    content: 'Q:';
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+}
+
+.question-answer::before {
+    content: 'A:';
+    position: absolute;
+    top: 50%;
+    left: -21px;
+    transform: translateY(-50%);
+}
+
+.question-answer {
+    font-weight: 100 !important;
+    font-size: 20px;
+    margin-left: 20px;
+    text-align: left;
+    color: white;
+    position: relative;
+}
+
+a {
+    color: white;
+}

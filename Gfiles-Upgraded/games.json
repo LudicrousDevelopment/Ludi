@@ -1,0 +1,512 @@
+[
+    {
+        "name": "1v1.lol",
+        "id": "1v1lol",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/1v1lol.png"
+    },
+    {
+        "name": "8 Ball",
+        "id": "8ball",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/8ball.png"
+    },
+    {
+        "name": "2048",
+        "id": "2048",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/2048.png"
+    },
+    {
+        "name": "Among Us",
+        "id": "amongus",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/amongus.jpg"
+    },
+    {
+        "name": "Basketball Stars",
+        "id": "basketballstars",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/bballstars.png"
+    },
+    {
+        "name": "Bloons TD 1",
+        "id": "bloonstd1",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/btd1.jpg"
+    },
+    {
+        "name": "Bloons TD 2",
+        "id": "bloonstd2",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/btd2.jpg"
+    },
+    {
+        "name": "Bloons TD 4",
+        "id": "bloonstd4",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/btd4.jpg"
+    },
+    {
+        "name": "Bloxorz",
+        "id": "bloxorz",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/bloxorz.png"
+    },
+    {
+        "name": "BMX Park",
+        "id": "bmxpark",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/bmxpark.jpg"
+    },
+    {
+        "name": "Breakout",
+        "id": "breakout",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/breakout.jpg"
+    },
+    {
+        "name": "Chess",
+        "id": "chess",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/chess.jpg"
+    },
+    {
+        "name": "Clash Royale",
+        "id": "clashroyale",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/clashroyale.jpg"
+    },
+    {
+        "name": "Cookie Clicker",
+        "id": "cookie",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/cookieclickerlogo.png"
+    },
+    {
+        "name": "Crossy Road",
+        "id": "crossyroad",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/crossyroad.jpg"
+    },
+    {
+        "name": "Cubefield",
+        "id": "Cubefield",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/cubefield.jpg"
+    },
+    {
+        "name": "Cut the Rope",
+        "id": "cuttherope",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/cuttherope.png"
+    },
+    {
+        "name": "Cut the Rope Holiday",
+        "id": "cuttheropeholiday",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/cuttheropeholiday.png"
+    },
+    {
+        "name": "Cut the Rope Time Travel",
+        "id": "cuttheropetimetravel",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/cuttheropetimetravel.png"
+    },
+    {
+        "name": "Chrome Dino",
+        "id": "dinosaur",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/chrome-dinosaur.jpg"
+    },
+    {
+        "name": "Doctor Acorn 2",
+        "id": "doctor-acorn2",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/doctor-acorn2.png"
+    },
+    {
+        "name": "Doctor Acorn 3",
+        "id": "doctor-acorn3",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/doctor-acorn3.png"
+    },
+    {
+        "name": "Doge 2048",
+        "id": "doge2048",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/doge2048.jpeg"
+    },
+    {
+        "name": "Doge Miner",
+        "id": "dogeminer",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/dogeminer.png"
+    },
+    {
+        "name": "Donkey Kong",
+        "id": "donkeykong",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/donkeykong.png"
+    },
+    {
+        "name": "Doodle Jump",
+        "id": "doodle-jump",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/doodle-jump.jpg"
+    },
+    {
+        "name": "Drift Boss",
+        "id": "driftboss",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/driftbosslogo.jpg"
+    },
+    {
+        "name": "Dr. Mario",
+        "id": "drmario",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/drmario.png"
+    },
+    {
+        "name": "Duck Life",
+        "id": "ducklife",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/ducklife.jpg"
+    },
+    {
+        "name": "Duck Life 2",
+        "id": "ducklife2",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/ducklife2.jpg"
+    },
+    {
+        "name": "Duck Life 3",
+        "id": "ducklife3",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/ducklife3.jpg"
+    },
+    {
+        "name": "Duck Life 4",
+        "id": "ducklife4",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/ducklife4.jpg"
+    },
+    {
+        "name": "Duck Life 5",
+        "id": "ducklife5",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/ducklife5.png"
+    },
+    {
+        "name": "Elastic Morty",
+        "id": "elasticmorty",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/elasticmorty.png"
+    },
+    {
+        "name": "Factory Balls",
+        "id": "factoryballs",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/factoryballs.jpg"
+    },
+    {
+        "name": "Fireboy and Watergirl 1",
+        "id": "fireboy-and-watergirl-1",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fireboy-and-watergirl-1.jpg"
+    },
+    {
+        "name": "Fireboy and Watergirl 2",
+        "id": "fireboy-and-watergirl-2",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fireboy-and-watergirl-2.png"
+    },
+    {
+        "name": "Fireboy and Watergirl 3",
+        "id": "fireboy-and-watergirl-3",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fireboy-and-watergirl-3.png"
+    },
+    {
+        "name": "Fireboy and Watergirl 4",
+        "id": "fireboy-and-watergirl-4",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fireboy-and-watergirl-4.png"
+    },
+    {
+        "name": "Flappy 2048",
+        "id": "flappy-2048",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/flappy2048.jpg"
+    },
+    {
+        "name": "Flappy Bird",
+        "id": "flappybird",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/Flappy_Bird_icon.png"
+    },
+    {
+        "name": "Five Nights at Freddy's",
+        "id": "fnaf",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fnaf.png"
+    },
+    {
+        "name": "Five Nights at Freddy's 2",
+        "id": "fnaf2",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fnaf2.jpg"
+    },
+    {
+        "name": "Five Nights at Freddy's 3",
+        "id": "fnaf3",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fnaf3.png"
+    },
+    {
+        "name": "Five Nights at Freddy's 4",
+        "id": "fnaf4",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/fnaf4.jpg"
+    },
+    {
+        "name": "Geometry Dash",
+        "id": "geometry",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/GeometryDashLogo.PNG"
+    },
+    {
+        "name": "Icy Purple Head 2",
+        "id": "icypurplehead2",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/icypurplehead2.jpg"
+    },
+    {
+        "name": "Icy Purple Head 3",
+        "id": "icypurplehead3",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/icypurplehead3.png"
+    },
+    {
+        "name": "Mario Kart 64",
+        "id": "mk64",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/mk64.png"
+    },
+    {
+        "name": "Mario Kart DS",
+        "id": "mkds",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/mkds.jpg"
+    },
+    {
+        "name": "Mario Kart Super Circuit",
+        "id": "mksc",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/mksc.jpg"
+    },
+    {
+        "name": "Mario Party",
+        "id": "marioparty",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/marioparty.jpg"
+    },
+    {
+        "name": "Moto X3M",
+        "id": "motox3m",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/motox3m.jpg"
+    },
+    {
+        "name": "Pacman",
+        "id": "pacman",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/pacman.jpg"
+    },
+    {
+        "name": "Paper.io",
+        "id": "paperio",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/paperio.jpg"
+    },
+    {
+        "name": "Physics Playground",
+        "id": "physicsplayground",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/physicsplayground.png"
+    },
+    {
+        "name": "Rabbit Samurai",
+        "id": "rabbit-samurai",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/rabbitsamurai.png"
+    },
+    {
+        "name": "Rabbit Samurai 2",
+        "id": "rabbit-samurai2",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/rabbitsamurai2.png"
+    },
+    {
+        "name": "Retro Bowl",
+        "id": "retrobowl",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/retrobowl.png"
+    },
+    {
+        "name": "Rooftop Snipers",
+        "id": "rooftopsniper",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/rooftop-snipers.jpg"
+    },
+    {
+        "name": "Run 3",
+        "id": "run3",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/run3.png"
+    },
+    {
+        "name": "Slither.io",
+        "id": "slitherio",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/slitherio.png"
+    },
+    {
+        "name": "Slope",
+        "id": "slope",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/slope.jpg"
+    },
+    {
+        "name": "Snake",
+        "id": "snake",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/snake.png"
+    },
+    {
+        "name": "Super Mario 64",
+        "id": "sm64",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/sm64.jpg"
+    },
+    {
+        "name": "Super Mario Bros.",
+        "id": "smb",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/smb.png"
+    },
+    {
+        "name": "Super Mario Bros. 3",
+        "id": "smb3",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/smb3.png"
+    },
+    {
+        "name": "Space Invaders",
+        "id": "spaceinvaders",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/spaceinvaders.jpg"
+    },
+    {
+        "name": "Stack",
+        "id": "stack",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/stack.png"
+    },
+    {
+        "name": "Stack Tower",
+        "id": "stacktower",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/stacktower.jpg"
+    },
+    {
+        "name": "Surviv.io",
+        "id": "surivio",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/survivio.png"
+    },
+    {
+        "name": "Temple Run",
+        "id": "templerun",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/templerun.png"
+    },
+    {
+        "name": "Tetris",
+        "id": "tetris",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/tetris.jpg"
+    },
+    {
+        "name": "Tetris Worlds",
+        "id": "tetrisworlds",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/tetrisworlds.jpg"
+    },
+    {
+        "name": "The Impossible Quiz",
+        "id": "impossiblequiz",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/impossiblequiz.png"
+    },
+    {
+        "name": "The Impossible Quiz 2",
+        "id": "impossiblequiz2",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/impossiblequiz2.jpeg"
+    },
+    {
+        "name": "Upload ROM",
+        "id": "upload",
+        "type": "emulator",
+        "iconURL": "https://www.algebrahelper.net/assets/img/emulatorlogo.png"
+    },
+    {
+        "name": "Vex 3",
+        "id": "vex3",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/vex3.jpg"
+    },
+    {
+        "name": "Vex 4",
+        "id": "vex4",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/vex4.jpg"
+    },
+    {
+        "name": "Vex 5",
+        "id": "vex5",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/vex5.jpg"
+    },
+    {
+        "name": "Wordle Unlimited",
+        "id": "wordle",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/wordle.png"
+    },
+    {
+        "name": "World's Hardest Game",
+        "id": "worldshardestgame",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/worldshardestgame.jpg"
+    },
+    {
+        "name": "World's Hardest Game 2",
+        "id": "worldshardestgame2",
+        "type": "flash",
+        "iconURL": "https://www.algebrahelper.net/assets/img/worldshardestgame2.jpg"
+    },
+    {
+        "name": "Yohoho.io",
+        "id": "yohohoio",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/yohoho.png"
+    },
+    {
+        "name": "Zombs Royale",
+        "id": "zombsroyale",
+        "type": "html5",
+        "iconURL": "https://www.algebrahelper.net/assets/img/zombsroyale.jpg"
+    }
+]
