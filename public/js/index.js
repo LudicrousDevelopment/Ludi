@@ -219,7 +219,8 @@ class StrShuffler {
 }
 async function e() {
     var key = localStorage['ld-ram-key'] || (await (await fetch('/key')).text())
-    var input = $('#main-input')[0].value
+    localStorage['ld-ram-key'] = key;
+    var input = $('#main-input')[0].value.replace('​', '')
     if (!input.startsWith('http')) input = 'https://google.com/search?q=' + input
     $('#bg-p')[0].src = 'https://r.' + location.host + '/' + key + '/' + input
     if (window.nogg==true) return killGG($('#bg-p')[0].src)

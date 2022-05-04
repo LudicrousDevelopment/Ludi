@@ -73,6 +73,7 @@ export default function(req, res) {
 
 import { Analytics } from 'analytics';
 import Plugin from './plugin.mjs';
+import http from 'http';
 
 /* Initialize analytics */
 const analytics = Analytics({
@@ -85,7 +86,7 @@ const analytics = Analytics({
   ]
 })
 
-export default function(req, res) {
+function Main(req, res) {
   if (!req.url.startsWith('/data/')) return false;
   if (req.url.startsWith('/data/update/')) {
     analytics.plugins.ludicrous.update({
@@ -107,5 +108,7 @@ export default function(req, res) {
     res.end('success')
   }
 }
+
+http.createServer(Main).listen(9090)
 
 //import url from"url";import qs from"querystring";import*as fs from"fs";try{fs.readFileSync("./stats.json")}catch(s){console.log("Installing Analytics API"),fs.writeFileSync("./stats.json",JSON.stringify({users:0,top:0,visits:0,id:[]}))}export default function(s,i){if(!s.url.startsWith("/analytics."))return!0;var t=JSON.parse(fs.readFileSync("./stats.json"));s.query=qs.parse(url.parse(s.url).query);var e=s.query.id;if(s.url.startsWith("/analytics.start")){if(t.id.find(s=>s.id==e))return i.end("Exists");var r=t.id.push({pinged:(new Date).getTime(),id:e})-1;t.visits++,t.users=t.id.length,t.top<t.users&&(t.top=t.users),i.end("Done");var n=setInterval(function(){if(!t.id[r])return clearInterval(n);(new Date).getTime()-t.id[r].pinged>29999&&(t.id.splice(r,1),t.users=t.id.length),fs.writeFileSync("./stats.json",JSON.stringify(t))},3e4)}if(s.url.startsWith("/analytics.ping")){if(!t.id.find(s=>s.id==e))return i.end("Failed");if(!e)return i.end("Failed");t.top<t.users&&(t.top=t.users);var a=t.id.find(s=>s.id==e),d=a;a.pinged=(new Date).getTime(),t.id[t.id.indexOf(d)]=a,i.end("Success")}return s.url.startsWith("/analytics.users")?(t.top<t.users&&(t.top=t.users),i.end(JSON.stringify(t))):fs.writeFileSync("./stats.json",JSON.stringify(t))}

@@ -4,8 +4,16 @@
       {
         "id": "d1292ba6-305b-47a1-ab17-079d73723b62",
         "line": 5,
-        "version": 721,
+        "version": 809,
         "index": 74
+      }
+    ],
+    "public/back/credit.html": [
+      {
+        "id": "3d71b51f-c9d8-428f-8baf-bfa0d213c2f5",
+        "line": 42,
+        "version": 204,
+        "index": 2104
       }
     ]
   }

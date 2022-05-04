@@ -8,7 +8,7 @@ import fetch from 'node-fetch'
 
 const fakeServe = new Serve.Server('fakeStatic/');
 
-import Analytics from './analytic.mjs';
+//import Analytics from './analytic.mjs';
 
 import path from 'path';
 import {fileURLToPath} from 'url';
@@ -28,6 +28,7 @@ async function config(config) {
   Rhodium = new Rhodium.default({server: server, prefix: '/client/',encode: 'plain', wss: true, uv: [true, {}]})
 
   if (config.game==true) {await import('./game.js')}
+  if (config.an==true) {await import('./analytic.mjs')}
   //if (config.bot==true) {await import('./bot.js')}
   if (config.uk==true) {await import('./uk-bro.js')}
   if (config.rammerhead==true) {await import('./rammerhead.js').then(e=>e.default(config))}
@@ -71,7 +72,7 @@ async function config(config) {
       return handler['index'](request, response, readFileSync('./public/index.html'), 'text/html')
     }
 
-    if (Analytics(request, response)) return false;
+    //if (Analytics(request, response)) return false;
 
     if (request.url.startsWith('/backend/')) return response.writeHead(200, {'content-type': 'text/html'}).end(`<script>if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/worker/gxmes.worker.js', {scope: '/backend'}).then(e => location.reload())

@@ -1,13 +1,22 @@
-window.AnalyticsUnloadFunction = () => fetch('/data/delete/?id='+window.AnalyticsProcessID)
+window.AnalyticsUnloadFunction = () => fetch('/data/delete/?id='+(window.AnalyticsProcessID))
 
 function StartAnalytics() {
+
+  if (localStorage.getItem('AnalyticsProcessID')) {
+    window.AnalyticsProcessID = localStorage.getItem('AnalyticsProcessID')
+    window.AnalyticsUnloadFunction()
+  }
+  
   delete window.AnalyticsProcessID
   delete window.reloadFetch
+  localStorage.removeItem('AnalyticsProcessID')
   
   window.removeEventListener('beforeunload', window.AnalyticsUnloadFunction)
   
   clearInterval(window.AnalyticsInterval)
   window.AnalyticsProcessID = Math.floor(Math.random() * (999999 - 100000) + 100000)
+
+  localStorage.setItem('AnalyticsProcessID', AnalyticsProcessID)
   
   fetch('/data/?url='+btoa(location.href)+'&id='+window.AnalyticsProcessID);
 

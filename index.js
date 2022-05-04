@@ -7,12 +7,22 @@
     primaryPrxxy: 'ultraviolet',
     googleBlock: true,
     cors: true,
-    rammerhead: true, 
+    uk: false,
+    an: false,
+    rammerhead: false, 
     rammerheadURL: 'r.911911911.info',
     emulator: true,
     config: {
       port: 8080,
       gamePort: 3000,
-    }
+    },
+    links: [
+      "https://fractiontools.com",
+      "https://pioneersites.org",
+      "https://dailylights.org", 
+      "https://calculatehelp.org",
+      "https://erraticphysics.com",
+      "https://packcheap.net",
+    ]
   }));
 })();

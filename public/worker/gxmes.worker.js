@@ -83,6 +83,15 @@ self.addEventListener('fetch', (event) => {
                     'content-type': fetched.headers['content-type']
                 }
             });
+        } else if (url == location.origin + '/backend/link/') {
+            var fetched = await fetch('/back/links.html');
+            var text = await fetched.text();
+
+            return new Response(text, {
+                headers: {
+                    'content-type': fetched.headers['content-type']
+                }
+            });
         } else return fetch(request) //new Response(await (await fetch(request)).text(), {headers: {'content-type': (await (await fetch(request)).headers.get('content-type'))}})
     })())
 })
