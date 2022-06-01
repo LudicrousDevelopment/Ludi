@@ -926,7 +926,7 @@
     INPUT.addEventListener('blur', function() {
       INPUT.isblur = true;
       INPUT.isfocus = false;
-      if (new URLSearchParams(new URL(currentURL).search).get('fake')) return;
+      try {if (new URLSearchParams(new URL(currentURL).search).get('fake')) return;} catch {}
       if (INPUT.value==currentURL) {
         INPUT.value = INPUT.val
       }
@@ -935,7 +935,7 @@
     INPUT.addEventListener('focus', function() {
       INPUT.isfocus = true;
       INPUT.isblur = false;
-      if (new URLSearchParams(new URL(currentURL).search).get('fake')) return;
+      try {if (new URLSearchParams(new URL(currentURL).search).get('fake')) return;} catch {}
       INPUT.val = INPUT.value
       if (currentURL&&INPUT.value==doneURL) INPUT.value = currentURL
       INPUT.select()
