@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*, *::placeholder {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.task-container {
+  border: 1px solid rgb(0,0,0,0.2);
+  border-radius: 1px;
+  height: calc(100vh - 100px);
+  margin: 50px;
+}
+
+.task-container-table {
+  border-bottom: 1px solid rgb(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 100%;
+}
+
+.task-container-table-entry {
+  border-right: 1px solid rgb(0,0,0,0.2);
+  height: 30px;
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+}
+
+.task-container-table-entry:last-of-type {
+  border-right: none;
+}
+
+.tmanager-entry {
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  height: 35px;
+}
+
+.tab-info {
+  white-space: nowrap;
+  width: 30%;
+  min-width: 20px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  position: relative;
+}
+
+.tab-info::before {
+  box-shadow: inset -19px 0 10px -13px white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  content: "";
+}
+
+.tab-favicon {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  background-size: 100%;
+}
+
+.tab-title {
+  width: calc(100% - 25px);
+}
+
+.tab-resources {
+  width: calc(calc(80%) - 190px);
+  margin-left: 40px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.tab-memory {
+  
+}

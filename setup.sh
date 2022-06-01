@@ -11,3 +11,5 @@ cd ..
 npm install
 npm start
 echo "Ludicrous Running"
+
+65.51.53.60, 172.70.114.88

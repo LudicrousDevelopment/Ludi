@@ -1,145 +1,94 @@
 <!DOCTYPE html>
-<html>
+<!--
+|                   _
+|    /|           / / |\
+|   / |          / /  | \
+|  / /          / /    \ \
+|  \ \    ___  / /     / /
+|   \ |  /   \/ /     | /
+|    \| |      /      |/
+|        \____/
+|
 
-<head>
-  <script src="/js/analytics.js"></script>
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css">
-    <link rel="stylesheet" href="./css/normal.css">
-    <link rel="stylesheet" href="./css/hack.css" class="hacker-theme styletheme" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="./css/particle.css" class="particle-theme styletheme" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="./css/square.css" class="square-theme styletheme" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="./css/dark.css" class="dark-theme styletheme" media="print" onload="this.media='all'">
-    <link rel="icon" href="./ico/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+This was made using a modified version of the Chrome-Tabs library.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/themes@5.0.11/default/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.1/css/all.css">
     <meta name="description" content="Ludicrous - A Simple and Easy to Use School Site">
     <meta name="theme-color" content="#2467a5">
     <title>Ludicrous</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="./css/main.css" rel="stylesheet">
+    <link rel="stylesheet" disabled href="/css/browserdark.css">
+    <link href="/favicon.ico" rel="icon">
+  </head>
+  <body>
+    <div class="surface">
+      <div class="mock-browser">
+        <div class="mock-browser-menu-open"><span class="lines line-1"></span><span class="lines line-2"></span><span class="lines line-3"></span></div>
+        <div class="chrome-tabs" style="--tab-content-margin: 9px">
+          <div class="chrome-tabs-content">
+            <div class="chrome-tabs-create"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="chrome-tabs-bottom-bar"></div>
+          <div class="chrome-tabs-hidden"></div>
+          <!-- Styles to prevent flash after JS initialization -->
+          <style>
+            .chrome-tabs .chrome-tab {
+              width: 258px
+            }
 
-<body>
-    <div class="gradient-background"></div>
-    <button class="main-input-button" id="exploits"><i class="fa-solid fa-bookmark"></i></button>
-    <button class="main-input-button" onclick="((e) => {location.href = '/backend/gfiles/'})(this)" id="gxmes"><i class="fas fa-gamepad"></i></button>
-    <button class="main-input-button canc" style="margin: 10px 0 0 6px" onclick="((e) => {$('.visible').forEach(e=>e.classList.remove('visible'));document.querySelector('#main-input').value = 'https://discord.com/invite/mn7jEAHMV4';})(this)"><i class="fab fa-discord"></i></button>
-    <button style="margin: 10px 0 0 6px" onclick="((e) => {location.href = '/backend/'})(this)" class="main-input-button"><i class="fa-solid fa-backward-step"></i></button>
-    <button style="margin: 10px 0 0 6px" onclick="((e) => {location.href = '/mc/'})(this)" class="main-input-button"><i class="fa-solid fa-cube"></i></button>
-    <!--<button class="main-input-button" id="nightmare">Discord Chatbox</button>-->
-    <div id="main-page-content">
-        <div class="main-page-about-init" id="ab-cloak">a:b</div>
-        <div id="main-page-init">
-            <h1 class="main-title">Ludicrous <i class="fab fa-github" onclick="((e) => {document.querySelector('#main-input').value = 'https://github.com/ludicrousdevelopment/ludi';document.querySelector('#main-input').dispatchEvent(new KeyboardEvent('keyup',{'key':'Enter'}));setTimeout(()=>document.querySelector('#main-input').value = '', 100)})(this)"></i></h1>
-            <h3 class="main-desc">Surf the Unblo&#8203cked Web</h3>
-            <input id="main-input" placeholder="Enter URL or Search Query" list="defaults" autocomplete="off"><div class="main-page-stealth-switch"><i class="fa-solid fa-eye"></i></div>
-            <button class="main-input-button canc" id="ram-init">Rammerhead</button>
-            <button class="main-input-button canc" id="uv-init">Ultraviolet</button>
-            <button class="main-input-button canc" id="rho-init">Rhodium</button>
+            .chrome-tabs .chrome-tab:nth-child(1) {
+              transform: translate3d(0px, 0, 0)
+            }
+
+            .chrome-tabs .chrome-tab:nth-child(2) {
+              transform: translate3d(239px, 0, 0)
+            }
+          </style>
         </div>
-        <a id="main-discord-widget" href="https://discord.com"></a>
-    </div>
-    <iframe id="bg-p" src="about:blank"></iframe>
-    <div id="frame-btns-over">
-        <button id="frame-reload"><i class="fas fa-redo-alt"></i></button>
-        <button id="frame-close"><i class="fas fa-times"></i></button>
-    </div>
-    <div id="settings-placeholder">
-        <svg aria-hidden="false" width="20" height="20" viewBox="0 0 24 24">
-            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M19.738 10H22V14H19.739C19.498 14.931 19.1 15.798 18.565 16.564L20 18L18 20L16.565 18.564C15.797 19.099 14.932 19.498 14 19.738V22H10V19.738C9.069 19.498 8.203 19.099 7.436 18.564L6 20L4 18L5.436 16.564C4.901 15.799 4.502 14.932 4.262 14H2V10H4.262C4.502 9.068 4.9 8.202 5.436 7.436L4 6L6 4L7.436 5.436C8.202 4.9 9.068 4.502 10 4.262V2H14V4.261C14.932 4.502 15.797 4.9 16.565 5.435L18 3.999L20 5.999L18.564 7.436C19.099 8.202 19.498 9.069 19.738 10ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"></path>
-        </svg>
-    </div>
-    <div id="preferences-container">
-        <h3 class="main-titl">Tab Cloaking</h3>
-        <br>
-        <input class="input" list="default-title" placeholder="Enter Title or Icon URL Here">
-        <button class="settingsbutton" id="title-change">Title</button>
-        <button class="settingsbutton" id="icon-change">Icon</button>
-        <button class="settingsbutton" onclick="(e => {localStorage.removeItem('title');localStorage.removeItem('icon');document.querySelector('.theme.input').onchange();document.title='Ludicrous'})(this)">Reset</button>
-        <br>
-        <br>
-        <div style="
-       width: 49%;
-      margin: auto;
-      display: inline-block;
-  ">
-            <h3 class="main-titl" style="/* width:50%; */">Preferred Pr&#8203oxy (Press Enter in Input)</h3>
-            <br>
-            <select class="input">
-                <option value="ultraviolet">Ultraviolet</option>
-                <option value="rhodium">Rhodium</option>
-                <option value="rammerhead">Rammerhead</option>
-            </select>
+        <div class="chrome-tabs-optional-shadow-below-bottom-bar"></div>
+        <div class="mock-browser-content">
         </div>
-        <div style="
-      width: 49%;
-      margin: auto;
-      display: inline-block;
-  ">
-            <h3 class="main-titl" style="/* width:50%; */">Themes</h3>
-            <br>
-            <select class="theme input">
-                <option value="normal">Normal</option>
-                <option value="dark">Dark</option>
-                <option value="hacker">Hacker</option>
-                <option value="particle">No-Particle</option>
-                <option value="squares">Squares</option>
-            </select>
-        </div>
+      </div>
+
+      <style>
+        .made-by {
+          margin-top: auto;
+          --active-background-color: #dee1e6;
+          color: #848890;
+          font-size: 14px;
+          font-family: Avenir, "Avenir Next", "Segoe UI", Arial, "Helvetica Neue", Helvetica, sans-serif;
+          text-align: center;
+          -webkit-font-smoothing: antialiased;
+          font-weight: bold;
+        }
+
+        html.dark-theme .made-by {
+          --active-background-color: #242628;
+          color: #838488;
+        }
+
+        .made-by-link { color: inherit; text-decoration: none; display: inline-block; padding: 1em; border-radius: .5em }
+        .made-by-link:hover:not(:active) { opacity: .7 }
+        .made-by-link:hover:active { background: var(--active-background-color) }
+        .made-by-logo { display: block; height: 3.5em; width: 7em; margin: 0 auto .75em }
+      </style>
     </div>
-    <div id="exploit-container">
-        <h3 class="main-title">Exploits/Bookmarklets</h3>
-        <h2>Drag to Your Bookmarks bar</h2>
-        <div class="exploits">
-            <div class="exploit">
-                <a class="settingsbutton" href="javascript:(h=>{/youtube/.test(h+=location)?location=`//www.youtube-nocookie.com/embed/${[h.match`(?<=youtu.be/|[ve]/|u/\\w+/|v=)[^%23&?]*`]}?autoplay=1`:0})``">Youtube No-Cookie</a>
-            </div>
-            <div class="exploit">
-                <a class="settingsbutton" id="porta-instructions" href='javascript:eval((atob`YWxlcnQoInYxLjEuMCIpLChhc3luYygpPT57Y29uc3QgZT1wcm9tcHQoIlNFVCBJRCAoTk9UIEdBTUUgSUQpIik7dmFyIHQ9YXdhaXQgZmV0Y2goYGh0dHBzOi8vYmV0YS5tYW51YWxjYXJzLm5ldC9jbGllbnQvaHR0cHM6L2NyZWF0ZS5rYWhvb3QuaXQvcmVzdC9rYWhvb3RzLyR7ZX0vY2FyZC8/aW5jbHVkZUthaG9vdD10cnVlYCx7aGVhZGVyczpuZXcgSGVhZGVycyh7YWNjZXB0OiJhcHBsaWNhdGlvbi9qc29uLCB0ZXh0L3BsYWluLCAqLyoiLCJ1c2VyLWFnZW50IjpuYXZpZ2F0b3IudXNlckFnZW50LGNvb2tpZToiZ2VuZXJhdGVkX3V1aWQ9NjY5MTcwZmUtZmUxMi00NGI4LTgxYWMtOTAwYjU5YWNiOWM3OyBhbXBsaXR1ZGVfaWRfYmJlNzY0OTRiNTg2Yjk2Y2E4MzgwZjBhODE1MDVhYTJrYWhvb3QuaXQ9ZXlKa1pYWnBZMlZKWkNJNklqRXlObU0xWWpsakxUVXhOakl0TkRBMk5pMDRabVV5TFRka09EbGxOemt3TnpRME5WSWlMQ0oxYzJWeVNXUWlPbTUxYkd3c0ltOXdkRTkxZENJNlptRnNjMlVzSW5ObGMzTnBiMjVKWkNJNk1UWTBOamczT0RnMk9UZzBPU3dpYkdGemRFVjJaVzUwVkdsdFpTSTZNVFkwTmpnM09EZzJPVGc1TVN3aVpYWmxiblJKWkNJNk5Dd2lhV1JsYm5ScFpubEpaQ0k2T1N3aWMyVnhkV1Z1WTJWT2RXMWlaWElpT2pFemZRPT0ifSksbWV0aG9kOiJHRVQifSksYT1hd2FpdCB0Lmpzb24oKSxvPVsicmVkICIsImJsdWUgIiwieWVsbG93ICIsImdyZWVuICJdO2NvbnN0IGk9YS5rYWhvb3QucXVlc3Rpb25zLm1hcCgoZSx0KT0+YCR7dCsxfTogJHtlLmNob2ljZXMubWFwKChlLHQpPT4xPT1lLmNvcnJlY3Q/b1twYXJzZUludCh0KV06IiIpLmpvaW4oIiIpfWApLmpvaW4oIiwgIik7aS5pbmNsdWRlcygicmVkIGJsdWUgeWVsbG93IGdyZWVuICIpJiYoaT1pLnJlcGxhY2UoL3JlZCBibHVlIHllbGxvdyBncmVlbiAvZywiQUxMIikpO3ZhciBuPXByb21wdCgiS2V5cHJlc3MgdG8gYWN0aXZhdGUgdG9vbHRpcCIsIiwiKXx8IiwiLGw9cHJvbXB0KCJLZXlwcmVzcyB0byBhY3RpdmF0ZSBoZWxwIHRvb2x0aXAiLCIuIil8fCIuIixyPWBLYWhvb3QgRXhwbG9pdCB8IEhlbHAKCgoke259IFNob3cgQW5zd2Vycwoke2x9IFNob3cgVGhpc2A7d2luZG93LmFkZEV2ZW50TGlzdGVuZXIoImtleXVwIixlPT57ZS5rZXk9PW4mJmFsZXJ0KGkpLGUua2V5PT1sJiZhbGVydChyKX0pLGFsZXJ0KGkpLGFsZXJ0KHIpfSkoKTs=`).replace("https://beta.manualcars.net", "${location.origin}"))'>Kahoot Answer Getter</a>
-            </div>
-            <div class="exploit">
-                <a class="settingsbutton" href="javascript:((b,P,Q=64,u=98,j=document,w=0,S=0,l='appendChild',f=2079,t=f+1,x=j[b]`a`,X=j.all[0][l](x)[l](j[b]`input`),s=x[l](b=j[b]`canvas`).getContext`2d`,p=l&=b.width=b.height=320,h=j=t,m=b=Q*Q,F=X.onkeydown=X.onblur=(e,z,y=e%Q)=>![z?x[f]?F(f=(f=Math.random(w+=m,l+=8)*3844|0)+Q+(f/31|1),u=9):F(f):e?+e?s.fillRect(y*5,(e>>6)*5,5,5,s.fillStyle=`hsl(${!x[z=x[e]=e<Q|e>4031|!y|y>62|(y=e==h)+y,x[y*j]=2+h,e]*99},${m+m}%,${(z+=e==f)*50}%)`):(e=e.keyCode-37)-43?p=P&4/e>1&&e^2^b?e:p:(P=e&!P)&&F():x[l?l--:t=x[t]-2+F(t),S+=(w*=.8)/4,m=999/++u,h+=[-1,-Q,1,Q][b=p]]?x.remove(alert`gxme Over`):X.value=F(e,j=F(h)+h)+P?S|!setTimeout(F,50,e):'Press P'])=>{for(x.style='position:fixed;top:0;display:grid';b--;)F(b)})`createElement`">JS Snake</a>
-            </div>
-            <div class="exploit">
-                <a class="settingsbutton" href='javascript:(()=>{let script=document.createElement("script");script.src="${location.origin}/js/crown.js";document.body.appendChild(script)})()'>CrownJS</a>
-            </div>
-            <div class="exploit">
-                <a class="settingsbutton" href="javascript:var firebug=document.createElement('script');firebug.setAttribute('src','${location.origin}/client/https:/luphoria.com/fbl/firebug-lite.js');document.body.appendChild(firebug);(function(){if(window.firebug.version){firebug.init();}else{setTimeout(arguments.callee);}})();void(firebug);">Firebug</a>
-            </div>
-            <div class="exploit">
-                <a class="settingsbutton" href="javascript:(function () {var a = document.createElement('script');a.src = 'https://cdn.jsdelivr.net/gh/FogNetwork/Avo/avo.min.js';document.body.appendChild(a);}())
-">Avo.js</a>
-            </div>
-            <div class="exploit">
-                <a class="settingsbutton" href="javascript:(function () {var a = document.createElement('script');a.src = 'https://cdn.jsdelivr.net/gh/krazete/bookmarklets/tri.js';document.body.appendChild(a);}())
-">Tri.js</a>
-            </div>
-            <div class="exploit">
-                <a class="settingsbutton" href="javascript:(function () {var a = document.createElement('script');a.src = 'https://cdn.jsdelivr.net/gh/krazete/bookmarklets/piano.js';document.body.appendChild(a);}())
-">Piano.js</a>
-            </div>
-        </div>
-    </div>
-    <div id="gxme-container"></div>
-    <div id="particles-js" style="height: 100vh"></div>
-    <datalist id="defaults">
-        <option value="https://disc&#8203ord.com">Dis&#8203cord</option>
-        <option value="https://re&#8203ddit.com">Re&#8203ddit</option>
-        <option value="https://twi&#8203tch.tv">Tw&#8203itch</option>
-        <option value="https://you&#8203tube.com">Yout&#8203ube</option>
-        <option value="https://goo&#8203gle.com">Go&#8203ogle</option>
-    </datalist>
-    <datalist id="default-title">
-        <option value="Google">Goo&#8203gle Title</option>
-        <option value="./ico/google.ico">Go&#8203ogle Icon</option>
-        <option value="Home | Schoology">Sch&#8203oology Title</option>
-        <option value="./ico/schoology.ico">Sch&#8203oology Icon</option>
-        <option value="Google Docs">Do&#8203cs Title</option>
-        <option value="./ico/docs.ico">Do&#8203cs Icon</option>
-        <option value="YouTube">Yout&#8203ube Title</option>
-        <option value="./ico/youtube.ico">You&#8203tube Icon</option>
-        <option value="My Drive - Google Drive">Dri&#8203ve Title</option>
-        <option value="./ico/drive.ico">Dr&#8203ive Icon</option>
-    </datalist>
-    <script data-options="" src="./js/index.js"></script>
+
+    <script src="https://unpkg.com/draggabilly@2.2.0/dist/draggabilly.pkgd.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./js/tld.js"></script>
+    <script src="./js/chrome-tabs.js"></script>
+    <script src="/js/analytics.js"></script>
     <script async src="https://arc.io/widget.min.js#Uj7TAd9Q"></script>
-</body>
-
+    <script src="./js/Contextify.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
 </html>

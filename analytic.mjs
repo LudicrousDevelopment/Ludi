@@ -74,6 +74,7 @@ export default function(req, res) {
 import { Analytics } from 'analytics';
 import Plugin from './plugin.mjs';
 import http from 'http';
+import * as fs from 'fs';
 
 /* Initialize analytics */
 const analytics = Analytics({
@@ -81,12 +82,13 @@ const analytics = Analytics({
   version: 100,
   plugins: [
     Plugin({
-      
+      init: JSON.parse(fs.readFileSync('./stats.json')).id
     })
   ]
 })
 
 function Main(req, res) {
+  console.log(req.url)
   if (!req.url.startsWith('/data/')) return false;
   if (req.url.startsWith('/data/update/')) {
     analytics.plugins.ludicrous.update({
@@ -100,6 +102,8 @@ function Main(req, res) {
       res: res,
       req: req,
     })
+  } else if (req.url.startsWith('/data/data')) {
+    res.end(fs.readFileSync('./stats.json'));
   } else {
     analytics.page({
       url: req.url,

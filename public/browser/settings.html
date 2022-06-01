@@ -1,0 +1,106 @@
+<html>
+   <head>
+     <script src="/js/analytics.js"></script>
+      <link id="icon" rel="icon" href="/favicon.ico" type="image/png">
+     <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.1/css/all.css">
+     <title>Ludicrous</title>
+      <link href="/css/build.css" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, height=device.height, initial-scale=1">
+   </head>
+   <body data-new-gr-c-s-check-loaded="14.1052.0" data-gr-ext-installed="">
+      <h1 class="text-2xl font-semibold text-gray-200 lg:text-3xl m-10 text-center">Settings</h1>
+
+      <input class="gxme-search" placeholder="Search Settings" oninput="gxmeFilter(this)" onfocus="document.querySelector('.search-reset').style.visibility='visible';" onblur="setTimeout(function(){document.querySelector('.search-reset').style.visibility='hidden'},1);"><i class="search-reset fa-solid fa-xmark" onmousedown="searchReset(this)"></i>
+<br><br>
+     <div class="main-container">
+      <div class="setting">
+        <span class="setting-title">Browser Mode</span>
+        <label class="container">
+          <input type="checkbox" checked="checked" id="browser-check">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="setting-divider">Privacy</div>
+      <div class="setting">
+        <span class="setting-title">Cookies</span>
+        <label class="container">
+          <input type="checkbox" checked="checked" id="cookie-check">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="setting">
+        <span class="setting-title">LocalStorage</span>
+        <label class="container">
+          <input type="checkbox" checked="checked" id="ss-check">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="setting">
+        <span class="setting-title">SessionStorage</span>
+        <label class="container">
+          <input type="checkbox" checked="checked" id="ls-check">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="setting-divider">Tab Cloak</div>
+      <div class="setting">
+        <span class="setting-title">Tab Icon</span><br>
+        <label class="container">
+          <input type="text" class="setting-input" id="icon-input" list="default-icon">
+          <button class="setting-button">Set</button>
+        </label>
+      </div>
+      <div class="setting">
+        <span class="setting-title">Tab Title</span><br>
+        <label class="container">
+          <input type="text" class="setting-input" id="title-input" list="default-title">
+          <button class="setting-button">Set</button>
+        </label>
+      </div>
+      <div class="setting-divider">Appearance</div>
+      <div class="setting">
+        <span class="setting-title">Browser Theme</span><br>
+        <label class="container">
+          <input type="radio" name="btheme" value="auto" id="autotheme">
+          <label for="autotheme">System Theme</label>
+          <input type="radio" name="btheme" value="dark" id="bdarktheme">
+          <label for="bdarktheme">Dark</label>
+          <input type="radio" name="btheme" value="light" id="lighttheme">
+          <label for="lighttheme">Light</label>
+        </label>
+      </div>
+      <div class="setting">
+        <span class="setting-title">Tab Theme</span><br>
+        <label class="container">
+          <input type="radio" name="theme" value="normal" id="normaltheme">
+          <label for="normaltheme">Normal</label>
+          <input type="radio" name="theme" value="squares" id="squarestheme">
+          <label for="squarestheme">Squares</label>
+          <input type="radio" name="theme" value="particle" id="particletheme">
+          <label for="particletheme">No Particles</label>
+          <input type="radio" name="theme" value="dark" id="darktheme">
+          <label for="darktheme">Dark</label>
+          <input type="radio" name="theme" value="hacker" id="hackertheme">
+          <label for="hackertheme">Hacker</label>
+        </label>
+      </div>
+     </div>
+      <datalist id="default-title">
+          <option value="Google">Goo&#8203gle Title</option>
+          <option value="Home | Schoology">Sch&#8203oology Title</option>
+          <option value="Google Docs">Do&#8203cs Title</option>
+          <option value="YouTube">Yout&#8203ube Title</option>
+          <option value="My Drive - Google Drive">Dri&#8203ve Title</option>
+      </datalist>
+      <datalist id="default-icon">
+          <option value="/ico/google.ico">Go&#8203ogle Icon</option>
+          <option value="/ico/schoology.ico">Sch&#8203oology Icon</option>
+          <option value="/ico/docs.ico">Do&#8203cs Icon</option>
+          <option value="/ico/youtube.ico">You&#8203tube Icon</option>
+          <option value="/ico/drive.ico">Dr&#8203ive Icon</option>
+      </datalist>
+     <script src="/js/backend.js"></script>
+     <script src="/js/em.js"></script>
+     <script src="/js/settings.js"></script>
+   </body>
+</html>

@@ -3,8 +3,10 @@
 import Server from './bare-server-node/Server.js';
 import { readFileSync, writeFileSync } from 'fs';
 import http from 'http';
-import Serve from 'node-static' 
-import fetch from 'node-fetch'
+import Serve from 'node-static';
+import fetch from 'node-fetch';
+
+import Favicon from './favicon.mjs';
 
 const fakeServe = new Serve.Server('fakeStatic/');
 
@@ -27,10 +29,10 @@ async function config(config) {
   var Rhodium = await import('Rhodium');
   Rhodium = new Rhodium.default({server: server, prefix: '/client/',encode: 'plain', wss: true, uv: [true, {}]})
 
-  if (config.game==true) {await import('./game.js')}
+  if (config.game==true) {await import('./game.mjs')}
   if (config.an==true) {await import('./analytic.mjs')}
   //if (config.bot==true) {await import('./bot.js')}
-  if (config.uk==true) {await import('./uk-bro.js')}
+  if (config.uk==true) {await import('./uk-bro.mjs')}
   if (config.rammerhead==true) {await import('./rammerhead.js').then(e=>e.default(config))}
   
   const handler = {
@@ -48,7 +50,7 @@ async function config(config) {
     },
     'bare': (url) => {
       var bare = JSON.parse(readFileSync('./bare.json'))
-      try {new URL(url)} catch(e) {}
+      try {new URL(url)} catch(e) {return;}
       bare[new URL(url).origin] = bare[new URL(url).origin]||0
       bare[new URL(url).origin]++
       writeFileSync('./bare.json', JSON.stringify(bare))
@@ -68,9 +70,11 @@ async function config(config) {
 
     if (request.url.split('?')[0].split('#')[0]==='/mc'||request.url.split('?')[0].split('#')[0]==='/mc/') request.url = "/mc/index.html"
 
-    if (request.url.split('?')[0].split('#')[0]=='/') {
-      return handler['index'](request, response, readFileSync('./public/index.html'), 'text/html')
+    if ((request.url.split('?')[0].split('#')[0]=='/main')||request.url.split('?')[0].split('#')[0]=='/main/') {
+      return handler['index'](request, response, readFileSync('./public/main.html'), 'text/html')
     }
+
+    if (request.url.startsWith('/icon/')) return Favicon(request.url.split('/icon/')[1], request, response)
 
     //if (Analytics(request, response)) return false;
 

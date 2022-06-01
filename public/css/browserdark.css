@@ -1,0 +1,54 @@
+.mock-browser-controls {
+  background: #484848 !important;
+}
+
+.mock-browser-input {
+  color: #e1e1e1 !important;
+  background: rgb(000,000,000,0.3) !important;
+}
+
+.mock-browser-input::placeholder {
+  color: #e1e1e1 !important;
+}
+
+.mock-browser-open-home, .mock-browser-reload, .chrome-tabs-create {
+  color: white !important;
+}
+
+.chrome-tab-close {
+  filter: invert(1) !important;
+}
+
+.lines {
+  background: white !important;
+}
+
+.chrome-tabs {
+  background: #282828 !important;
+}
+
+.chrome-tab-title {
+  color: white !important;
+}
+
+.chrome-tabs-bottom-bar {
+  background: #5e5e5e !important;
+}
+
+.chrome-tab-background {
+  background: #444444 !important;
+  box-shadow: 0px 0px 6px 1px #4b4b4b !important;
+}
+
+.fa-lock {
+  filter: invert(1);
+}
+
+.mock-browser-move-control[style="color: black;"] {
+  color: white !important;
+}
+
+.mock-browser-search-omni {
+  background: rgb(50 50 50) !important;
+  color: white !important;
+}

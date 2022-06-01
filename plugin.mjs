@@ -12,7 +12,31 @@ export default function providerPluginExample(userConfig) {
       elseYouNeed: userConfig.elseYouNeed
     },
     initialize: ({ config }) => {
-      // load provider script to page
+      var users = userConfig.init;
+
+      users.forEach(parsed => {
+        setInterval(function() {
+          var stats = JSON.parse(readFileSync('./stats.json'))
+          
+          var foundIndex = stats.id.findIndex(e=>e.id==parsed.id)
+          var found = stats.id.find(e=>e.id==parsed.id)
+  
+          if (!found) {
+            stats.users=stats.id.length
+            if (stats.top<stats.id.length) stats.top = stats.id.length
+            return false;
+          }
+  
+          var time = -1*(((found||{}).date||0)-new Date().getTime())
+          
+          if (time>30050) stats.id.splice(foundIndex, 1)
+  
+          stats.users=stats.id.length
+          if (stats.top<stats.id.length) stats.top = stats.id.length
+  
+          return writeFileSync('./stats.json', JSON.stringify(stats))
+        }, 30000)
+      })
     },
     page: ({ payload }) => {
       const { properties } = payload

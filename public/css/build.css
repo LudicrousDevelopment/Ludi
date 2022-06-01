@@ -12,6 +12,7 @@ body {
   height: 100vh;
   width: 100vw;
   background-size: max-content;*/
+    background-size: 10px 1000px !important;
     background: rgb(0, 79, 148);
     margin: 0;
     font-weight: bolder;
@@ -46,8 +47,10 @@ a.nav {
 
 .main-container {
     padding: 30px;
+    padding-top: 0;
     color: white;
-    margin-top: -10px;
+    margin-top: 20px;
+    z-index: 1;
     height: max-content;
     width: calc(100% - 60px);
     columns: 3 auto;
@@ -147,4 +150,131 @@ gtitle {
 
 a {
     color: white;
+}
+
+.analytic-container {
+  margin-top: 50px;
+  width: 60%;
+  background: white;
+  height: 500px;
+  border-radius: 5px;
+  overflow: auto;
+  color: black;
+}
+
+.analytics-header {
+  width: calc(100% - 40px);
+  padding: 20px;
+  font-size: 15px;
+  height: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.analytics-entry {
+  width: 90%;
+  border-top: 1px solid rgb(100, 100, 100, 0.5);
+  border-bottom: 1px solid rgb(100, 100, 100, 0.5);
+  margin: auto;
+  height: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.analytic-container-sites {
+  width: 100%;
+}
+
+.analytics-site-name {
+  float: left;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: #5884d5;
+}
+
+.analytics-site-count {
+  font-size: 14px;
+  height: 14px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  float: right;
+}
+
+.gxme-search {
+    display: inline-block;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 15px;
+    width: 600px;
+    outline: none;
+    margin-bottom: -15px;
+    border: 0;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.search-reset {
+    margin-left: -25px;
+    font-size: 15px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.setting {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.setting-title {
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.setting input[type="checkbox"] {
+  /*vertical-align: middle;*/
+}
+
+.setting-divider {
+  margin: auto;
+  font-size: 40px;
+  position: relative;
+  margin: 20px;
+  display: block;
+  width: 100%;
+}
+
+.setting-divider::before {
+    position: absolute;
+    top: 50%;
+    /* bottom: 0; */
+    transform: translate(-110%, -1px);
+    /* right: 0; */
+    /* left: 0; */
+    width: 100px;
+    height: 1px;
+    background: grey;
+    content: "";
+}
+
+.setting-divider::after {
+    position: absolute;
+    top: 50%;
+    /* bottom: 0; */
+    transform: translate(10%, -1px);
+    /* left: 0; */
+    width: 100px;
+    height: 1px;
+    background: grey;
+    content: "";
+}
+
+.setting-input {
+  display: inline-block;
+  margin: auto;
+}
+
+.setting-button {
+  display: inline-block;
 }

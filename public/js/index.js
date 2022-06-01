@@ -3,8 +3,12 @@ self.__uv$config = {
 }
 
 window.nogg = false;
+try {
 if (parent.location.href=='about:blank') {
   window.nogg = true;
+}
+} catch {
+  window.nogg = false;
 }
 function killGG(redirectTo) {
               const nogg = window.open("about:blank", '_blank', "popup");
@@ -257,21 +261,38 @@ onbeforeunload = function(e) {
     if ($('#bg-p')[0].src != '' && $('#bg-p')[0].style.display == 'block') sessionStorage.setItem('session-restore-ludicrous', $('#bg-p')[0].contentWindow.location.href)
 }
 $('#exploits')[0].oclick(() => {
-    window.location.hash = 'e'
+    window.location.hash = 'ex'
     $('#exploit-container')[0].classList.toggle('visible')
     $('#preferences-container')[0].classList.remove('visible')
     $('#gxme-container')[0].classList.remove('visible')
 })
 
+function removeHash () { 
+    var scrollV, scrollH, loc = window.location;
+    if ("pushState" in history)
+        history.pushState("", document.title, loc.pathname + loc.search);
+    else {
+        // Prevent scrolling by storing the page's current scroll offset
+        scrollV = document.body.scrollTop;
+        scrollH = document.body.scrollLeft;
+
+        loc.hash = "";
+
+        // Restore the scroll offset, should be flicker free
+        document.body.scrollTop = scrollV;
+        document.body.scrollLeft = scrollH;
+    }
+}
+
 /*$('#nightmare')[0].oclick(() => {
   window.location.search = '?n'
 })*/
 
-if (window.location.hash == '#e') {
+if (window.location.hash == '#ex') {
     $('#exploit-container')[0].classList.toggle('visible')
 }
 
-if (window.location.hash == '#s') {
+if (window.location.hash == '#se') {
     $('#preferences-container')[0].classList.toggle('visible')
 }
 
@@ -280,10 +301,10 @@ if (window.location.hash == '#g') {
 }
 
 setInterval(() => {
-    if ((!$('#exploit-container')[0].classList.contains('visible')) && (!$('#preferences-container')[0].classList.contains('visible')) && (!$('#gxme-container')[0].classList.contains('visible'))) window.location.hash = ''
+    if ((!$('#exploit-container')[0].classList.contains('visible')) && (!$('#preferences-container')[0].classList.contains('visible')) && (!$('#gxme-container')[0].classList.contains('visible'))) removeHash()
 }, 100)
 
-var darkIcon = './ico/dark.ico'
+var darkIcon = '/ico/dark.ico'
 
 window.copyCode = function(code) {
     var oval = document.querySelector('#main-input').value
@@ -361,6 +382,19 @@ $('#main-input')[0].addEventListener('keyup', (e) => {
 
 scroll(0, -100)
 
+document.querySelector('select.input').value = (localStorage['ld-setting-main-pick'] || LudicrousConfig.primaryprxxy)
+
+addEventListener('message', m => {
+  if (m.data[0]=='theme') {
+    $('.theme.input')[0].value = m.data[1]
+    $('.theme.input')[0].dispatchEvent(new CustomEvent('change'))
+
+    m.source.location.reload()
+  }
+
+  return;
+})
+  
 document.querySelector('.theme.input').onchange = function(params) {
     var theme = (document.querySelector('.theme.input').value || localStorage['ld-setting-theme'])
 
@@ -373,25 +407,25 @@ document.querySelector('.theme.input').onchange = function(params) {
         case "orange":
             var link = document.createElement('link')
             link.rel = 'stylesheet'
-            link.href = './css/orange.css'
+            link.href = '/css/orange.css'
             link.classList.add('styletheme')
             document.head.appendChild(link)
-            document.querySelector('link[rel=icon]').href = './ico/orange.ico'
+            document.querySelector('link[rel=icon]').href = '/ico/orange.ico'
             window.particleGo()
 
             break;
         case "hacker":
 
-            window.pjConfig.particles.color.value = '#149414';
-            window.particleGo()
+            window.pjConfig.particles.color.value = ('#149414');
+            setTimeout(window.particleGo, 100)
             document.querySelectorAll('.styletheme').forEach(e => e.disabled = true)
             document.querySelector('.hacker-theme').removeAttribute('disabled')
-            document.querySelector('link[rel=icon]').href = './ico/heck.ico'
+            document.querySelector('link[rel=icon]').href = '/ico/heck.ico'
             break;
         case "particle":
             document.querySelectorAll('.styletheme').forEach(e => e.disabled = true)
             document.querySelector('.particle-theme').removeAttribute('disabled')
-            document.querySelector('link[rel=icon]').href = "./ico/favicon.ico"
+            document.querySelector('link[rel=icon]').href = "/ico/favicon.ico"
             break;
         case "squares":
             document.querySelectorAll('.styletheme').forEach(e => e.disabled = true)
@@ -431,7 +465,7 @@ document.querySelector('.theme.input').onchange = function(params) {
 
             break;
         default:
-            document.querySelector('link[rel=icon]').href = "./ico/favicon.ico"
+            document.querySelector('link[rel=icon]').href = "/ico/favicon.ico"
             document.querySelectorAll('.styletheme').forEach(e => e.disabled = true)
             window.particleGo()
 
@@ -454,6 +488,27 @@ function SetHeight() {
     document.querySelectorAll('#preferences-container, #exploit-container').forEach(e => e.style.height = height);
 }
 
+$('#apps-init')[0].oclick(() => {
+  window.parent.Swal.fire({
+    title: 'Apps',
+    html: `
+<div class="app" onclick="eval(atob('${btoa(`((e)=>{document.querySelector('.mock-browser-tab[style="display: block;"]').querySelector('input').value='https://discord.com';document.querySelector('.mock-browser-tab[style="display: block;"]').dispatchEvent(new KeyboardEvent('keypress', {which: 13, key: 'Enter', keyCode: 13}));this.parentElement.parentElement.parentElement.remove()})(this)`)}'))"><img class="app-icon" src="/ico/discord.ico" width=100><span class="app-title">Discord</span></div>
+
+<div class="app" onclick="eval(atob('${btoa(`((e)=>{document.querySelector('.mock-browser-tab[style="display: block;"]').querySelector('input').value='https://youtube.com';document.querySelector('.mock-browser-tab[style="display: block;"]').dispatchEvent(new KeyboardEvent('keypress', {which: 13, key: 'Enter', keyCode: 13}));this.parentElement.parentElement.parentElement.remove()})(this)`)}'))"><img class="app-icon" src="/ico/youtube.ico" width=100><span class="app-title">Youtube</span></div>
+
+<div class="app" onclick="eval(atob('${btoa(`((e)=>{document.querySelector('.mock-browser-tab[style="display: block;"]').querySelector('input').value='https://now.gg';document.querySelector('.mock-browser-tab[style="display: block;"]').dispatchEvent(new KeyboardEvent('keypress', {which: 13, key: 'Enter', keyCode: 13}));this.parentElement.parentElement.parentElement.remove()})(this)`)}'))"><img class="app-icon" src="/ico/now.ico" width=100><span class="app-title">Now.gg</span></div>
+
+<div class="app" onclick="eval(atob('${btoa(`((e)=>{document.querySelector('.mock-browser-tab[style="display: block;"]').querySelector('input').value='https://play.geforcenow.com';document.querySelector('.mock-browser-tab[style="display: block;"]').dispatchEvent(new KeyboardEvent('keypress', {which: 13, key: 'Enter', keyCode: 13}));this.parentElement.parentElement.parentElement.remove()})(this)`)}'))"><img class="app-icon" src="/ico/gfn.ico" width=100><span class="app-title">GeForce Now</span></div>
+
+<div class="app" onclick="eval(atob('${btoa(`((e)=>{document.querySelector('.mock-browser-tab[style="display: block;"]').querySelector('input').value='https://open.spotify.com';document.querySelector('.mock-browser-tab[style="display: block;"]').dispatchEvent(new KeyboardEvent('keypress', {which: 13, key: 'Enter', keyCode: 13}));this.parentElement.parentElement.parentElement.remove()})(this)`)}'))"><img class="app-icon" src="/ico/spotify.ico" width=100><span class="app-title">Spotify</span></div>
+`,
+    showCloseButton: false,
+    showCancelButton: false,
+    showConfirmButton: false,
+    width: 1047,
+  })
+})
+
 setInterval(SetHeight, 10)
 
 $('#uv-init')[0].oclick(() => {
@@ -465,7 +520,7 @@ $('#uv-init')[0].oclick(() => {
         if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
         return false;
     };
-    window.navigator.serviceWorker.register('./worker/sw.js', {
+    window.navigator.serviceWorker.register('/worker/sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
         let url = document.querySelector('#main-input').value.trim();
@@ -501,12 +556,12 @@ $('#frame-reload')[0].oclick(() => {
     $('#bg-p')[0].contentWindow.location.reload()
 })
 
-$('#settings-placeholder')[0].oclick(() => {
-    window.location.hash = 's'
+/*$('#settings-placeholder')[0].oclick(() => {
+    window.location.hash = 'se'
     $('#preferences-container')[0].classList.toggle('visible')
     $('#exploit-container')[0].classList.remove('visible')
     $('#gxme-container')[0].classList.remove('visible')
-})
+})*/
 
 $('#title-change')[0].oclick(() => {
     var input = document.querySelector('.input')
@@ -523,7 +578,7 @@ $('#icon-change')[0].oclick(() => {
     document.head.appendChild(link)
 })
 
-if (localStorage['title']) {
+/*if (localStorage['title']) {
     document.title = localStorage['title']
 }
 
@@ -532,7 +587,7 @@ if (localStorage['icon']) {
     link.href = localStorage['icon']
     link.rel = 'icon'
     document.head.appendChild(link)
-}
+}*/
 
 window.alert2 = function(param) {
     var elem = document.createElement('div')
@@ -542,16 +597,14 @@ window.alert2 = function(param) {
     document.body.insertAdjacentElement('afterBegin', elem)
 }
 
-alert2('Minecraft Added:<pre> </pre><a style="color:white;" href="/mc/">Link</a>')
-
-var interval = setInterval(() => {
+/*var interval = setInterval(() => {
     var filter = 'filter: hue-rotate(180deg)'
     try {
         $('#arc-widget-launcher-iframe')[0].contentWindow.document.querySelector('#launcher').style.background = window.getComputedStyle(document.querySelector('#main-page-content'), null).getPropertyValue('background');
         document.getElementById('arc-popper-iframe').contentWindow.document.querySelector('#popper header').style['backgroundImage'] = 'linear-gradient(238deg, rgb(59, 174, 255) 1%, rgb(88, 124, 255) 100%)';
         clearInterval(interval)
     } catch (err) {}
-}, 5)
+}, 5)*/
 
 window.pjConfig = {
     "particles": {
@@ -858,6 +911,9 @@ var pJS = function(tag_id, params) {
     };
 
     pJS.fn.canvasSize = function() {
+
+        pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio;
+        pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
 
         pJS.canvas.el.width = pJS.canvas.w;
         pJS.canvas.el.height = pJS.canvas.h;
@@ -2199,13 +2255,17 @@ window.particlesJS = function(tag_id, params) {
     /* set size canvas */
     canvas_el.style.width = "100%";
     canvas_el.style.height = "100%";
+    canvas_el.width = window.innerWidth;
+    canvas_el.height = window.innerHeight;
 
     /* append canvas */
     var canvas = document.getElementById(tag_id).appendChild(canvas_el);
 
     /* launch particle.js */
     if (canvas != null) {
-        pJSDom.push(new pJS(tag_id, params));
+        var particle = new pJS(tag_id, params);
+        pJSDom.push(particle);
+        return particle
     }
 
 };
@@ -2231,8 +2291,62 @@ window.particlesJS.load = function(tag_id, path_config_json, callback) {
 
 };
 
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+function rgbToHsl({r, g, b} = {}) {
+  r /= 255, g /= 255, b /= 255;
+
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, l = (max + min) / 2;
+
+  if (max == min) {
+    h = s = 0; // achromatic
+  } else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+
+    h /= 6;
+  }
+
+  return {h: h, s: s, l: l};
+}
+
+function changeColor(hex) {
+  var colors = hexToRgb(hex);
+  var hsl = rgbToHsl(colors);
+  
+  window.particles.pJS.particles.color.value = hex;
+  window.particles.pJS.particles.color.rgb = colors;
+  window.particles.pJS.particles.color.hsl = hsl;
+}
+          
 function particleGo() {
-    particlesJS("particles-js", pjConfig)
+    window.particles = particlesJS("particles-js", pjConfig)
+
+    var colors = ["FFFFFF", "FFAFC7", "73D7EE", "613915", "000000", "E50000", "FF8D00", "FFEE00", "028121", "004CFF", "760088"]
+
+    var int = -1;
+
+    clearInterval(window.pInt)
+  
+    window.pInt = setInterval(function() {
+        int++
+        if (int==colors.length) int = 0
+        changeColor('#'+colors[int])
+    }, 2500)
 }
 
 particleGo()
@@ -2311,10 +2425,10 @@ dinput.addEventListener('input', (e) => {
 
 $('#ab-cloak')[0].oclick(() => {
   var tab = window.open('about:blank', '_blank');
-  tab.document.documentElement.innerHTML = '<!DOCTYPE html><html><head><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body {margin:0;overflow:hidden}</style></head><body><iframe width="100%" height="100%" src="' + window.location.href + '" frameborder="0"></iframe></body></html>';
+  tab.document.write('<head><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body {margin:0;overflow:hidden}</style></head><body><iframe width="100%" height="100%" src="' + window.location.origin + '/main/?fake=about:blank" frameborder="0"></iframe></body>');
   tab.document.close();
   
-  deleteDocument()
+  //deleteDocument()
 })
 
 function deleteDocument() {

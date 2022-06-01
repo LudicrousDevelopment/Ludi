@@ -3,17 +3,25 @@
     "analytic.mjs": [
       {
         "id": "d1292ba6-305b-47a1-ab17-079d73723b62",
-        "line": 5,
-        "version": 809,
-        "index": 74
+        "line": 118,
+        "version": 831,
+        "index": 4230
       }
     ],
     "public/back/credit.html": [
       {
         "id": "3d71b51f-c9d8-428f-8baf-bfa0d213c2f5",
         "line": 42,
-        "version": 204,
-        "index": 2104
+        "version": 213,
+        "index": 2109
+      }
+    ],
+    "public/js/main.js": [
+      {
+        "id": "222087f6-9300-4fa8-9eac-3f382d3a3520",
+        "line": 1029,
+        "version": 17239,
+        "index": 43496
       }
     ]
   }

@@ -16,3 +16,15 @@ document.querySelectorAll('.gxme').forEach(gxme => {
     })()`)
   }
 })
+
+function gxmeFilter(el) {
+  el.value = el.value.toLowerCase()
+  if (el.value=='') document.querySelectorAll('.gxme').forEach(gxme => gxme.style.display="block");
+  document.querySelectorAll('.gxme').forEach(gxme => gxme.querySelector('gtitle').innerText.toLowerCase().includes(el.value)?gxme.style.display="block":gxme.style.display="none")
+}
+
+function searchReset(e) {
+  document.querySelector('.gxme-search').value = ''
+  gxmeFilter({value: ''})
+  //document.querySelector('.gxme-search').blur()
+}

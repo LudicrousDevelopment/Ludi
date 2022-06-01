@@ -1,0 +1,762 @@
+html {
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: #f1f3f4;
+}
+
+.chrome-tab-title {
+  font-size: 13px !important;
+  color: #464646 !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*, *::placeholder {
+  font-family: 'Open Sans', sans-serif;
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+}
+
+html.dark-theme {
+  background: #1c1c1c;
+}
+
+.mock-browser-tab {
+  width: 100%;
+  height: 100%;
+}
+
+.mock-browser-frame {
+  width: 100%;
+  height: calc(100% - 46px);
+  border: 0;
+  outline: none;
+}
+
+.surface {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding-bottom: 3em;
+  flex-direction: column;
+  height:100vh;
+  justify-content: center;
+}
+
+  .surface {
+    padding: 0;
+  }
+
+  .mock-browser {
+    width: 100%;
+    background: #dee1e6;
+    border-radius: 0;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  html.dark-theme .mock-browser {
+    background: #202123;
+  }
+
+  .mock-browser-content {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    padding: 0;
+    margin-top: -1px;
+    height: calc(100% - 42px);
+  }
+
+  .chrome-tabs-optional-shadow-below-bottom-bar {
+    z-index: 2;
+  }
+
+  html.dark-theme .mock-browser-content {
+    background: #252729;
+  }
+
+
+@media (max-width: 799px) {
+  html {
+    background: #fff;
+  }
+
+  html.dark-theme {
+    background: #252729;
+  }
+}
+
+.mock-browser .chrome-tabs {
+  border-radius: 0;
+}
+
+button {
+  font-family: inherit;
+  display: inline-block;
+  cursor: pointer;
+  background: #fff;
+  font-size: 12px;
+  //border: 1px solid rgba(139, 141, 157, .4);
+  border-radius: 3px;
+  padding: .6em 1.5em .7em;
+  border-radius: 9999px;
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  /* Prevent double tap to zoom on iOS https://stackoverflow.com/a/47131647 */
+  button {
+    touch-action: manipulation;
+  }
+}
+
+button:focus {
+  border-color: #a9adb0;
+  outline: none;
+  box-shadow: 0 0 0 3px #dee1e6;
+}
+
+.buttons {
+  margin-left: -.5em;
+  text-align: center;
+}
+
+.buttons button {
+  margin: .5em;
+}
+
+html.dark-theme button {
+  -webkit-font-smoothing: antialiased;
+  background: transparent;
+  color: #fff;
+}
+
+html.dark-theme button:focus {
+  box-shadow: 0 0 0 3px #4a4d51;
+}
+
+
+
+
+/* Carbon Ads */
+
+.carbonads-wrapper {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 799px) {
+  .carbonads-wrapper {
+    margin-top: 20px;
+    display: block;
+  }
+}
+
+.carbonads-wrapper * {
+  box-sizing: inherit;
+}
+
+#carbonads {
+  -webkit-font-smoothing: antialiased;
+  width: 162px;
+  display: block;
+  overflow: hidden;
+  line-height: 1.33;
+  width: 130px;
+  max-width: 100%;
+  font-size: 12px;
+  margin: 0 auto;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img, .carbon-img img {
+  display: block;
+  width: 130px;
+  height: 100px;
+}
+
+.carbon-img {
+  margin-bottom: 7px;
+  background: #ccc;
+}
+
+.carbon-img img {
+  background: #fff;
+}
+
+.carbon-text {
+  color: inherit;
+  display: block;
+  float: left;
+  text-align: left;
+  text-decoration: none;
+  color: #666;
+  line-height: 1.35;
+}
+
+.carbon-poweredby {
+  color: #b9b9b9;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 10px;
+  margin-top: 5px;
+  margin-bottom: 11px;
+}
+
+.mock-browser-controls {
+  height: 45px;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid rgb(200, 200, 200, 0.2);
+  border-bottom: 1px solid rgb(200, 200, 200, 0.6);
+}
+
+.chrome-tabs {
+  box-sizing: border-box;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 12px;
+  height: 46px;
+  padding: 8px 3px 4px 3px;
+  background: #e1e1e1;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+.chrome-tabs * {
+  box-sizing: inherit;
+  font: inherit;
+}
+.chrome-tabs .chrome-tabs-content {
+  position: relative;
+  width: 95.3%;
+  height: 100%;
+}
+.chrome-tabs .chrome-tab {
+  position: absolute;
+  left: 0;
+  height: 34px;
+  width: 240px;
+  border: 0;
+  margin: 0;
+  top: -4px;
+  z-index: 1;
+  pointer-events: none;
+}
+.chrome-tabs .chrome-tab,
+.chrome-tabs .chrome-tab * {
+  user-select: none;
+  cursor: default;
+}
+.chrome-tabs .chrome-tab .chrome-tab-dividers {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: var(--tab-content-margin);
+  right: var(--tab-content-margin);
+}
+.chrome-tabs .chrome-tab .chrome-tab-dividers,
+.chrome-tabs .chrome-tab .chrome-tab-dividers::before,
+.chrome-tabs .chrome-tab .chrome-tab-dividers::after {
+  pointer-events: none;
+}
+.chrome-tabs .chrome-tab .chrome-tab-dividers::before,
+.chrome-tabs .chrome-tab .chrome-tab-dividers::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #a9adb0;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+.chrome-tabs .chrome-tab .chrome-tab-dividers::before {
+  left: 0;
+}
+.chrome-tabs .chrome-tab .chrome-tab-dividers::after {
+  right: 0;
+}
+.chrome-tabs .chrome-tab:first-child .chrome-tab-dividers::before,
+.chrome-tabs .chrome-tab:last-child .chrome-tab-dividers::after {
+  opacity: 0;
+}
+.chrome-tabs .chrome-tab .chrome-tab-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 0px 6px 1px #a3a3a3;
+  background: white;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 3px;
+}
+.chrome-tabs .chrome-tab .chrome-tab-background > svg {
+  width: 100%;
+  height: 100%;
+}
+.chrome-tabs .chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
+  fill: #f4f5f6;
+}
+.chrome-tabs .chrome-tab[active] {
+  z-index: 5;
+}
+.chrome-tabs .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
+  fill: #fff;
+}
+.chrome-tabs .chrome-tab:not([active]) .chrome-tab-background {
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+@media (hover: hover) {
+  .chrome-tabs .chrome-tab:not([active]):hover {
+    z-index: 2;
+  }
+  .chrome-tabs .chrome-tab:not([active]):hover .chrome-tab-background {
+    opacity: 0.5;
+  }
+}
+.chrome-tabs .chrome-tab.chrome-tab-was-just-added {
+  top: 10px;
+  animation: chrome-tab-was-just-added 120ms forwards ease-in-out;
+}
+.chrome-tabs .chrome-tab .chrome-tab-content {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: var(--tab-content-margin);
+  right: var(--tab-content-margin);
+  padding: 9px 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  pointer-events: all;
+}
+.chrome-tabs .chrome-tab[is-mini] .chrome-tab-content {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.chrome-tabs .chrome-tab .chrome-tab-favicon {
+  position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 16px;
+  width: 16px;
+  background-size: 16px;
+  margin-left: 4px;
+}
+.chrome-tabs .chrome-tab[is-small] .chrome-tab-favicon {
+  margin-left: 0;
+}
+.chrome-tabs .chrome-tab[is-mini]:not([active]) .chrome-tab-favicon {
+  margin-left: auto;
+  margin-right: auto;
+}
+.chrome-tabs .chrome-tab[is-mini][active] .chrome-tab-favicon {
+  display: none;
+}
+.chrome-tabs .chrome-tab .chrome-tab-title {
+  flex: 1;
+  vertical-align: top;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 4px;
+  color: #5f6368;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 24px), transparent);
+  mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 24px), transparent);
+}
+.chrome-tabs .chrome-tab[is-small] .chrome-tab-title {
+  margin-left: 0;
+}
+.chrome-tabs .chrome-tab .chrome-tab-favicon + .chrome-tab-title,
+.chrome-tabs .chrome-tab[is-small] .chrome-tab-favicon + .chrome-tab-title {
+  margin-left: 8px;
+}
+.chrome-tabs .chrome-tab[is-smaller] .chrome-tab-favicon + .chrome-tab-title,
+.chrome-tabs .chrome-tab[is-mini] .chrome-tab-title {
+  display: none;
+}
+.chrome-tabs .chrome-tab[active] .chrome-tab-title {
+  color: #45474a;
+}
+.chrome-tabs .chrome-tab .chrome-tab-drag-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.chrome-tabs .chrome-tab .chrome-tab-close {
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path stroke='rgba(0, 0, 0, .65)' stroke-linecap='square' stroke-width='1.5' d='M0 0 L8 8 M8 0 L0 8'></path></svg>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 8px 8px;
+}
+@media (hover: hover) {
+  .chrome-tabs .chrome-tab .chrome-tab-close:hover {
+    background-color: #e8eaed;
+  }
+  .chrome-tabs .chrome-tab .chrome-tab-close:hover:active {
+    background-color: #dadce0;
+  }
+}
+@media not all and (hover: hover) {
+  .chrome-tabs .chrome-tab .chrome-tab-close:active {
+    background-color: #dadce0;
+  }
+}
+@media (hover: hover) {
+  .chrome-tabs .chrome-tab:not([active]) .chrome-tab-close:not(:hover):not(:active) {
+    opacity: 0.8;
+  }
+}
+.chrome-tabs .chrome-tab[is-smaller] .chrome-tab-close {
+  margin-left: auto;
+}
+.chrome-tabs .chrome-tab[is-mini]:not([active]) .chrome-tab-close {
+  display: none;
+}
+.chrome-tabs .chrome-tab[is-mini][active] .chrome-tab-close {
+  margin-left: auto;
+  margin-right: auto;
+}
+@-moz-keyframes chrome-tab-was-just-added {
+  to {
+    top: 0;
+  }
+}
+@-webkit-keyframes chrome-tab-was-just-added {
+  to {
+    top: 0;
+  }
+}
+@-o-keyframes chrome-tab-was-just-added {
+  to {
+    top: 0;
+  }
+}
+@keyframes chrome-tab-was-just-added {
+  to {
+    top: 0;
+  }
+}
+.chrome-tabs.chrome-tabs-is-sorting .chrome-tab:not(.chrome-tab-is-dragging),
+.chrome-tabs:not(.chrome-tabs-is-sorting) .chrome-tab.chrome-tab-was-just-dragged {
+  transition: transform 120ms ease-in-out;
+}
+.chrome-tabs .chrome-tabs-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+}
+.chrome-tabs-optional-shadow-below-bottom-bar {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1' viewBox='0 0 1 1'><rect x='0' y='0' width='1' height='1' fill='rgba(0, 0, 0, .17)'></rect></svg>");
+  background-size: 1px 1px;
+  background-repeat: repeat-x;
+  background-position: 0% 0%;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .chrome-tabs-optional-shadow-below-bottom-bar {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='2' height='2' viewBox='0 0 2 2'><rect x='0' y='0' width='2' height='1' fill='rgba(0, 0, 0, .27)'></rect></svg>");
+  }
+}
+
+.mock-browser-reload {
+  height: 28px;
+  width: 28px;
+  margin: 8px 6px 9px 6px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s ease;
+  border-radius: 50%;
+}
+
+.mock-browser-reload:hover, .mock-browser-move-control:hover, .chrome-tabs-create:hover, .mock-browser-open-home:hover {
+  background: rgb(000, 000, 000, 0.2);
+}
+
+.mock-browser-move-control {
+  height: 28px;
+  width: 28px;
+  margin: 8px 0 9px 0;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s ease;
+  border-radius: 50%;
+}
+
+.mock-browser-open-home {
+  height: 28px;
+  width: 28px;
+  margin: 8px 6px 9px 0px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s ease;
+  border-radius: 50%;
+}
+
+.mock-browser-move-control:first-of-type {
+  margin-left: 10px;
+}
+
+.mock-browser-move-control:last-of-type {
+  margin-right: 4px;
+}
+
+.mock-browser-search-input {
+  width: calc(100% - 182px);
+  height: 35px !important;
+  position: relative;
+  display: inline-flex;
+}
+
+.mock-browser-input {
+  width: calc(100% - 0px);
+  outline: none;
+  height: 31px;
+  padding-left: 38px;
+  font-size: 15px;
+  border: 1px solid rgb(100,100,100,0.0);
+  background: rgb(000,000,000,0.04);
+  border-radius: 15px;
+}
+
+.mock-browser-icon {
+  position: absolute;
+  width: 18px;
+  padding: 6px 7px;
+  height: 18px;
+  border-radius: 45%;
+  background: none;
+  color: #5a5a5a;
+  font-size: 12px;
+  display: flex;
+  text-align: center;
+  margin-top: -4px;
+  left: 4px;
+  top: 6px;
+  align-items: center;
+  justify-content: center;
+  transition: 0.1s ease;
+}
+
+.mock-browser-icon:hover {
+  background: rgb(0,0,0,0.1);
+}
+
+.fa-lock {
+  padding: 6px 7px;
+  top: 6px !important
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.chrome-tabs-create {
+  position: absolute;
+  border-radius: 50%;
+  transition: 0.15s ease;
+  font-size: 25px !important;
+  cursor: pointer;
+  top: -1px;
+  /* transform: translateY(-50%); */
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  /* padding-bottom: 0; */
+  align-items: center;
+  font-size: 23px !important;
+  z-index: 1;
+  justify-content: center;
+  /* padding-bottom: 3px; */
+  box-sizing: initial;
+  font: initial;
+  /* margin-right: 3px; */
+}
+
+.mock-browser-menu-open {
+  position: absolute;
+  border-radius: 50%;
+  transition: 0.15s ease;
+  z-index: 2;
+  right: 6px;
+  cursor: pointer;
+  top: 71px;
+  transform: translateY(-50%);
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  font-size: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.lines {
+  width: 60%;
+  height: 2px;
+  margin-top: -2px;
+  background: #000;
+  display: inline-block;
+}
+
+.line-1 {
+  -webkit-transform: translate3d(0, -6px, 0);
+  transform: translate3d(0, -6px, 0);
+}
+
+.line-2 {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.line-3 {
+  -webkit-transform: translate3d(0, 6px, 0);
+  transform: translate3d(0, 6px, 0);
+}
+
+.chrome-tab:last-of-type + .chrome-tabs-create {
+  right: 100px !important;
+}
+
+.mock-browser-search-omni {
+  width: calc(100% - 2px);
+  position: absolute;
+  top: calc(100% - 1px);
+  border: 1px solid rgb(0,0,0,0.1);
+  border-top: none;
+  background: white;
+  max-height: 500px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: none;
+}
+
+.omni-entry {
+  padding: 10px 10px;
+  user-select: none;
+  transition: 0.01s ease;
+  cursor: pointer;
+}
+
+.omni-entry ion-icon {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.omni-entry:hover {
+  background: rgb(0,0,0,0.1)
+}
+
+.mock-browser-input:focus {
+  border: 1px solid #4d7bc7;
+  background: rgb(255, 255, 255, 0.1);
+}
+
+.noradius {
+  border: 1px solid rgb(0,0,0,0.1) !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-bottom: none !important;
+}
+
+.app {
+  height: 200px;
+  width: 150px;
+  padding: 10px 10px;
+  position: relative;
+  background: #e8e8e8;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px 1px #a3a3a3;
+  margin: 10px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.15s ease;
+  user-select: none;
+}
+
+.app:hover {
+  transform: scale(1.01);
+  box-shadow: 0px 0px 8px 3px #a3a3a3;
+}
+
+.app:first-of-type:not(:hover) {
+  margin-left: 0;
+}
+
+.app:first-of-type {
+  margin-left: 0;
+}
+
+.app:last-of-type {
+  margin-right: 0;
+}
+
+.app-icon {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.app-title {
+  width: 150px;
+  height: auto;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.swal2-html-container {
+  margin: 1em 1em 0.3em !important;
+}
+
+.chrome-tabs-hidden {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    transform: translateY(-100%);
+}

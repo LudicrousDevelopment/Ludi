@@ -26,6 +26,9 @@
     "dotenv-flow": "^3.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
+    "follow-redirects": "^1.15.0",
+    "general-search-engine": "^1.4.1",
+    "get-website-favicon": "0.0.7",
     "jsdom": "^19.0.0",
     "mime": "^3.0.0",
     "node-fetch": "^2.0.0",
@@ -38,8 +41,10 @@
     "uglify-js": "^3.15.4",
     "url": "^0.11.0",
     "uuid": "^8.3.2",
+    "walk-parse5": "^2.0.0",
     "webpack": "^5.66.0",
-    "ws": "^8.4.2"
+    "ws": "^8.4.2",
+    "ytdl-core": "^4.11.0"
   },
-  "type": "module"
+  "type": "CommonJS"
 }

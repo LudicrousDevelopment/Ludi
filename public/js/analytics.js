@@ -38,3 +38,11 @@ function StartAnalytics() {
 }
 
 StartAnalytics()
+
+if (window.ChromeTabs) {
+  document.title = localStorage['title']||document.title;
+
+  var link = document.head.querySelector('link[rel=icon]')
+  
+  if (link) link.href = localStorage['icon']
+}

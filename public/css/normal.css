@@ -172,7 +172,7 @@ input::placeholder {
     width: 60%;
     text-align: center;
     transform: translate(-50%);
-    box-shadow: 0 0 15px 7px #ccc;
+    /*box-shadow: 0 0 15px 7px #ccc;*/
     z-index: 1;
 }
 
@@ -377,6 +377,17 @@ h2 {
     right: 20px;
     cursor: pointer;
     font-size: 20px;
+}
+
+.main-page-apps-init {
+    width: 25px;
+    height: 25px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    font-size: 23px;
 }
 
 .main-page-stealth-switch {
