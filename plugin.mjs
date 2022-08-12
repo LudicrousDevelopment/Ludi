@@ -117,7 +117,6 @@ export default function providerPluginExample(userConfig) {
       },
     },
     loaded: () => {
-      // return boolean so analytics knows when it can send data to third party
       return true
     }
   }

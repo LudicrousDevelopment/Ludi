@@ -2336,17 +2336,17 @@ function changeColor(hex) {
 function particleGo() {
     window.particles = particlesJS("particles-js", pjConfig)
 
-    var colors = ["FFFFFF", "FFAFC7", "73D7EE", "613915", "000000", "E50000", "FF8D00", "FFEE00", "028121", "004CFF", "760088"]
+    //var colors = ["FFFFFF", "FFAFC7", "73D7EE", "613915", "000000", "E50000", "FF8D00", "FFEE00", "028121", "004CFF", "760088"]
 
-    var int = -1;
+    //var int = -1;
 
-    clearInterval(window.pInt)
+    //clearInterval(window.pInt)
   
-    window.pInt = setInterval(function() {
+    /*window.pInt = setInterval(function() {
         int++
         if (int==colors.length) int = 0
         changeColor('#'+colors[int])
-    }, 2500)
+    }, 2500)*/
 }
 
 particleGo()

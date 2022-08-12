@@ -75,7 +75,7 @@ async function config(config) {
     }
 
     if (request.url.startsWith('/icon/')) return Favicon(request.url.split('/icon/')[1], request, response)
-
+ 
     //if (Analytics(request, response)) return false;
 
     if (request.url.startsWith('/backend/')) return response.writeHead(200, {'content-type': 'text/html'}).end(`<script>if ('serviceWorker' in navigator) {
@@ -83,7 +83,7 @@ async function config(config) {
 }</script>`)
 
     if (request.url.startsWith('/sw/')) return response.writeHead(200, {'content-type': 'text/html'}).end(`<script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/worker/sw.js', {scope: '/backend'}).then(e => location.reload())
+  navigator.serviceWorker.register('/worker/sw.js', {scope: '/sw'}).then(e => location.reload())
 }</script>`);
     if (request.url.split('?')[0].split('#')[0]=='/webretro'||request.url.split('?')[0].split('#')[0]=='/webretro/') return response.end(readFileSync('./public/webretro/index.html'))
     

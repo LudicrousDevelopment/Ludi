@@ -28,7 +28,7 @@
     location.reload(1)
   }
   
-  if ((localStorage['ld-window-save']==null)&&(sessionStorage['ld-window-save']==null)) {
+  /*if ((localStorage['ld-window-save']==null)&&(sessionStorage['ld-window-save']==null)) {
     await Swal.fire({
       title: 'Toggle Fullscreen?',
       icon: 'info',
@@ -45,7 +45,7 @@
     })
   } else {
     if (localStorage['ld-window-save']=='true') sessionStorage['ld-window-save'] = 'true';
-  }
+  }*/
 
   function showCookies() {
     
@@ -741,7 +741,7 @@
 
       console.log(elem.querySelector('iframe').opener)
 
-      elem.querySelector('iframe').contentWindow.open = function(url) {
+      /*elem.querySelector('iframe').contentWindow.open = function(url) {
         var ourl = url+'';
         if (url.startsWith('about:')) {url = '/browser/blank.html?fake='+url}
         else {
@@ -770,7 +770,7 @@
         document.querySelector('#mock-browser-'+id).querySelector('iframe').contentWindow.opener = elem.querySelector('iframe').contentWindow;
 
         return document.querySelector('#mock-browser-'+id).querySelector('iframe').contentWindow
-      }
+      }*/
 
       elem.querySelector('iframe').contentWindow.close = function() {
         return chromeTabs.removeTab(tabElem);
