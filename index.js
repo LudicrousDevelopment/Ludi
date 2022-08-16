@@ -9,11 +9,11 @@
     cors: true,
     uk: false,
     an: false,
-    rammerhead: false, 
+    rammerhead:	false, 
     rammerheadURL: 'r.911911911.info',
     emulator: true,
     config: {
-      port: 8080,
+      port: 2000,
       gamePort: 3000,
     },
     links: [

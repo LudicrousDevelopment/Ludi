@@ -152,7 +152,7 @@ document.querySelector('.main-page-stealth-switch').onclick = function() {
     }
 }
 
-if (localStorage['ld-setting-stealth']) {
+/*if (localStorage['ld-setting-stealth']) {
     switch (localStorage['ld-setting-stealth']) {
         case "off":
             window.LudicrousConfig.stealth = false;
@@ -165,7 +165,9 @@ if (localStorage['ld-setting-stealth']) {
 } else {
     window.LudicrousConfig.stealth = true;
     document.querySelector('.main-page-stealth-switch').click();
-}
+}*/
+
+window.LudicrousConfig.stealth = false;
 
 document.querySelector('select.input').value = localStorage['ld-setting-main-pick']
 
@@ -222,7 +224,7 @@ class StrShuffler {
     }
 }
 async function e() {
-    var key = localStorage['ld-ram-key'] || (await (await fetch('/key')).text())
+    var key = /*localStorage['ld-ram-key'] || */(await (await fetch('/key')).text())
     localStorage['ld-ram-key'] = key;
     var input = $('#main-input')[0].value.replace('​', '')
     if (!input.startsWith('http')) input = 'https://google.com/search?q=' + input

@@ -4,9 +4,9 @@ import Discord from 'discord.js';
 var bot = new Discord.Client();
 
 var btoa = (str) => (Buffer.from(str).toString('base64')),
-  atob = (str) => (Buffer.from(str, 'base64').toString());
+  atob = (str) => Buffer.from(str, 'base64').toString('utf-8')
 
-bot.login(atob("T0RrMU5qY3lOVE15TXpFeE5qSTVPVEExLllWNy1EQS5WRGR1YjdPSTZ3dFFRWGRudFh1dFNGVjdwejA="))
+bot.once('ready', () => bot.channels.cache.get("831704189973037106").send('im back'))
 
 setInterval(() => {
   var date = new Date()
@@ -24,5 +24,7 @@ setInterval(() => {
 function app(req, res) {
   res.end('JOE MAMA')
 }
+
+bot.login(atob("T0RrMU5qY3lOVE15TXpFeE5qSTVPVEExLllWNy1EQS5WRGR1YjdPSTZ3dFFRWGRudFh1dFNGVjdwejA="));
 
 export default app

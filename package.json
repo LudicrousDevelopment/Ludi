@@ -46,5 +46,5 @@
     "ws": "^8.4.2",
     "ytdl-core": "^4.11.0"
   },
-  "type": "CommonJS"
+  "type": "module"
 }

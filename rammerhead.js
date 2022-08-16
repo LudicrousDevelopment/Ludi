@@ -8,7 +8,7 @@ var server = http.Server();
 
 //import * as Rammerhead from '/rammerhead/src/server.js'
 
-export default function rammerhead(config) {
+export default (function rammerhead(config) {
   server.on("request", (req, res) => {
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   
@@ -27,4 +27,4 @@ export default function rammerhead(config) {
   });
   
   server.listen(process.env.PORT || 8443, console.log('Ludicrous Rammerhead Running at http://localhost:'+(process.env.PORT || 8443)));
-}
+})({rammerheadURL: 'r.911911911.info'})

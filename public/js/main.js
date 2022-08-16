@@ -360,7 +360,7 @@
         }
       }
     ]
-    var ctx = new Contextify(ctxMenu, 'light', document.querySelector('.mock-browser-menu-open'))
+    var ctx = new Contextify(ctxMenu, 'light', document.querySelector('.mock-browser-menu-open'));
 
     ctx.interval = setInterval(function() {
       if (document.fullscreenElement) ctxMenu[0].text = 'Exit Fullscreen';
@@ -941,6 +941,10 @@
       INPUT.select()
       INPUT.setSelectionRange(0, INPUT.value.length)
     })
+
+    setInterval(function() {
+	if (!INPUT.isfocus) elem.querySelector('.mock-browser-search-omni').style.display = 'none';
+    }, 100)
   
     elem.addEventListener('keypress', (e)=>{
       if (e.key=='Enter') {
