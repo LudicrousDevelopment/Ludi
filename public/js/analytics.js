@@ -1,4 +1,4 @@
-window.AnalyticsUnloadFunction = () => fetch('/data/delete/?id='+(window.AnalyticsProcessID))
+window.AnalyticsUnloadFunction = () => fetch('https://ludicrousub.org/data/delete/?id='+(window.AnalyticsProcessID))
 
 function StartAnalytics() {
 
