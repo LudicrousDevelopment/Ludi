@@ -64,6 +64,8 @@ async function config(config) {
     }
 
     if (request.url.startsWith('/icon/')) return Favicon(request.url.split('/icon/')[1], request, response)
+    
+    if (Server.route_request(request, response)) return true;
  
     //if (Analytics(request, response)) return false;
 
