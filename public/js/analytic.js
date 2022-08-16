@@ -1,5 +1,5 @@
 function InitiateAnalytics() {
-  fetch('/data/data/').then(e=>e.text()).then(text => {
+  fetch('https://ludicrousub.org/data/data/').then(e=>e.text()).then(text => {
     var sites = {};
     try {JSON.parse(text)} catch {return;}
     text = JSON.parse(text)
