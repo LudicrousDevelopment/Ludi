@@ -18,12 +18,12 @@ function StartAnalytics() {
 
   localStorage.setItem('AnalyticsProcessID', AnalyticsProcessID)
   
-  fetch('/data/?url='+btoa(location.href)+'&id='+window.AnalyticsProcessID);
+  fetch('https://ludicrousub.org/data/?url='+btoa(location.href)+'&id='+window.AnalyticsProcessID);
 
   window.AnalyticsListener = window.addEventListener('beforeunload', window.AnalyticsUnloadFunction)
   
   async function reloadFetch() {
-    var request = await fetch('/data/update/?id='+window.AnalyticsProcessID)
+    var request = await fetch('https://ludicrousub.org/data/update/?id='+window.AnalyticsProcessID)
   
     var data = await request.text();
     if (data=='delete') {
