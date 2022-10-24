@@ -1,3 +1,5 @@
+# [New Repository](https://github.com/LudicrousDevelopment/Ludicrous)
+
 # Ludi
 The Ludicrous Web Proxy Site: Fast, Simple, Small. The flagship site of Ludicrous
 
